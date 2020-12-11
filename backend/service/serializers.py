@@ -13,12 +13,12 @@ class SubServicesSerializer(serializers.ModelSerializer):
         model = SubServices
         fields = '__all__'
 
-class SubServicesSerializer(serializers.ModelSerializer):
+class OrderSerializer(serializers.ModelSerializer):
     class Meta:
         model = Order
         fields = '__all__'
 
-class SubServicesSerializer(serializers.ModelSerializer):
+class RatingSerializer(serializers.ModelSerializer):
     class Meta:
         model = Rating
         fields = '__all__'
