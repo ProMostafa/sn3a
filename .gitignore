@@ -3,4 +3,6 @@ __pycache__/
 media/
 */migrations
 .idea/
+/backend/.idea/
+/backend/.env
 
