@@ -51,12 +51,6 @@ class Rating(models.Model):
     customer = models.ForeignKey(User, related_name='customer_rate', on_delete=models.CASCADE)
     technical = models.ForeignKey(User, related_name='technical_rate',on_delete=models.CASCADE)
     rate = models.IntegerField(validators=[MinLengthValidator(1),MaxLengthValidator(5)])
-    # rate = models.CharField(choices=[
-    #     (1,1),
-    #     (2,2),
-    #     (3,3),
-    #     (4,4),
-    #     (5,5)], max_length=1)
 
     class Meta:
         unique_together = (('customer', 'technical'),)
