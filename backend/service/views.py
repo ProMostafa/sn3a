@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .models import Services, SubServices , Order , Rating
-from .serializers import ServicesSerializer, SubServicesSerializer
+from .serializers import ServicesSerializer, SubServicesSerializer , OrderSerializer , RatingSerializer
 from rest_framework import viewsets, status
 from rest_framework.permissions import AllowAny
 
@@ -18,13 +18,13 @@ class SubServicesViewSet(viewsets.ModelViewSet):
     permission_classes = (AllowAny, )
 
 class OrderViewSet(viewsets.ModelViewSet):
-    queryset = SubServices.objects.all()
-    serializer_class = SubServicesSerializer
+    queryset = Order.objects.all()
+    serializer_class = OrderSerializer
     permission_classes = (AllowAny, )
 
 class RatingViewSet(viewsets.ModelViewSet):
-    queryset = SubServices.objects.all()
-    serializer_class = SubServicesSerializer
+    queryset = Rating.objects.all()
+    serializer_class = RatingSerializer
     permission_classes = (AllowAny, )
 
 def get_all_orders(request):
