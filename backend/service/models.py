@@ -58,6 +58,7 @@ class Rating(models.Model):
     #     (4,4),
     #     (5,5)], max_length=1)
 
+
     class Meta:
         unique_together = (('customer', 'technical'),)
         # when ordering data
