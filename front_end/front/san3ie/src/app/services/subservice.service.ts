@@ -1,5 +1,5 @@
 import { environment } from './../../environments/environment';
-import { IsubService } from '/home/hossam/front_end/front/san3ie/src/app/views/interface/isub-service';
+import { IsubService } from '../../app/views/interface/isub-service';
 import { HttpClient} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
