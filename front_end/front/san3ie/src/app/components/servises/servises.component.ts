@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Iservice } from '/home/hossam/front_end/front/san3ie/src/app/views/interface/iservice';
-import { ServiceService } from '/home/hossam/front_end/front/san3ie/src/app/services/service.service';
+import { Iservice } from '../../views/interface/iservice';
+import { ServiceService } from '../../services/service.service';
 
 @Component({
   selector: 'app-servises',

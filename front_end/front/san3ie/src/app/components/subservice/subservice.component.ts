@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { IsubService } from '/home/hossam/front_end/front/san3ie/src/app/views/interface/isub-service';
-import { SubserviceService } from '/home/hossam/front_end/front/san3ie/src/app/services/subservice.service';
+import { IsubService } from '../../views/interface/isub-service';
+import { SubserviceService } from '../../../app/services/subservice.service';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
