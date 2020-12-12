@@ -50,7 +50,7 @@ class OrderPictures(models.Model):
 class Rating(models.Model):
     customer = models.ForeignKey(User, related_name='customer_rate', on_delete=models.CASCADE)
     technical = models.ForeignKey(User, related_name='technical_rate',on_delete=models.CASCADE)
-    rate = models.IntegerField(validators=[MinLengthValidator(1),MaxLengthValidator(5)])
+    rate = models.IntegerField(choices=list(zip(range(1, 6), range(1, 6))))
     # rate = models.CharField(choices=[
     #     (1,1),
     #     (2,2),
