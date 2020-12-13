@@ -120,5 +120,8 @@
       }
     }
   },
-  "defaultProject": "san3ie"
+  "defaultProject": "san3ie",
+  "cli": {
+    "analytics": "41136e46-0d3d-4c84-9639-2163161189ae"
+  }
 }

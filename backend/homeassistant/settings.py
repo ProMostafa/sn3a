@@ -43,7 +43,9 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',   # for user registrations
     'account',
     'service',
+    'corsheaders' # for access from angular
 ]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -53,7 +55,22 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',   # for access from angular
+    'django.middleware.common.CommonMiddleware',   # for access from angular
 ]
+
+
+# for access from angular
+CORS_ORIGIN_ALLOW_ALL = True # If this is used then `CORS_ORIGIN_WHITELIST` will not have any effect
+CORS_ALLOW_CREDENTIALS = True
+CORS_ORIGIN_WHITELIST = [
+    'http://localhost:4200',
+] # If this is used, then not need to use `CORS_ORIGIN_ALLOW_ALL = True`
+CORS_ORIGIN_REGEX_WHITELIST = [
+    'http://localhost:4200',
+]
+# for access from angular
+
 
 ROOT_URLCONF = 'homeassistant.urls'
 

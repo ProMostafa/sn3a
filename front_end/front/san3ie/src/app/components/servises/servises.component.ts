@@ -13,6 +13,7 @@ export class ServisesComponent implements OnInit {
   
   ngOnInit(): void {
     this._apiServ.getAllServices().subscribe(
+      //(data)=>console.log(data),
       (data)=>this.ServiceList=data,
       (err)=>console.log(err)
     )
