@@ -1,1 +1,14 @@
-<p>orders works!</p>
+<table class="table"> 
+    <thead  appHighlight>
+      <th> Id </th>
+      <th>Status</th>
+      <th> MOre</th>
+    </thead>
+     <tbody>
+      <tr *ngFor="let order of OrderList;let i=index">
+          <td>{{i+1}}</td>
+          <td>{{order.status}}</td>
+          <td> <a class="btn btn-info" [routerLink]="['/Order',order.id]" > More </a></td>
+      </tr>
+     </tbody>
+   </table>

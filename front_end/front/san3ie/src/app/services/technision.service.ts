@@ -1,5 +1,5 @@
 import { environment } from './../../environments/environment';
-import { Itechnision } from '/home/hossam/front_end/front/san3ie/src/app/views/interface/itechnision';
+import { Itechnision } from '../../app/views/interface/itechnision';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';

@@ -1,5 +1,5 @@
 import { environment } from './../../environments/environment';
-import { Ilogin } from '/home/hossam/front_end/front/san3ie/src/app/views/interface/ilogin';
+import { Ilogin } from '../../app/views/interface/ilogin';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';

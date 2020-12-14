@@ -19,7 +19,7 @@ const routes: Routes = [
 {path:'Aboutus',component:AboutusComponent},
 {path:'Customer',component:CustomerComponent},
 {path:'Order/:id',component:OrderDetailsComponent},
-{path:'Subservie/:id',component:SubserviceComponent},
+{path:'Subservice/:id',component:SubserviceComponent},
 {path:'Orders',component:OrdersComponent},
 {path:'NewOrder',component:CreateOrderComponent},
 {path:'Register',component:RegisterationComponent},

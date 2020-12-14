@@ -1,5 +1,5 @@
-<table class="table">
-    <!-- <thead  appHighlight>
+<!-- <table class="table"> -->
+    <!-- <thead >
       <th>ServiceId.</th>
       <th>ServiceType</th>
       <th>Description</th>
@@ -18,7 +18,7 @@
    </table> -->
    <div *ngFor="let service of ServiceList;let i=index">
    <div class="card" style="width: 18rem;">
-    <img class="card-img-top" src="https://dummyimage.com/300x400/f7eff7/ff0026&text={{post.id}}" alt="Card image cap">
+    <img class="card-img-top" src="https://dummyimage.com/300x400/f7eff7/ff0026&text={{service.id}}" alt="Card image cap">
     <div class="card-body">
       <h5 class="card-title"> Id: {{service.id}}</h5>
       <p class="card-text">Type: {{service.type}}
