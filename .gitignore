@@ -4,5 +4,6 @@ media/
 */migrations
 .idea/
 /backend/.idea/
-/backend/.env
+/backend/.env/
 /front_end/front/san3ie/node_modules/
+/front_end/node_modules/
