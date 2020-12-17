@@ -11,24 +11,13 @@ export class CustomerService {
 
   constructor(private http:HttpClient) { }
 
-  getAllCustomers():Observable<Icustomer[]>{
-
-    return  this.http.get<Icustomer[]>(`${environment.ApiUrl}/account/users/`);
-   }
-   
-   
-   getCustomerById(pid):Observable<Icustomer>{
-   
-     return this.http.get<Icustomer>(`${environment.ApiUrl}/account/users/`);
-   }
-   
-   insertCustomer(prd:Icustomer):Observable<Icustomer>{
+   insertCustomer(customer:Icustomer):Observable<Icustomer>{
      const httpOptions ={headers:new HttpHeaders({
        'Content-Type': 'application/json',
         'Accept': ' */*'
          // ,'Authorization': 'my-auth-token'
        })};
-     return this.http.post<Icustomer>(`${environment.ApiUrl}/account/users/`,prd,httpOptions);
+     return this.http.post<Icustomer>(`${environment.ApiUrl}/account/users/`,customer,httpOptions);
    }
 
 }

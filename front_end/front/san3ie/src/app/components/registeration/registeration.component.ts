@@ -17,14 +17,14 @@ export class RegisterationComponent implements OnInit {
     address: " " ,
     phone:null,
     img:" ",
-    is_technical:null,
+    is_technical:false,
     password:null
    }
   }
   ngOnInit(): void {
   }
 
-  CreateOrder(){
+  CreateAccount(){
 
     this._ApiCustomer.insertCustomer(this.customer).subscribe(
       (data)=>this._router.navigateByUrl('/Customer'),

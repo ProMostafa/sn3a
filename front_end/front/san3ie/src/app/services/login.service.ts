@@ -9,23 +9,11 @@ import { Observable } from 'rxjs';
 export class LoginService {
 
   constructor(private http:HttpClient) { }
-  getAllProducts():Observable<Ilogin[]>{
-
-    return  this.http.get<Ilogin[]>(`${environment.ApiUrl}/auth/`);
-   }
-   
-   
-   getProductById(pid):Observable<Ilogin>{
-   
-     return this.http.get<Ilogin>(`${environment.ApiUrl}/auth/`);
-   }
-   
-   insertProduct(prd:Ilogin):Observable<Ilogin>{
-     const httpOptions ={headers:new HttpHeaders({
-       'Content-Type': 'application/json',
-        'Accept': ' */*'
-         // ,'Authorization': 'my-auth-token'
-       })};
-     return this.http.post<Ilogin>(`${environment.ApiUrl}/auth/`,prd,httpOptions);
-   }
-}
+  loginUser(user:Ilogin):Observable<Ilogin>{
+    const httpOptions ={headers:new HttpHeaders({
+      'Content-Type': 'application/json',
+       'Accept': ' */*'
+        // ,'Authorization': 'my-auth-token'
+      })};
+    return this.http.post<Ilogin>(`${environment.ApiUrl}/auth/`,user,httpOptions);
+  }}

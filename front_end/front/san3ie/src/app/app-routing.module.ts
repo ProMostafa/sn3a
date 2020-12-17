@@ -12,6 +12,7 @@ import { TechnisionComponent } from './components/technision/technision.componen
 import { ServisesComponent } from './components/servises/servises.component';
 import { AboutusComponent } from './components/aboutus/aboutus.component';
 import { SubserviceComponent } from './components/subservice/subservice.component';
+
 const routes: Routes = [  
   {path:'Home',component:HomeComponent},
 {path:'Technision',component:TechnisionComponent},

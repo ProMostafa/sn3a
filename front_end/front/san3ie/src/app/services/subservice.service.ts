@@ -8,11 +8,13 @@ import { Observable } from 'rxjs';
 })
 export class SubserviceService {
 
-  constructor(private http:HttpClient) { }
+   constructor(private http:HttpClient) { }
+
+    getSubServicesById(pid):Observable<IsubService[]>{
+   
+      return this.http.get<IsubService[]>(`${environment.ApiUrl}/services/${pid}/get_sub_service/`);
+    }
+
   
-  getServiceById(pid):Observable<IsubService[]>{
-   
-     return this.http.get<IsubService[]>(`${environment.ApiUrl}/services/{pid}/get_sub_service/`);
-   }
-   
+    
 }

@@ -9,15 +9,17 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./subservice.component.css']
 })
 export class SubserviceComponent implements OnInit {
-  service:IsubService[];
+  SubServiceList:IsubService[];
   constructor(private _activatedRoute:ActivatedRoute,private _apiSubserv:SubserviceService) { }
   ngOnInit(): void {
     let pid=this._activatedRoute.snapshot.params['id'];
-    this._apiSubserv.getServiceById(pid).subscribe(
-      (res)=>this.service=res,
+    this._apiSubserv.getSubServicesById(pid).subscribe(
+            
+      (res)=>this.SubServiceList=res,
       (err)=>console.log(err)
 
     );
+
   }
 
 

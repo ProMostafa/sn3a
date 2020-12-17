@@ -1,9 +1,9 @@
 export interface IsubService {
     id:number;
     name: string;
-    description: string;
+    description?: string;
     img:string;
-    cost:number;
-    service:number;
+    cost?:number;
+    service?:number;
 
 }
