@@ -1,0 +1,20 @@
+<p>subservice works!</p>
+<div *ngFor="let bservice of SubServiceList;let i=index">
+    <div class="card" style="width: 18rem;">
+     <img class="card-img-top" src="{{bservice.img}}" alt="Card image cap">
+     <div class="card-body">
+       <h5 class="card-title"> Id: {{bservice.id}}</h5>
+       <p class="card-text">Name: {{bservice.name}}
+         <br>
+         Description: {{bservice.description}}
+         <br>
+         Cost: {{bservice.cost}}
+         <br>
+         Service: {{bservice.service}}
+       </p>
+       <!-- <p><a class="btn btn-info" [routerLink]="['/Subservice',service.id]" >More</a></p> -->
+     </div>
+   </div>
+ </div>
+ 
+    

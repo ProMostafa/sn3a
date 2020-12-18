@@ -1,0 +1,52 @@
+
+
+<!-- Navbar-->
+<mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark cyan" [containerInside]="false">
+
+  <!-- Navbar brand -->
+  <mdb-navbar-brand><a class="navbar-brand" href="#">
+      <img
+        src="../../../assets/sn3a_logo.png"
+        class="img-fluid rounded-pill"
+        alt=""
+    />
+  </a></mdb-navbar-brand>
+
+  <form class="d-flex input-group w-auto">
+    <input
+      type="search"
+      class="form-control"
+      placeholder="خدمتك عندنا"
+      aria-label="Search"
+    />
+    <a href="#">
+      <mdb-icon fas icon="search" class="ml-2"  size="2x"></mdb-icon>
+    </a>
+   
+  </form>
+
+  <!-- Collapsible content -->
+  <links>
+
+    <!-- Links -->
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item active">
+        <a class="nav-link waves-light" mdbWavesEffect><mdb-icon fas icon="phone-alt"  size="1x"></mdb-icon> أتصل بنا<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link waves-light" mdbWavesEffect><mdb-icon fas icon="building"  size="1x"></mdb-icon> عن الشركة<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link waves-light" mdbWavesEffect><mdb-icon fas icon="tools"  size="1x"></mdb-icon> الخدمات</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link waves-light" mdbWavesEffect><mdb-icon fas icon="home"  size="1x"></mdb-icon></a>
+      </li>
+
+    </ul>
+    <!-- Links -->
+  </links>
+  <!-- Collapsible content -->
+
+</mdb-navbar>
+<!--/.Navbar -->
