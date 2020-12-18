@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Itechnision } from '../../app/views/itechnision';
+import { Itechnision } from '../../app/views/interface/itechnision';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from './../../environments/environment';
 

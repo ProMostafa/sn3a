@@ -33,15 +33,20 @@ class OrderViewSet(viewsets.ModelViewSet):
     serializer_class = OrderSerializer
     permission_classes = (AllowAny, )
 
+    
+    # def create(self, request):
+        
+    #     return super(, self).create(vals)
+
 class RatingViewSet(viewsets.ModelViewSet):
     queryset = Rating.objects.all()
     serializer_class = RatingSerializer
     permission_classes = (AllowAny, )
 
-def get_all_orders(request):
-    orders = Order.objects.all()
-    context = {'orders': orders}
-    return render(request, '', context)
+# def get_all_orders(request):
+#     orders = Order.objects.all()
+#     context = {'orders': orders}
+#     return Response(context)
 
 def get_order_by_user_id(request,user_id):
     order_sel = Order.objects.get(user = user_id)
@@ -67,10 +72,13 @@ def update_order(request, order_id):
         return render(request, '', context)
 
 
-def delete_order(request, order_id):
-    order_sel = Order.objects.get(id = order_id)
-    order_sel.delete()
-    return redirect('')
+def delete_order(request, o_id):
+    try :
+        order_sel = Order.objects.get(id = o_id)
+        order_sel.delete()
+        return Response({'status':True})
+    except:
+        return Response({'status':False})
     
 
 

@@ -9,13 +9,39 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { FormsModule } from '@angular/forms';
 import { TechnisionComponent } from './components/technision/technision.component';
 import { ServicesComponent } from './components/services/services.component';
+import { NavComponent } from './components/nav/nav.component';
+import { AboutusComponent } from './components/aboutus/aboutus.component';
+import { CreateOrderComponent } from './components/create-order/create-order.component';
+import { CustomerComponent } from './components/customer/customer.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { HomeComponent } from './components/home/home.component';
+import { LoginComponent } from './components/login/login.component';
+import { OrderDetailsComponent } from './components/order-details/order-details.component';
+import { OrdersComponent } from './components/orders/orders.component';
+import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.component';
+import { RegisterationComponent } from './components/registeration/registeration.component';
+import { SubserviceComponent } from './components/subservice/subservice.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     TechnisionComponent,
-    ServicesComponent
+    ServicesComponent,
+    NavComponent,
+    AboutusComponent,
+    CreateOrderComponent,
+    CustomerComponent,
+    FooterComponent,
+    HomeComponent,
+    LoginComponent,
+    OrderDetailsComponent,
+    OrdersComponent,
+    PagenotfoundComponent,
+    RegisterationComponent,
+    ServicesComponent,
+    SubserviceComponent,
+    
   ],
   imports: [
     BrowserModule,
