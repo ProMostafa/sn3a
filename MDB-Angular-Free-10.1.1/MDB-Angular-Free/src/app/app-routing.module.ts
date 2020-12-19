@@ -12,9 +12,11 @@ import { TechnisionComponent } from './components/technision/technision.componen
 import { AboutusComponent } from './components/aboutus/aboutus.component';
 import { SubserviceComponent } from './components/subservice/subservice.component';
 import { ServicesComponent } from './components/services/services.component';
+import { ContentComponent } from './components/content/content.component';
 
 
 const routes: Routes = [  
+  {path:'Content',component:ContentComponent},
   {path:'Home',component:HomeComponent},
 {path:'Technision',component:TechnisionComponent},
 {path:'Services',component:ServicesComponent},
@@ -26,7 +28,7 @@ const routes: Routes = [
 {path:'NewOrder',component:CreateOrderComponent},
 {path:'Register',component:RegisterationComponent},
 {path:'Login',component:LoginComponent},
-{path:'',redirectTo:'/Home',pathMatch:'full'},
+{path:'',redirectTo:'/Content',pathMatch:'full'},
 {path:'**',component:PagenotfoundComponent}
 ];
 

@@ -23,6 +23,7 @@ import { RegisterationComponent } from './components/registeration/registeration
 import { SubserviceComponent } from './components/subservice/subservice.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ContentComponent } from './components/content/content.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -44,7 +45,8 @@ import { ContentComponent } from './components/content/content.component';
     ServicesComponent,
     SubserviceComponent,
     NavbarComponent,
-    ContentComponent
+    ContentComponent,
+  
     
   ],
   imports: [
@@ -54,6 +56,9 @@ import { ContentComponent } from './components/content/content.component';
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
+    ReactiveFormsModule 
+    
+
   ],
   providers: [],
   bootstrap: [AppComponent]
