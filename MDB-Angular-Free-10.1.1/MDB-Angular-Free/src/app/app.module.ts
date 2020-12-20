@@ -24,10 +24,16 @@ import { SubserviceComponent } from './components/subservice/subservice.componen
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ContentComponent } from './components/content/content.component';
 import { ReactiveFormsModule } from '@angular/forms';
-
+// import { ControlValueAccessor } from '@angular/forms';
+// import { Validator, AbstractControl } from '@angular/forms';
+// import { RouterLinkWithHref, Router } from '@angular/router';
+// import { SafeHtml } from '@angular/platform-browser';
+// import { DomSanitizer } from '@angular/platform-browser';
+// import { FormGroup } from '@angular/forms';
 
 @NgModule({
   declarations: [
+    
     AppComponent,
     TechnisionComponent,
     ServicesComponent,
@@ -45,20 +51,23 @@ import { ReactiveFormsModule } from '@angular/forms';
     ServicesComponent,
     SubserviceComponent,
     NavbarComponent,
-    ContentComponent,
-  
-    
+    ContentComponent
   ],
   imports: [
+    // FormGroup ,
     BrowserModule,
     BrowserAnimationsModule,
     MDBBootstrapModule.forRoot(),
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule 
-    
-
+    ReactiveFormsModule ,
+//     ControlValueAccessor,
+//  AbstractControl,
+//  RouterLinkWithHref,
+//   Router ,
+//     SafeHtml ,
+//     DomSanitizer 
   ],
   providers: [],
   bootstrap: [AppComponent]

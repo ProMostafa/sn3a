@@ -1,11 +1,11 @@
 export interface Itechnision {
    
-        email: string;
+        email?: string;
         username: string;
-        address: string;
-        phone:number;
+        address?: string;
+        phone?:number;
         img:string;
-        is_technical:boolean;
-        password:any;
+        is_technical?:boolean;
+        password?:any;
    
 }

@@ -17,7 +17,7 @@ import { ContentComponent } from './components/content/content.component';
 
 const routes: Routes = [  
   {path:'Content',component:ContentComponent},
-  {path:'Home',component:HomeComponent},
+  {path:'Contact',component:HomeComponent},
 {path:'Technision',component:TechnisionComponent},
 {path:'Services',component:ServicesComponent},
 {path:'Aboutus',component:AboutusComponent},
