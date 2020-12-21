@@ -141,9 +141,9 @@ MEDIA_ROOT = os.path.join(BASE_DIR, MEDIA_URL)
 AUTH_USER_MODEL = 'account.User'
 
 # config Login , logout urls
-LOGOUT_REDIRECT_URL = '/'
-LOGIN_REDIRECT_URL = '/'
-LOGIN_URL = 'login'
+# LOGOUT_REDIRECT_URL = '/'
+# LOGIN_REDIRECT_URL = '/'
+# LOGIN_URL = 'login'
 
 # Configration Sending Email
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'

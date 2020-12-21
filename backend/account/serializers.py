@@ -27,3 +27,15 @@ class UserSerializer(serializers.ModelSerializer):
 # Django not create Token When create user for this you must create token for every user register
         Token.objects.create(user=user)
         return user
+
+
+
+
+class ChangePasswordSerializer(serializers.Serializer):
+    model = User
+
+    """
+    Serializer for password change endpoint.
+    """
+    old_password = serializers.CharField(required=True)
+    new_password = serializers.CharField(required=True)
