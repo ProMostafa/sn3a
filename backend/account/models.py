@@ -22,8 +22,8 @@ class UserManager(BaseUserManager):
                 Creates and saves a User with the given email, date of
                 birth and password.
         """
-        if not email or not username or not phone or not address:
-            raise ValueError("User Must Have All Required Data ?")
+        # if not email or not username or not phone or not address:
+        #     raise ValueError("User Must Have All Required Data ?")
 
         user = self.model(
             email=self.normalize_email(email),
