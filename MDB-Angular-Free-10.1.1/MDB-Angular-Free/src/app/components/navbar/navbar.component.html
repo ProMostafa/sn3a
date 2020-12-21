@@ -30,31 +30,35 @@
 
     <!-- Links -->
     <ul class="navbar-nav ml-auto">
-      <li class="nav-item active">
+      <li class="nav-item ">
+        <a class="nav-link waves-light" mdbWavesEffect [routerLink]="['/Login']" ><mdb-icon fas icon="sign-in-alt"  size="1x"></mdb-icon>تسجيل الدخول<span class="sr-only">(current)</span>
+     </a>
+      </li>
+      <!-- <li class="nav-item active">
         <a class="nav-link waves-light" mdbWavesEffect (click)="frame.show()"  data-toggle="modal" data-target="#frameModalTop"  >تسجيل الدخول
      </a>
-      </li>
-      <li class="nav-item active">
-        <a class="nav-link waves-light" mdbWavesEffect (click)="frame1.show()"  data-toggle="modal" data-target="#frameModalTop1" >الاشتراك
+      </li> -->
+      <li class="nav-item ">
+        <a class="nav-link waves-light" mdbWavesEffect [routerLink]="['/Register']" ><mdb-icon fas icon="user-plus"  size="1x"></mdb-icon>الاشتراك<span class="sr-only">(current)</span>
      </a>
       </li>
-      <li class="nav-item active">
+      <li class="nav-item ">
         <a class="nav-link waves-light" mdbWavesEffect [routerLink]="['/Contact']" ><mdb-icon fas icon="phone-alt"  size="1x"></mdb-icon> أتصل بنا<span class="sr-only">(current)</span></a>
       </li>
-      <li class="nav-item active">
-        <a class="nav-link waves-light" mdbWavesEffect [routerLink]="['/Technision']" ><mdb-icon fas icon="phone-alt"  size="1x"></mdb-icon> الفنيين<span class="sr-only">(current)</span></a>
+      <li class="nav-item ">
+        <a class="nav-link waves-light" mdbWavesEffect [routerLink]="['/Technision']" ><mdb-icon fas icon="users"  size="1x"></mdb-icon> الفنيين<span class="sr-only">(current)</span></a>
       </li>
       
-      <li class="nav-item active">
+      <li class="nav-item ">
         <a class="nav-link waves-light" mdbWavesEffect [routerLink]="['/Services']"><mdb-icon fas icon="tools"  size="1x" ></mdb-icon> الخدمات</a>
       </li>
-      <li class="nav-item active">
+      <li class="nav-item ">
         <a class="nav-link waves-light" mdbWavesEffect [routerLink]="['/Aboutus']"><mdb-icon fas icon="building"  size="1x"></mdb-icon> عن الشركة<span class="sr-only">(current)</span></a>
       </li>
-      <li class="nav-item active">
-        <a class="nav-link waves-light" mdbWavesEffect [routerLink]="['/Content']"><mdb-icon fas icon="tools"  size="1x"></mdb-icon>الرئيسية</a>
+      <li class="nav-item ">
+        <a class="nav-link waves-light" mdbWavesEffect [routerLink]="['/Content']">الرئيسية</a>
       </li>
-      <li class="nav-item active">
+      <li class="nav-item ">
         <a class="nav-link waves-light" mdbWavesEffect><mdb-icon fas icon="home"  size="1x"></mdb-icon></a>
       </li>
 
@@ -66,7 +70,8 @@
 
 </mdb-navbar>
 <!--/.Navbar -->
-<div mdbModal #frame="mdbModal" class="modal fade left" id="frameModalTop" tabindex="-1" role="dialog"
+
+<!-- <div mdbModal #frame="mdbModal" class="modal fade left" id="frameModalTop" tabindex="-1" role="dialog"
      aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -155,15 +160,10 @@
             <div *ngIf="pPhone.hasError('minlength')"> Phone is less than 11 Numbers </div>
         </div>
       </div>
-    
-<!--     
-      <div class="form-group">
-        <label for="">Image</label>
-        <input type="image" name="PImage"    [(ngModel)]="customer.img"   class="form-control" placeholder="" aria-describedby="helpId">
-      </div> -->
+
         <button type="submit" class="btn btn-primary" [disabled]="myForm.invalid">Save</button>
       </form>
     </div>
   </div>
 </div>
-</div>
+</div> -->
