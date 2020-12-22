@@ -2,7 +2,8 @@ from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from account.models import User
 from .models import Services, SubServices, Order, Rating, OrderPictures
-from .serializers import ServicesSerializer, SubServicesSerializer, OrderSerializer, RatingSerializer
+from .serializers import ServicesSerializer, SubServicesSerializer, OrderSerializer, RatingSerializer , ContactUsSerializer
+
 from rest_framework import viewsets, status
 from rest_framework.response import Response
 from django.http import JsonResponse
@@ -87,21 +88,3 @@ class CustomerOrder(viewsets.ModelViewSet):
         orders = Order.objects.filter(customer=request.user)
         serializer = OrderSerializer(orders, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
