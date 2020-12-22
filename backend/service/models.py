@@ -66,3 +66,13 @@ class Rating(models.Model):
         unique_together = (('customer', 'technical'),)
         # when ordering data
         index_together = (('customer', 'technical'),)
+
+
+class Product(models.Model):
+    category = models.ForeignKey(Services, on_delete=models.CASCADE, related_name='product_category')
+    name = models.CharField(max_length=255)
+    cost = models.FloatField()
+    image = models.ImageField(upload_to='products/')
+
+    def __str__(self):
+        return f"category: {self.category.name} , product name:{self.name}"

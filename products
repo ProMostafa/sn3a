@@ -1,0 +1,181 @@
+get all technicals
+url: http://127.0.0.1:8000/account/users/get_all_technical/
+get request:
+
+response:
+[
+    {
+        "id": 7,
+        "last_login": null,
+        "email": "ali@gmail.com",
+        "username": "Ali Mohamd",
+        "first_name": null,
+        "last_name": null,
+        "avatar": null,
+        "address": "luxor",
+        "phone": "01009828432",
+        "date_of_creation": "2020-12-10",
+        "is_active": true,
+        "is_technical": true,
+        "job": "None",
+        "available": true,
+        "is_admin": false,
+        "is_superuser": false,
+        "is_stuff": false
+    },
+    {
+        "id": 10,
+        "last_login": null,
+        "email": "asdasd1@gmail.com",
+        "username": "asdasd1",
+        "first_name": null,
+        "last_name": null,
+        "avatar": null,
+        "address": "mina",
+        "phone": "01023654789",
+        "date_of_creation": "2020-12-10",
+        "is_active": true,
+        "is_technical": true,
+        "job": "None",
+        "available": true,
+        "is_admin": false,
+        "is_superuser": false,
+        "is_stuff": false
+    },
+    {
+        "id": 11,
+        "last_login": null,
+        "email": "asdasd12@gmail.com",
+        "username": "asdasd12",
+        "first_name": null,
+        "last_name": null,
+        "avatar": null,
+        "address": "mina",
+        "phone": "01023654789",
+        "date_of_creation": "2020-12-11",
+        "is_active": true,
+        "is_technical": true,
+        "job": "None",
+        "available": true,
+        "is_admin": false,
+        "is_superuser": false,
+        "is_stuff": false
+    },
+    {
+        "id": 8,
+        "last_login": null,
+        "email": "asd@gmail.com",
+        "username": "Heshiam Ali",
+        "first_name": "",
+        "last_name": "",
+        "avatar": null,
+        "address": "luxor",
+        "phone": "01009828432",
+        "date_of_creation": "2020-12-10",
+        "is_active": true,
+        "is_technical": true,
+        "job": "سباك",
+        "available": true,
+        "is_admin": false,
+        "is_superuser": false,
+        "is_stuff": false
+    },
+    {
+        "id": 9,
+        "last_login": null,
+        "email": "asdasd@gmail.com",
+        "username": "asdasd",
+        "first_name": "",
+        "last_name": "",
+        "avatar": null,
+        "address": "mina",
+        "phone": "01023654789",
+        "date_of_creation": "2020-12-10",
+        "is_active": true,
+        "is_technical": true,
+        "job": "سباك",
+        "available": true,
+        "is_admin": false,
+        "is_superuser": false,
+        "is_stuff": false
+    },
+    {
+        "id": 12,
+        "last_login": null,
+        "email": "asd1@gmail.com",
+        "username": "asd",
+        "first_name": "",
+        "last_name": "",
+        "avatar": null,
+        "address": "luxor",
+        "phone": "01009828432",
+        "date_of_creation": "2020-12-16",
+        "is_active": true,
+        "is_technical": true,
+        "job": "نجار",
+        "available": true,
+        "is_admin": false,
+        "is_superuser": false,
+        "is_stuff": false
+    }
+]
+
+************************************
+get categories of products
+url: http://127.0.0.1:8000/services/
+get request:
+
+response:
+[
+    {
+        "id": 1,
+        "type": "سباكة",
+        "description": "سباكةسباكةسباكةسباكة",
+        "image": "http://127.0.0.1:8000/media/service/06critics-list1-superJumbo_li7tP1k.jpg"
+    },
+    {
+        "id": 2,
+        "type": "نجاره",
+        "description": "نجارهنجارهنجارهنجارهنجاره",
+        "image": "http://127.0.0.1:8000/media/service/LATEST-MENu2019S-AND-WOMENu2019S-CLOTHING-ONLINE.jpg"
+    }
+]
+
+
+
+****************************
+get products of specific categories
+
+url: http://127.0.0.1:8000/all_products_categories/{cate_id}/get_products/
+get request:
+response:
+[
+    {
+        "id": 1,
+        "name": "item1",
+        "cost": 1200.0,
+        "image": "/media/products/Screenshot_from_2020-12-18_15-34-32.png",
+        "category": 1
+    },
+    {
+        "id": 2,
+        "name": "item2",
+        "cost": 350.0,
+        "image": "/media/products/Screenshot_from_2020-12-18_15-34-32_EUwmruZ.png",
+        "category": 1
+    },
+    {
+        "id": 3,
+        "name": "item3",
+        "cost": 420.0,
+        "image": "/media/products/Screenshot_from_2020-12-18_15-34-32_EiFCnoO.png",
+        "category": 1
+    }
+]
+***********************************
+
+
+
+
+
+
