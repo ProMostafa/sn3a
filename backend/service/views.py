@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
 from account.models import User
 from .models import Services, SubServices, Order, Rating, OrderPictures
 from .serializers import ServicesSerializer, SubServicesSerializer, OrderSerializer, RatingSerializer
@@ -80,6 +81,13 @@ class CustomerOrder(viewsets.ModelViewSet):
         else:
             response = {'message': 'You Need to provide technical rate'}
             return Response(response, status=status.HTTP_400_BAD_REQUEST)
+
+    @action(detail=False, methods=['GET'])
+    def get_all_customer_orders(self, request, pk=None):
+        orders = Order.objects.filter(customer=request.user)
+        serializer = OrderSerializer(orders, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
 
 
 
