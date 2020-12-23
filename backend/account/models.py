@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import (BaseUserManager, AbstractBaseUser)
 from .validations import phone_validation
 from datetime import datetime
+# from service.models import Rating
 
 JOBS = [
     ('None', 'None'),
@@ -84,7 +85,27 @@ class User(AbstractBaseUser):
     REQUIRED_FIELDS = ['email', 'phone', 'address']
 
     def __str__(self):
-        return self.email
+        if self.is_technical:
+            return f"Technical Username: {self.username}"
+        return f"Customer Username: {self.username}"
+
+    # def no_of_rating(self):
+    #     if self.is_technical:
+    #         rating = Rating.objects.filter(technical=self)
+    #         return len(rating)
+    #     return 0
+    #
+    # def avg_rating(self):
+    #     if self.is_technical:
+    #         sum =0
+    #         ratings = Rating.objects.filter(technical=self)
+    #         for rating in ratings:
+    #             sum += rating.stars
+    #         if len(ratings) > 0:
+    #             return sum/len(ratings)
+    #         else:
+    #             return 0
+    #     return 0
 
     def has_perm(self, perm, obj=None):
         "Does the user have a specific permission?"
@@ -101,5 +122,7 @@ class User(AbstractBaseUser):
         "Is the user a member of staff?"
         # Simplest possible answer: All admins are staff
         return self.is_admin
+
+
 
 
