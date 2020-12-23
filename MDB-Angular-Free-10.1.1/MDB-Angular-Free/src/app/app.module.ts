@@ -24,6 +24,8 @@ import { SubserviceComponent } from './components/subservice/subservice.componen
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ContentComponent } from './components/content/content.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ProductsComponent } from './components/products/products.component';
+import { SubproductsComponent } from './components/subproducts/subproducts.component';
 // import { ControlValueAccessor } from '@angular/forms';
 // import { Validator, AbstractControl } from '@angular/forms';
 // import { RouterLinkWithHref, Router } from '@angular/router';
@@ -51,7 +53,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     ServicesComponent,
     SubserviceComponent,
     NavbarComponent,
-    ContentComponent
+    ContentComponent,
+    ProductsComponent,
+    SubproductsComponent
   ],
   imports: [
     // FormGroup ,

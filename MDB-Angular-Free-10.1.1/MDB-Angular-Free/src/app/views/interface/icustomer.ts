@@ -3,7 +3,6 @@ export interface Icustomer {
     username: string;
     address: string;
     phone:number;
-    img?:string;
     is_technical?:boolean;
     password:any;
 }
