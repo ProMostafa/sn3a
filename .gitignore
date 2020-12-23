@@ -5,4 +5,4 @@ media/
 .idea/
 /backend/.idea/
 /backend/.env
-
+/front_end/front/san3ie/node_modules
