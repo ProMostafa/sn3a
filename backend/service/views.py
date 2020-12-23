@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from account.models import User
 from .models import Services, SubServices, Order, Rating, OrderPictures
-from .serializers import ServicesSerializer, SubServicesSerializer, OrderSerializer, RatingSerializer , ContactUsSerializer
+from .serializers import ServicesSerializer, SubServicesSerializer, OrderSerializer, RatingSerializer
 
 from rest_framework import viewsets, status
 from rest_framework.response import Response
