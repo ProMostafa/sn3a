@@ -12,6 +12,7 @@ from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.decorators import action
 from rest_framework.authentication import TokenAuthentication
 from rest_framework_simplejwt.tokens import RefreshToken
+from django.db.models import Q
 
 
 from .models import User
@@ -35,8 +36,8 @@ class UserViewSet(viewsets.ModelViewSet):
         serializer.save()
         user_data = serializer.data
         user = User.objects.get(email=user_data['email'])
-        user.is_active = False
-        user.save()
+        # user.is_active = False
+        # user.save()
         token = RefreshToken.for_user(user).access_token
         current_site = get_current_site(request)
         relative_link = reverse('email_verify')
@@ -49,6 +50,14 @@ class UserViewSet(viewsets.ModelViewSet):
             'user': user_data
         }
         return Response(response, status=status.HTTP_201_CREATED)
+
+    @action(detail=False, methods=['GET'])
+    def get_all_technical(self, request, pk=None):
+        # technicals = User.objects.filter(~Q(job=None))
+        technicals = User.objects.filter(is_technical=True)
+        serializer = UserSerializer(technicals, many=True)
+        # response = {'message': 'get all technicals', 'result': serializer.data}
+        return Response(serializer.data, status=status.HTTP_200_OK)
 
 
 class VerifyEmail(APIView):
@@ -66,12 +75,6 @@ class VerifyEmail(APIView):
         except jwt.exceptions.DecodeError as err:
             return Response({'error': 'Invalid token'}, status=status.HTTP_400_BAD_REQUEST)
 
-
-def get_all_technical(request, job=None):
-    technicals = User.objects.filter(job=job)
-    serializer = UserSerializer(technicals, many=True)
-    response = {'message': 'get all technicals', 'result': serializer.data}
-    return JsonResponse(response, status=status.HTTP_200_OK)
 
 
 class UpdatePasswordView(APIView):
@@ -136,18 +139,14 @@ class PasswordTokenCheck(APIView):
         try:
             id = smart_str(urlsafe_base64_decode(uid64))
             user = User.objects.get(id=id)
-
             if not PasswordResetTokenGenerator().check_token(user, token):
                 return Response({'error': 'Token is not valid, please request a new one'},status=status.HTTP_401_UNAUTHORIZED)
-
             return Response({'success': True, 'message': 'Credentials Valid', 'uid64':uid64, 'token': token},status= status.HTTP_200_OK)
-
         except DjangoUnicodeDecodeError as err:
             return Response({'error': 'Token is not valid, please request a new one'}, status=status.HTTP_401_UNAUTHORIZED)
 
 
-class SetNewPassowordView(APIView):
-
+class SetNewPasswordView(APIView):
     def patch(self, request):
         serializer = SetNewPasswordSeriliazer(data=request.data)
         serializer.is_valid(raise_exception=True)

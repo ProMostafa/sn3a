@@ -71,6 +71,7 @@ class User(AbstractBaseUser):
     is_technical = models.BooleanField(default=False)
     job = models.CharField(max_length=50, choices=JOBS, default='None')
     available = models.BooleanField(default=True)
+    description = models.TextField(null=True, blank=True)
 
     # for manage users
     is_admin = models.BooleanField(default=False)
