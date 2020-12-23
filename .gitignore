@@ -5,5 +5,6 @@ media/
 .idea/
 /backend/.idea/
 /backend/.env/
+/backend/.venv/
 /MDB-Angular-Free-10.1.1/MDB-Angular-Free/node_modules/
-
+/frond_end/front/san3ie/node_modules
