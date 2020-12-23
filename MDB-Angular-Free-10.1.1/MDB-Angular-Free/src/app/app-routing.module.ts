@@ -13,17 +13,20 @@ import { AboutusComponent } from './components/aboutus/aboutus.component';
 import { SubserviceComponent } from './components/subservice/subservice.component';
 import { ServicesComponent } from './components/services/services.component';
 import { ContentComponent } from './components/content/content.component';
-
+import { ProductsComponent } from './components/products/products.component';
+import { SubproductsComponent } from './components/subproducts/subproducts.component';
 
 const routes: Routes = [  
   {path:'Content',component:ContentComponent},
   {path:'Contact',component:HomeComponent},
 {path:'Technision',component:TechnisionComponent},
 {path:'Services',component:ServicesComponent},
+{path:'Products',component:ProductsComponent},
 {path:'Aboutus',component:AboutusComponent},
 {path:'Customer',component:CustomerComponent},
 {path:'Order/:id',component:OrderDetailsComponent},
 {path:'Subservice/:id',component:SubserviceComponent},
+{path:'Subproduct/:id',component:SubproductsComponent},
 {path:'Orders',component:OrdersComponent},
 {path:'NewOrder',component:CreateOrderComponent},
 {path:'Register',component:RegisterationComponent},

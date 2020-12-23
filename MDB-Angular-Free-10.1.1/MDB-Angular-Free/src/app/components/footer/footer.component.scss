@@ -1,10 +1,11 @@
 .sec-footer{
-    background: #433d7b;
+    background: rgb(153, 205, 248);
     direction: rtl;
     text-align: right;
-    color: #fff;
+    color: rgb(1, 30, 48);
     padding-top: 2.5rem;
     padding-bottom: 3.5rem;
+    font-family: 'Lemonada', cursive
 }
 .sec-footer .desc-box{
     background: transparent;
@@ -12,7 +13,7 @@
 }
 .sec-footer .desc-box .card-title::after{
     content: ' ';
-    background: #ffffff;
+    background: #252424;
     display: block;
     width: 95%;
     height: 0.2rem;
@@ -24,16 +25,16 @@
 }
 
 .sec-sub-footer{
-    background: black;
+    background:rgb(49, 48, 48);
     direction: rtl;
     text-align: center;
     color: #fff;
     padding-top: 1 rem;
     padding-bottom: 1 rem;
-    font-size: 20px;
+    font-size: 15px;
 }
 .sec-sub-footer a{
-    font-size: 20px;
+    font-size: 15px;
 }
 
 
@@ -85,4 +86,8 @@
     border-color: #c0392b transparent #c0392b transparent;
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg);
+}
+img{
+  height: 4rem;
+  width: 5rem;
 }

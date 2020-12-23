@@ -1,34 +1,18 @@
 import { Injectable } from '@angular/core';
 import { Itechnision } from '../../app/views/interface/itechnision';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient} from '@angular/common/http';
 import { environment } from './../../environments/environment';
-
 import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
 export class TechnisionService {
-
   constructor(private http:HttpClient) { }
-  getAllProducts():Observable<Itechnision[]>{
+  getTechnisions():Observable<Itechnision[]>{
 
-    return  this.http.get<Itechnision[]>(`${environment.ApiUrl}/account/users/`);
+    return  this.http.get<Itechnision[]>(`${environment.ApiUrl}/account/get_all_technical/`);
    }
-   
-   
-   getProductById(pid):Observable<Itechnision>{
-   
-     return this.http.get<Itechnision>(`${environment.ApiUrl}/account/users/`);
-   }
-   
-   insertProduct(prd:Itechnision):Observable<Itechnision>{
-     const httpOptions ={headers:new HttpHeaders({
-       'Content-Type': 'application/json',
-        'Accept': ' */*'
-         // ,'Authorization': 'my-auth-token'
-       })};
-     return this.http.post<Itechnision>(`${environment.ApiUrl}/account/users/`,prd,httpOptions);
-   }
-  }
+
+}
 
 
