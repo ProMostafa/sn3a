@@ -36,13 +36,13 @@ export class LoginComponent implements OnInit {
   //  }
 
   Login(){
-    console.log("errorr hi")
-    // this._ApiUser.loginUser(this.user).subscribe(
-    //   (data)=>this._router.navigateByUrl('/Login'),
-    //   (err)=>console.log(err)
+    // console.log("errorr hi")
+    this._ApiUser.loginUser(this.user).subscribe(
+      (data)=>this._router.navigateByUrl('/Login'),
+      (err)=>console.log(err)
 
 
-    // )
+    )
 
   }
 
