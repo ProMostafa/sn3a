@@ -4,7 +4,7 @@ export interface Itechnision {
         username: string;
         address?: string;
         phone?:number;
-        img:string;
+        image:string;
         is_technical?:boolean;
         password?:any;
    

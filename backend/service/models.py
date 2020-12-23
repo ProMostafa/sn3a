@@ -41,9 +41,11 @@ class Order(models.Model):
     date = models.DateField()
     total_cost = models.FloatField()
 
+# class ContacntUS(models.Model):
+#     message=models.TextField()
+#     user=models.ForeignKey(User,related_name='con_user',on_delete=models.CASCADE, null=True)
 
 class OrderPictures(models.Model):
-
     order = models.ForeignKey(Order, on_delete=models.CASCADE)
     pictures = models.ImageField(upload_to='order/')
 
@@ -52,9 +54,25 @@ class Rating(models.Model):
     customer = models.ForeignKey(User, related_name='customer_rate', on_delete=models.CASCADE)
     technical = models.ForeignKey(User, related_name='technical_rate', on_delete=models.CASCADE)
     order = models.ForeignKey(Order, related_name='customer_rate_order', on_delete=models.CASCADE, blank=True)
-    rate = models.IntegerField(validators=[MinLengthValidator(1), MaxLengthValidator(5)])
+    rate = models.IntegerField(choices=[
+        (1, 1),
+        (2, 2),
+        (3, 3),
+        (4, 4),
+        (5, 5),
+    ])
 
     class Meta:
         unique_together = (('customer', 'technical'),)
         # when ordering data
         index_together = (('customer', 'technical'),)
+
+
+class Product(models.Model):
+    category = models.ForeignKey(Services, on_delete=models.CASCADE, related_name='product_category')
+    name = models.CharField(max_length=255)
+    cost = models.FloatField()
+    image = models.ImageField(upload_to='products/')
+
+    def __str__(self):
+        return f"category: {self.category.name} , product name:{self.name}"

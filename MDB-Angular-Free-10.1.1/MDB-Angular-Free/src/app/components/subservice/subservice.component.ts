@@ -18,7 +18,7 @@ export class SubserviceComponent implements OnInit {
       id:null,
       name: " ",
       description: " ",
-      img:" ",
+      image:" ",
       cost:null,
       service:null
 

@@ -15,7 +15,7 @@ export class ServicesComponent implements OnInit {
     id: null,
     type: " ",
     description: " ",
-    img:" "
+    image:" "
   }
     ]
 

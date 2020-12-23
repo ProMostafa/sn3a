@@ -31,7 +31,7 @@ this.TechnisionList=[{
   phone:null,
   is_technical:true,
   password:null,
-  img:""
+  image:""
 
 }]
    }

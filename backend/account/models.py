@@ -22,8 +22,8 @@ class UserManager(BaseUserManager):
                 Creates and saves a User with the given email, date of
                 birth and password.
         """
-        if not email or not username or not phone or not address:
-            raise ValueError("User Must Have All Required Data ?")
+        # if not email or not username or not phone or not address:
+        #     raise ValueError("User Must Have All Required Data ?")
 
         user = self.model(
             email=self.normalize_email(email),
@@ -71,6 +71,7 @@ class User(AbstractBaseUser):
     is_technical = models.BooleanField(default=False)
     job = models.CharField(max_length=50, choices=JOBS, default='None')
     available = models.BooleanField(default=True)
+    description = models.TextField(null=True, blank=True)
 
     # for manage users
     is_admin = models.BooleanField(default=False)

@@ -2,7 +2,7 @@ export interface IsubService {
     id:number;
     name: string;
     description?: string;
-    img:string;
+    image:string;
     cost?:number;
     service?:number;
 

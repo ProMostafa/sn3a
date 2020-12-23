@@ -14,10 +14,9 @@ export class SubproductsComponent implements OnInit {
     this.SubProductList=[{
       id:null,
       name: " ",
-      description: " ",
-      img:" ",
+      image:" ",
       cost:null,
-      service:null
+      category:null
 
     }]
   }

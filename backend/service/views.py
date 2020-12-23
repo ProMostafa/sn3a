@@ -1,13 +1,16 @@
 from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
 from account.models import User
-from .models import Services, SubServices, Order, Rating, OrderPictures
-from .serializers import ServicesSerializer, SubServicesSerializer, OrderSerializer, RatingSerializer
+from .models import Services, SubServices, Order, Rating, OrderPictures, Product
+from .serializers import ServicesSerializer, SubServicesSerializer,\
+    OrderSerializer, RatingSerializer, ProductSerializer
 from rest_framework import viewsets, status
 from rest_framework.response import Response
 from django.http import JsonResponse
 from rest_framework.decorators import action
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.authentication import TokenAuthentication
+from rest_framework.views import APIView
 
 
 # Create your views here.
@@ -80,6 +83,23 @@ class CustomerOrder(viewsets.ModelViewSet):
         else:
             response = {'message': 'You Need to provide technical rate'}
             return Response(response, status=status.HTTP_400_BAD_REQUEST)
+
+    @action(detail=False, methods=['GET'])
+    def get_all_customer_orders(self, request, pk=None):
+        orders = Order.objects.filter(customer=request.user)
+        serializer = OrderSerializer(orders, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
+
+class ProductView(viewsets.ModelViewSet):
+    queryset = Product.objects.all()
+    serializer_class = ProductSerializer
+
+    @action(detail=True, methods=['GET'])
+    def get_products(self, request, pk=None):
+        products = Product.objects.filter(category=pk)
+        serializer = ProductSerializer(products, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
 
 
 

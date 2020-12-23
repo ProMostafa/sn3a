@@ -2,9 +2,8 @@
 export interface Isubproduct {
     id:number;
     name: string;
-    description?: string;
-    img:string;
+    image:string;
     cost?:number;
-    service?:number;
+    category?:number;
 
 }

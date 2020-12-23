@@ -3,7 +3,7 @@
  
     <div class="col-md-3" *ngFor="let s_product of SubProductList;let i=index">
    <mdb-card
-   style="background-image: url('{{s_product.img}}');border-radius: 10% 30% 10% 10%"
+   style="background-image: url('{{s_product.image}}');border-radius: 10% 30% 10% 10%"
    class="card-image mb-3 mx-2 mt-3 example hoverable"
    
   >
@@ -16,7 +16,7 @@
        </h5> -->
        <h3 class="card-title pt-2"><strong>{{s_product.name}}</strong></h3>
        <p>
-        {{s_product.description}}
+        
         {{s_product.cost}} جنيه
        </p>
        <a mdbBtn color="primary" class="waves-light" mdbWavesEffect  [routerLink]="['/NewOrder']">

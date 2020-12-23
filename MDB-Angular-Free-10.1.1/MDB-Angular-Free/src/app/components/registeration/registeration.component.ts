@@ -18,7 +18,6 @@ export class RegisterationComponent implements OnInit {
       username:" ",
       address: " " ,
       phone:null,
-      is_technical:false,
       password:null
      }
    }
@@ -26,13 +25,13 @@ export class RegisterationComponent implements OnInit {
   ngOnInit(): void {
   }
   CreateAccount(){
-    console.log("errorr hi")
+    // console.log("errorr hi")
 
-    // this._ApiCustomer.insertCustomer(this.customer).subscribe(
-    //   (data)=>this._router.navigateByUrl('/Register'),
-    //   (err)=>console.log(err)
+    this._ApiCustomer.insertCustomer(this.customer).subscribe(
+      (data)=>this._router.navigateByUrl('/Register'),
+      (err)=>console.log(err)
 
 
-    // )
+    )
    }
 }
