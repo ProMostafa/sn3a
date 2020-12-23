@@ -12,7 +12,9 @@ from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.decorators import action
 from rest_framework.authentication import TokenAuthentication
 from rest_framework_simplejwt.tokens import RefreshToken
-from django.db.models import Q
+from django.template import Context
+from django.template.loader import render_to_string, get_template
+from django.core.mail import EmailMessage
 
 
 from .models import User
@@ -40,11 +42,22 @@ class UserViewSet(viewsets.ModelViewSet):
         # user.save()
         token = RefreshToken.for_user(user).access_token
         current_site = get_current_site(request)
-        relative_link = reverse('email_verify')
-        adsurl = f'http://{current_site}{relative_link}?token={str(token)}'
-        email_body = f'Hi {user.username} Use link below to verify your email \n {adsurl}'
-        data = {'email_body': email_body, 'to_email': user.email, 'email_subject': 'Verify Your Account'}
-        Util.send_email(data)
+        # relative_link = reverse('email_verify')
+        # adsurl = f'http://{current_site}{relative_link}?token={str(token)}'
+
+        # relative_link = reverse('email_verify')
+        adsurl = f'http://localhost:4200/activate_account?token={str(token)}'
+        # email_body = f'Hi {user.username} Use link below to verify your email \n {adsurl}'
+        # data = {'email_body': email_body, 'to_email': user.email, 'email_subject': 'Verify Your Account'}
+        # Util.send_email(data)
+        ctx = {
+            'user': user.username,
+            'adsurl': adsurl
+        }
+        message = get_template('activate.html').render(ctx)
+        data = {'email_body': message, 'to_email':user.email, 'email_subject': 'Verify Your Account'}
+        print(data)
+        Util.send_html_email(data)
         response ={
             'message': 'user created',
             'user': user_data
@@ -58,6 +71,7 @@ class UserViewSet(viewsets.ModelViewSet):
         serializer = UserSerializer(technicals, many=True)
         # response = {'message': 'get all technicals', 'result': serializer.data}
         return Response(serializer.data, status=status.HTTP_200_OK)
+
 
 
 class VerifyEmail(APIView):
