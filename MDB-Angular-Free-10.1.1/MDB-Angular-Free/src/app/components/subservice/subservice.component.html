@@ -1,36 +1,3 @@
-   
- <div class="row">
- 
-  <div class="col-md-3" *ngFor="let s_service of SubServiceList;let i=index">
- <mdb-card
- style="background-image: url('{{s_service.image}}');border-radius: 10% 30% 10% 10%"
- class="card-image mb-3 mx-2 mt-3 example hoverable"
- 
->
- <!-- Content -->
- <div class="text-white text-center d-flex align-items-center rgba-black-strong py-5 px-4">
-   <div>
-     <!-- <h5 class="pink-text">
-       <mdb-icon fas icon="chart-pie"></mdb-icon>
-       Marketing
-     </h5> -->
-     <h3 class="card-title pt-2"><strong>{{s_service.name}}</strong></h3>
-     <p>
-      {{s_service.description}}
-      {{s_service.cost}} جنيه
-     </p>
-     <a mdbBtn color="primary" class="waves-light" mdbWavesEffect  [routerLink]="['/NewOrder']">
-       <mdb-icon far icon="clone" class="left"></mdb-icon>
-   اطلب الآن</a
-     >
-   </div>
- </div>
- <!-- Content -->
-</mdb-card>
-</div>
-</div>
-
-
 
 <div class="row">
  
@@ -39,9 +6,8 @@
 
       <div class="view view-cascade overlay waves-light" style="border-radius: 10% 10% 10% 10%" mdbWavesEffect>
         <mdb-card-img src="{{s_service.image}}" ></mdb-card-img>
-        <a [routerLink]="['NewOrder]">
-          <div class="mask rgba-white-slight"></div>
-        </a>
+        
+       
       </div>
 
       <mdb-card-body cascade="true" class="text-center">
