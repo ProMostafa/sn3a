@@ -1,19 +1,28 @@
-import { Component, OnInit } from '@angular/core';
+import {Directive , Component, OnInit } from '@angular/core';
 import { IsubService } from '../../views/interface/isub-service';
 import { SubserviceService } from '../../../app/services/subservice.service';
 import { ActivatedRoute } from '@angular/router';
+import { CreateOrderComponent } from '../../components/create-order/create-order.component';
+
+
+
 
 
 @Component({
   selector: 'app-subservice',
   templateUrl: './subservice.component.html',
-  styleUrls: ['./subservice.component.scss']
+  styleUrls: ['./subservice.component.scss'],
+
+
 })
 export class SubserviceComponent implements OnInit {
+
   SubServiceList:IsubService[];
+ 
 
 
   constructor(private _activatedRoute:ActivatedRoute,private _apiSubserv:SubserviceService) {
+    
     this.SubServiceList=[{
       id:null,
       name: " ",
@@ -47,6 +56,7 @@ export class SubserviceComponent implements OnInit {
       (err)=>console.log(err)
 
     );
+    
   }
 
 }
