@@ -1,6 +1,6 @@
-<!--div class="col-lg-3 col-md-6 mb-lg-0 mb-5"*ngFor="let tech of TechnisionList; let i=index">
+<div class="col-lg-3 col-md-6 mb-lg-0 mb-5"*ngFor="let tech of TechnisionList; let i=index">
     <div class="avatar mx-auto">
-      <img src="{{tech.img}}" class="rounded-circle z-depth-1"
+      <img src="{{tech.image}}" class="rounded-circle z-depth-1"
         alt="Sample avatar">
     </div>
     <h5 class="font-weight-bold mt-4 mb-3">"{{tech.username}}"</h5>
@@ -11,38 +11,6 @@
       doloremque
       rem laudantium totam
       aperiam.</p> -->
-
-  <!--/div>
+   
+  </div>
   <!-- Grid column -->
-  <!-- ======= Team Section ======= -->
-  <section id="team" class="team section-bg">
-    <div class="container" data-aos="fade-up">
-
-      <div class="section-title">
-
-        <h2 style="color: rgb(4, 4, 110);font-weight: bold; text-align: center;">فريق العمل</h2>
-      </div>
-
-      <div class="row">
-
-        <div class="col-lg-6 " *ngFor="let ser of TechnisionList; let i=index">
-          <div class="member d-flex align-items-start" data-aos="zoom-in" data-aos-delay="200">
-            <div class="pic"><img src="{{ser.image}}" class="img-fluid" alt=""></div>
-            <div class="member-info">
-              <h4>{{ser.username}}</h4>
-             <h3>{{ser.phone}}</h3>
-
-              <div class="social">
-                <a href=""><i class="ri-twitter-fill"></i></a>
-                <a href=""><i class="ri-facebook-fill"></i></a>
-                <a href=""><i class="ri-instagram-fill"></i></a>
-                <a href=""> <i class="ri-linkedin-box-fill"></i> </a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-  </section><!-- End Team Section -->

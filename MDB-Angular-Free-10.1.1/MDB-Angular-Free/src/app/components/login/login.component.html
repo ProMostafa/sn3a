@@ -42,18 +42,18 @@
 <!-- 
       <button type="submit" class="btn btn-primary" [routerLink]="['/Content']"[disabled]="myForm.invalid">Login</button>
     </form> -->
-
-    <div class="row ">
+    <br><br><br>
+    <div class="row " >
       <div class="col-md-6 justify-content-center align-self-center">
-        <img src="../../../assets/images/home-improvement.jpeg"  class=" img-fluid z-depth-0 animated bounce " width="100%">
+        <img src="../../../assets/Home-Maintenance1.png"  class=" img-fluid z-depth-0 animated bounce " width="100%">
       
       </div>
-      <div class="col-md-6 justify-content-center align-self-center">
+      <div class="col-md-6 justify-content-center align-self-center " >
     <form #myForm="ngForm" (ngSubmit)="Login()"  >
       
         <div class="form-group">
           <label for="">البريد الالكتروني</label>
-          <input type="email" name="pEmail" #pEmail="ngModel" [class.is-valid]="pEmail.valid"  [class.is-invalid]="pEmail.invalid && pEmail.touched" [(ngModel)]="user.email"  minlength="7"   class="form-control" placeholder="" aria-describedby="helpId">
+          <input type="email" name="pEmail" #pEmail="ngModel" [class.is-valid]="pEmail.valid"  [class.is-invalid]="pEmail.invalid && pEmail.touched" [(ngModel)]="user.email"  minlength="7" id="" class="form-control" placeholder="" aria-describedby="helpId">
             <div class="alert alert-danger"  *ngIf="pEmail.invalid && pEmail.touched"  role="alert">
                 <!-- <div *ngIf="pEmail.hasError('required')" > Email is required </div> -->
                 <div *ngIf="pEmail.hasError('minlength')"> برجاء ادخال بريد الكتروني صحيح </div>
@@ -62,7 +62,7 @@
         </div>
         <div class="form-group">
           <label for="">كلمة المرور</label>
-          <input type="password" name="pPass"    #pPass="ngModel"   minlength="4"  [(ngModel)]="user.password" [class.is-valid]="pPass.valid"[class.is-invalid]="pPass.invalid && pPass.touched"  class="form-control" placeholder="" aria-describedby="helpId">
+          <input type="password" name="pPass"    #pPass="ngModel"   minlength="4"  [(ngModel)]="user.password" [class.is-valid]="pPass.valid"[class.is-invalid]="pPass.invalid && pPass.touched" id="" class="form-control" placeholder="" aria-describedby="helpId">
           <div class="alert alert-danger"  *ngIf="pPass.invalid && pPass.touched"  role="alert">
             <div *ngIf="pPass.hasError('minlength')" >برجاء ادخال كلمة المرور </div>
         </div>
