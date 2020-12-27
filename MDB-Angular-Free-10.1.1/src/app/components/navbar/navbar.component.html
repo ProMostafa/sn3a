@@ -1,0 +1,222 @@
+
+<!-- 
+<mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark cyan" [containerInside]="false">
+
+  <mdb-navbar-brand   ><a class="navbar-brand"  href="#">
+      <img
+        src="../../../assets/1.png"
+        class="img-fluid rounded-pill"
+        alt=""
+    />
+  </a></mdb-navbar-brand>
+
+  
+  <links>
+
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item ">
+        <a class="nav-link waves-light" mdbWavesEffect [routerLink]="['/Login']" ><mdb-icon fas icon="sign-in-alt"  size="1x"></mdb-icon>تسجيل الدخول<span class="sr-only">(current)</span>
+     </a>
+      </li>
+    
+      <li class="nav-item ">
+        <a class="nav-link waves-light" mdbWavesEffect [routerLink]="['/Register']" ><mdb-icon fas icon="user-plus"  size="1x"></mdb-icon>الاشتراك<span class="sr-only">(current)</span>
+     </a>
+      </li>
+      <li class="nav-item ">
+        <a class="nav-link waves-light" mdbWavesEffect [routerLink]="['/Contact']" ><mdb-icon fas icon="phone-alt"  size="1x"></mdb-icon> أتصل بنا<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item ">
+        <a class="nav-link waves-light" mdbWavesEffect [routerLink]="['/Technision']" ><mdb-icon fas icon="users"  size="1x"></mdb-icon> الفنيين<span class="sr-only">(current)</span></a>
+      </li>
+      
+      <li class="nav-item ">
+        <a class="nav-link waves-light" mdbWavesEffect [routerLink]="['/Services']"><mdb-icon fas icon="tools"  size="1x" ></mdb-icon> الخدمات</a>
+      </li>
+      <li class="nav-item ">
+        <a class="nav-link waves-light" mdbWavesEffect [routerLink]="['/Aboutus']"><mdb-icon fas icon="building"  size="1x"></mdb-icon> عن الشركة<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item ">
+        <a class="nav-link waves-light" mdbWavesEffect [routerLink]="['/Content']">الرئيسية</a>
+      </li>
+      <li class="nav-item ">
+        <a class="nav-link waves-light" mdbWavesEffect><mdb-icon fas icon="home"  size="1x"></mdb-icon></a>
+      </li>
+
+    </ul>
+  </links>
+  
+
+</mdb-navbar> -->
+<!--/.Navbar -->
+
+<!-- <div mdbModal #frame="mdbModal" class="modal fade left" id="frameModalTop" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Login</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="frame.hide()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+  <form #myForm="ngForm" (ngSubmit)="Login()"  >
+  
+    <div class="form-group">
+      <mdb-icon fas icon="envelope" class="prefix grey-text"></mdb-icon>
+      <label for="">Email</label>
+      <input type="email" name="pEmail" #pEmail="ngModel" [class.is-valid]="pEmail.valid"  [class.is-invalid]="pEmail.invalid && pEmail.touched" [(ngModel)]="user.email"  minlength="7"  class="form-control" placeholder="" aria-describedby="helpId">
+        <div class="alert alert-danger"  *ngIf="pEmail.invalid && pEmail.touched"  role="alert">
+            <div *ngIf="pEmail.hasError('minlength')"> please write valid email </div>
+
+        </div>
+    </div>
+    <div class="form-group">
+      <mdb-icon fas icon="lock" class="prefix grey-text"></mdb-icon>
+      <label for="">Password</label>
+      <input type="password" name="pPass"    #pPass="ngModel"   minlength="4"  [(ngModel)]="user.password" [class.is-valid]="pPass.valid"[class.is-invalid]="pPass.invalid && pPass.touched" id="" class="form-control" placeholder="" aria-describedby="helpId">
+      <div class="alert alert-danger"  *ngIf="pPass.invalid && pPass.touched"  role="alert">
+        <div *ngIf="pPass.hasError('minlength')" > password less than 4 parameters </div>
+    </div>
+  </div>
+      <button type="submit" class="btn btn-primary" [disabled]="myForm.invalid">Login</button>
+    </form>
+</div>
+    </div>
+  </div>
+</div>
+
+
+<div mdbModal #frame1="mdbModal" class="modal fade left" id="frameModalTop1" tabindex="-1" role="dialog"
+ aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal-dialog" role="document">
+<div class="modal-content">
+  <div class="modal-header text-center">
+    <h4 class="modal-title w-100 font-weight-bold">sign up</h4>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="frame1.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body mx-3">
+<form #myForm="ngForm" (ngSubmit)="CreateAccount()"  >
+    <div class="form-group">
+      <label for="">User_Name</label>
+      <input type="text" name="pName" #pName="ngModel" [class.is-valid]="pName.valid"  [class.is-invalid]="pName.invalid && pName.touched" [(ngModel)]="customer.username"  minlength="3"  class="form-control" placeholder="" aria-describedby="helpId">
+        <div class="alert alert-danger"  *ngIf="pName.invalid && pName.touched"  role="alert">
+            <div *ngIf="pName.hasError('minlength')"> please write valid username </div>
+        </div>
+    </div>
+      <div class="form-group">
+        <label for="">Email</label>
+        <input type="email" name="pEmail" #pEmail="ngModel" [class.is-valid]="pEmail.valid"  [class.is-invalid]="pEmail.invalid && pEmail.touched" [(ngModel)]="customer.email"  minlength="7"  class="form-control" placeholder="" aria-describedby="helpId">
+          <div class="alert alert-danger"  *ngIf="pEmail.invalid && pEmail.touched"  role="alert">
+              <div *ngIf="pEmail.hasError('minlength')"> please write valid email </div>
+  
+          </div>
+      </div>
+      <div class="form-group">
+        <label for="">Password</label>
+        <input type="password" name="pPass"    #pPass="ngModel"   minlength="4"  [(ngModel)]="customer.password" [class.is-valid]="pPass.valid"[class.is-invalid]="pPass.invalid && pPass.touched" id="" class="form-control" placeholder="" aria-describedby="helpId">
+        <div class="alert alert-danger"  *ngIf="pPass.invalid && pPass.touched"  role="alert">
+          <div *ngIf="pPass.hasError('minlength')" > Password is required </div>
+      </div>
+    </div>
+        <div class="form-group">
+          <label for="">Address</label>
+          <textarea class="form-control" name="pAddress"   #pAddress="ngModel"  required minlength="10"  [(ngModel)]="customer.address" [class.is-valid]="pAddress.valid"[class.is-invalid]="pAddress.invalid && pAddress.touched"     id="" rows="3"></textarea>
+          <div class="alert alert-danger"  *ngIf="pAddress.invalid && pAddress.touched"  role="alert">
+            <div *ngIf="pAddress.hasError('required')" > Address is required </div>
+            <div *ngIf="pAddress.hasError('minlength')"> please write complete address </div>
+  
+        </div>
+        </div>      
+        <div class="form-group">
+          <label for="">Phone_number</label>
+          <input type="tel" name="pPhone" phone-input   #pPhone="ngModel"   required minlength="11"  [(ngModel)]="customer.phone" [class.is-valid]="pPhone.valid"[class.is-invalid]="pPhone.invalid && pPhone.touched" id="" class="form-control" placeholder="" aria-describedby="helpId">
+          <div class="alert alert-danger"  *ngIf="pPhone.invalid && pPhone.touched"  role="alert">
+            <div *ngIf="pPhone.hasError('required')" > Phone is required </div>
+            <div *ngIf="pPhone.hasError('minlength')"> Phone is less than 11 Numbers </div>
+        </div>
+      </div>
+
+        <button type="submit" class="btn btn-primary" [disabled]="myForm.invalid">Save</button>
+      </form>
+    </div>
+  </div>
+</div>
+</div> -->
+
+
+<!-- 
+
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<div class="w3-bar w3-black" >
+
+<nav class="navbar navbar-inverse" style="background-color: rgb(147, 199, 241) ;font-family: 'Lemonada', cursive;
+font-size:medium;
+font-weight: bold; padding-left: 10ch;padding-top:2%;
+color: rgb(4, 32, 49);" >
+
+<a class="w3-bar-item w3-button" mdbWavesEffect   [routerLink]="['/Login']" ><mdb-icon fas icon="sign-in-alt"  size="1x"></mdb-icon> تسجيل الدخول<span class="sr-only">(current)</span>
+</a>
+<a class="w3-bar-item w3-button" mdbWavesEffect [routerLink]="['/Register']" ><mdb-icon fas icon="user-plus"  size="1x"></mdb-icon> الاشتراك<span class="sr-only">(current)</span>
+</a>
+<a class="w3-bar-item w3-button" mdbWavesEffect [routerLink]="['/Contact']" ><mdb-icon fas icon="phone-alt"  size="1x"></mdb-icon> أتصل بنا<span class="sr-only">(current)</span></a>
+<a class="w3-bar-item w3-button" mdbWavesEffect [routerLink]="['/Technision']" ><mdb-icon fas icon="phone-alt"  size="1x"></mdb-icon> الفنيين<span class="sr-only">(current)</span></a>
+<a class="w3-bar-item w3-button" mdbWavesEffect [routerLink]="['/Services']"><mdb-icon fas icon="tools"  size="1x" ></mdb-icon> الخدمات</a>
+<a class="w3-bar-item w3-button" mdbWavesEffect [routerLink]="['/Aboutus']"><mdb-icon fas icon="building"  size="1x"></mdb-icon> عن الشركة<span class="sr-only">(current)</span></a>
+
+<a class="w3-bar-item w3-button" mdbWavesEffect [routerLink]="['/Content']"><mdb-icon fas icon="tools"  size="1x"></mdb-icon>الرئيسية</a>
+
+  
+  <img
+  src="../../../assets/1.png"
+  class="img-fluid rounded-pill"
+  alt=""
+/>
+</nav> -->
+
+<!-- Navbar-->
+
+
+ 
+
+  <header id="header" class="fixed-top d-flex align-items-center">
+    <div class="container"dir="rtl">
+      <div class="header-container d-flex align-items-center" dir="rtl">
+        <div class="logo">
+          <!-- <h1 class="text-light"><a href="index.html"><span>Bethany</span></a></h1> -->
+          <!-- Uncomment below if you prefer to use an image logo -->
+          <h1 class="text-light"> <a href="index.html"><img src="assets/Product.png" alt="" class="img-fluid"></a></h1>
+        </div>
+
+        <nav class="nav-menu d-none d-lg-block">
+          <ul dir="rtl" >
+            <li class="get-started"><a href="#about">هيابنا</a></li>
+          <li style="text-align: right;"> <a  class="w3-bar-item w3-button" mdbWavesEffect [routerLink]="['/Login']" ><mdb-icon fas icon="sign-in-alt"  size="1x"></mdb-icon> تسجيل الدخول</a></li>
+         <li style="text-align: right;"> <a class="w3-bar-item w3-button" mdbWavesEffect [routerLink]="['/Register']" ><mdb-icon fas icon="user-plus"  size="1x"></mdb-icon> الاشتراك</a></li>
+         <li style="text-align: right;"> <a class="w3-bar-item w3-button" mdbWavesEffect [routerLink]="['/Contact']" ><mdb-icon fas icon="phone-alt"  size="1x"></mdb-icon> التواصل </a></li>
+         <li style="text-align: right;"> <a class="w3-bar-item w3-button" mdbWavesEffect [routerLink]="['/Technision']" ><mdb-icon fas icon="users"  size="1x"></mdb-icon> الفنيين</a></li>
+         <li style="text-align: right;" ><a class="w3-bar-item w3-button" mdbWavesEffect [routerLink]="['/Products']"><mdb-icon fas icon="tools"  size="1x"></mdb-icon> المنتجات</a></li>
+         <li style="text-align: right;"> <a class="w3-bar-item w3-button" mdbWavesEffect [routerLink]="['/Services']"><mdb-icon fas icon="tools"  size="1x" ></mdb-icon> الخدمات</a></li>
+         <li style="text-align: right;"> <a class="w3-bar-item w3-button" mdbWavesEffect [routerLink]="['/Aboutus']"><mdb-icon fas icon="users"  size="1x"></mdb-icon>  فريق العمل</a></li>
+         <li style="text-align: right;"> <a class="w3-bar-item w3-button" mdbWavesEffect [routerLink]="['/Content']"><mdb-icon fas icon="building"  size="1x"></mdb-icon>الرئيسية</a></li>
+        
+ 
+ 
+<!--             
+            <li class="get-started"><a href="#about">هيابنا</a></li>
+            <li><a href="#" [routerLink]="['/Login']">تسجيل الدخول</a></li>
+            <li><a href="#" [routerLink]="['/Register']">الاشتراك</a></li>
+            <li><a href="#why-us">لماذانحن</a></li>
+            <li><a href="#"[routerLink]="['/Contact']"> التواصل</a></li>
+            <li><a href="#" [routerLink]="['/Products']">المنتجات</a></li>
+            <li><a href="#" [routerLink]="['/Services']">الخدمات</a></li>
+            <li><a href="#" [routerLink]="['/Aboutus']">فريق العمل</a></li>
+            <li class="active"><a href="#" [routerLink]="['/Content']">الرئيسية</a></li> -->
+          </ul>
+        </nav><!-- .nav-menu -->
+      </div><!-- End Header Container -->
+    </div>
+  </header><!-- End Header -->

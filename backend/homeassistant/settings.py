@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',   # for user registrations
     'account',
     'service',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -57,7 +58,7 @@ MIDDLEWARE = [
 ]
 
 CORS_ORIGIN_WHITELIST = (
-    ' http://localhost:4200',
+    'http://localhost:4200',
 )
 ROOT_URLCONF = 'homeassistant.urls'
 
