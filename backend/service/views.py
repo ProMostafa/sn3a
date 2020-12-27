@@ -102,19 +102,3 @@ class ProductView(viewsets.ModelViewSet):
         products = Product.objects.filter(category=pk)
         serializer = ProductSerializer(products, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

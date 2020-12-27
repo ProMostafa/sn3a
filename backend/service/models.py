@@ -67,6 +67,7 @@ class Rating(models.Model):
         # when ordering data
         index_together = (('customer', 'technical'),)
 
+
 class Product(models.Model):
     category = models.ForeignKey(Services, on_delete=models.CASCADE, related_name='product_category')
     name = models.CharField(max_length=255)
