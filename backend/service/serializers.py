@@ -23,9 +23,6 @@ class OrderSerializer(serializers.ModelSerializer):
 class RatingSerializer(serializers.ModelSerializer):
     class Meta:
         model = Rating
-<<<<<<< HEAD
-        fields = '__all__'
-=======
         fields = '__all__'
 
 
@@ -33,4 +30,3 @@ class ProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
         fields = '__all__'
->>>>>>> 66ad482f2948d2845b0c33da53df08e5ee61535d

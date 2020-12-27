@@ -100,4 +100,3 @@ class SetNewPasswordSeriliazer(serializers.Serializer):
         except Exception as err:
             raise AuthenticationFailed('The reset link is invalid',401)
         return super().validate(attrs)
-
