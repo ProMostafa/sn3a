@@ -1,5 +1,3 @@
-from django.shortcuts import render
-from django.http import JsonResponse
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.contrib.auth.tokens import PasswordResetTokenGenerator
 from django.contrib.sites.shortcuts import get_current_site
@@ -12,13 +10,15 @@ from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.decorators import action
 from rest_framework.authentication import TokenAuthentication
 from rest_framework_simplejwt.tokens import RefreshToken
-from django.db.models import Q
+from django.template import Context
+from django.template.loader import render_to_string, get_template
+from django.core.mail import send_mail
 
 
 from .models import User
 from .utils import Util
 from .serializers import UserSerializer, ChangePasswordSerializer,\
-    ResetPassowrdByEmailSerializer, SetNewPasswordSeriliazer
+    ResetPassowrdByEmailSerializer, SetNewPasswordSeriliazer, SendMessageToAdminSeriliazer
 import jwt
 from decouple import config
 # Create your views here.
@@ -40,11 +40,22 @@ class UserViewSet(viewsets.ModelViewSet):
         # user.save()
         token = RefreshToken.for_user(user).access_token
         current_site = get_current_site(request)
-        relative_link = reverse('email_verify')
-        adsurl = f'http://{current_site}{relative_link}?token={str(token)}'
-        email_body = f'Hi {user.username} Use link below to verify your email \n {adsurl}'
-        data = {'email_body': email_body, 'to_email': user.email, 'email_subject': 'Verify Your Account'}
-        Util.send_email(data)
+        # relative_link = reverse('email_verify')
+        # adsurl = f'http://{current_site}{relative_link}?token={str(token)}'
+
+        # relative_link = reverse('email_verify')
+        adsurl = f'http://localhost:4200/activate_account?token={str(token)}'
+        # email_body = f'Hi {user.username} Use link below to verify your email \n {adsurl}'
+        # data = {'email_body': email_body, 'to_email': user.email, 'email_subject': 'Verify Your Account'}
+        # Util.send_email(data)
+        ctx = {
+            'user': user.username,
+            'adsurl': adsurl
+        }
+        message = get_template('activate.html').render(ctx)
+        data = {'email_body': message, 'to_email':user.email, 'email_subject': 'Verify Your Account'}
+        print(data)
+        Util.send_html_email(data)
         response ={
             'message': 'user created',
             'user': user_data
@@ -58,6 +69,7 @@ class UserViewSet(viewsets.ModelViewSet):
         serializer = UserSerializer(technicals, many=True)
         # response = {'message': 'get all technicals', 'result': serializer.data}
         return Response(serializer.data, status=status.HTTP_200_OK)
+
 
 
 class VerifyEmail(APIView):
@@ -124,10 +136,18 @@ class RestPasswordByEmailView(APIView):
                     request=request).domain
                 relative_link = reverse(
                     'password_reset_confirm', kwargs={'uid64': uid64, 'token': token})
-                absurl = f'http://{current_site}{relative_link}'
-                email_body = f'Hello,\n {user.username} Use Link below to rest your password \n' + absurl
-                data = {'email_body': email_body, 'to_email': email, 'email_subject': 'Rest your password'}
-                Util.send_email(data)
+                # absurl = f'http://{current_site}{relative_link}'
+                # email_body = f'Hello,\n {user.username} Use Link below to rest your password \n' + absurl
+                # data = {'email_body': email_body, 'to_email': email, 'email_subject': 'Rest your password'}
+                # Util.send_email(data)
+                adsurl = f'http://localhost:4200/ResetPasswordConfirm?token={str(token)}&uid64={str(uid64)}'
+                ctx = {
+                    'user': 'customer',
+                    'adsurl': adsurl
+                }
+                message = get_template('reset_password.html').render(ctx)
+                data = {'email_body': message, 'to_email': email, 'email_subject': 'Rest your password'}
+                Util.send_html_email(data)
                 return Response({'success': 'We have send you a link to rest your password'}, status=status.HTTP_200_OK)
             return Response({'fail': 'This email not registrations'}, status=status.HTTP_400_BAD_REQUEST)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
@@ -153,3 +173,15 @@ class SetNewPasswordView(APIView):
         return Response({'success': True, 'message':'Password reset successfully'}, status=status.HTTP_200_OK)
 
 
+class SendMessageToAdmin(APIView):
+    def post(self, request):
+        serializer = SendMessageToAdminSeriliazer(data=request.data)
+        if serializer.is_valid():
+            message = request.data['message']
+            subject = request.data['subject']
+            email = request.data['email']
+            data = {'email_body': message, 'to_email': email, 'email_subject': subject}
+            admin = ['promostafaeladawy@gmail.com',]
+            send_mail(subject=subject, message=message, from_email=email, recipient_list=admin)
+            return Response({'success': True, 'message': 'Message send successfully'}, status=status.HTTP_200_OK)
+        return Response({'error': serializer.errors, 'message': 'Message not send '}, status=status.HTTP_400_BAD_REQUEST)

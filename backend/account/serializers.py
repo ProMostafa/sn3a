@@ -100,3 +100,12 @@ class SetNewPasswordSeriliazer(serializers.Serializer):
         except Exception as err:
             raise AuthenticationFailed('The reset link is invalid',401)
         return super().validate(attrs)
+
+
+class SendMessageToAdminSeriliazer(serializers.Serializer):
+    email = serializers.EmailField(min_length=2)
+    subject = serializers.CharField(max_length=1024, min_length=5)
+    message = serializers.CharField(style={'base_template': 'textarea.html'})
+
+    class Meta:
+        fields = ['email', 'subject', 'message']

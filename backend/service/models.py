@@ -66,8 +66,6 @@ class Rating(models.Model):
         unique_together = (('customer', 'technical'),)
         # when ordering data
         index_together = (('customer', 'technical'),)
-        index_together = (('customer', 'technical'),)
-
 
 class Product(models.Model):
     category = models.ForeignKey(Services, on_delete=models.CASCADE, related_name='product_category')
