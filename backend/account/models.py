@@ -66,7 +66,6 @@ class User(AbstractBaseUser):
     )
     date_of_creation = models.DateField(auto_now_add=True)
     is_active = models.BooleanField(default=True)
-    user_message=models.CharField(default=False,max_length=1000)
 
     # for technical Account
     is_technical = models.BooleanField(default=False)

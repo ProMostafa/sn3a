@@ -12,11 +12,7 @@ from rest_framework.authentication import TokenAuthentication
 from rest_framework_simplejwt.tokens import RefreshToken
 from django.template import Context
 from django.template.loader import render_to_string, get_template
-<<<<<<< HEAD
 from django.core.mail import send_mail
-=======
-from django.core.mail import EmailMessage
->>>>>>> 7fbb6e0774924b47890cdb7a7b7bc1b3dc1ee05b
 
 
 from .models import User

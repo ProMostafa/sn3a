@@ -7,6 +7,7 @@ router = DefaultRouter()
 router.register('users', UserViewSet)
 urlpatterns = [
     path('', include(router.urls)),
+
     path('send_message/', SendMessageToAdmin.as_view(), name='send_message'),
     path('email_verify/', VerifyEmail.as_view(), name='email_verify'),
     path('change_password/', UpdatePasswordView.as_view(), name='change_password'),
