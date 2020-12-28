@@ -14,8 +14,10 @@ import { Component, OnInit } from '@angular/core';
 export class NavbarComponent implements OnInit {
   // user:Ilogin;
   // customer:Icustomer;
-  
-constructor(){}
+  login:boolean;
+constructor(){
+  this.login=false
+}
   // constructor(private _ApiCustomer:CustomerService,private _ApiUser:LoginService,private _router:Router) { 
     // this.user={  
     //   email: " ",
@@ -32,7 +34,14 @@ constructor(){}
     //  };
   
 
-  ngOnInit(): void { }
+  ngOnInit(): void { 
+    if (localStorage.getItem('token'))
+        {
+          this.login=true
+          console.log('login')
+        }
+
+  }
   // Login(){
   //   this._ApiUser.loginUser(this.user).subscribe(
   //     (data)=>this._router.navigateByUrl('/Login'),
@@ -46,5 +55,11 @@ constructor(){}
   //     (err)=>console.log(err)
   //   )
   //  }
+
+  checkLogin(){
+    if (localStorage.getItem('token'))
+      return true
+    return false
+  }
 
 }

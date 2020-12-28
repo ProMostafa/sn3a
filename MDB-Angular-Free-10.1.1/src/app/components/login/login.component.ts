@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
    response:LoginResponse;
   constructor(private _ApiUser:LoginService,private _router:Router) { 
     this.user={  
-      email: " ",
+      username: " ",
       password:null
      };
 
@@ -38,12 +38,18 @@ export class LoginComponent implements OnInit {
   Login(){
     // console.log("errorr hi")
     this._ApiUser.loginUser(this.user).subscribe(
-      (data)=>this._router.navigateByUrl('/Login'),
-      (err)=>console.log(err)
-
-
+      (data)=>this.success(data),
+      (err)=>this.fail(err)
     )
+  }
 
+  success(res){
+    localStorage.setItem('token',res['token'])
+    this._router.navigateByUrl('/Content')
+  }
+
+  fail(err){
+    console.log(err['error'])
   }
 
 }
