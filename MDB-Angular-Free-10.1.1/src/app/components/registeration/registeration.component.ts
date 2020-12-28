@@ -28,10 +28,17 @@ export class RegisterationComponent implements OnInit {
     // console.log("errorr hi")
 
     this._ApiCustomer.insertCustomer(this.customer).subscribe(
-      (data)=>this._router.navigateByUrl('/Register'),
-      (err)=>console.log(err)
-
-
+      (data)=>this.success(data),
+      (err)=>this.fail(err)
     )
+   }
+
+   success(res){
+     console.log(res)
+     this._router.navigateByUrl('/Login')
+   }
+
+   fail(err){
+     console.log(err)
    }
 }
