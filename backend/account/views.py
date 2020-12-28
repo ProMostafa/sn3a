@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-from django.shortcuts import render
-from django.http import JsonResponse
-=======
->>>>>>> 0437395646b64ffa278e112794d621d4c3354659
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.contrib.auth.tokens import PasswordResetTokenGenerator
 from django.contrib.sites.shortcuts import get_current_site
@@ -17,21 +12,13 @@ from rest_framework.authentication import TokenAuthentication
 from rest_framework_simplejwt.tokens import RefreshToken
 from django.template import Context
 from django.template.loader import render_to_string, get_template
-<<<<<<< HEAD
-from django.core.mail import EmailMessage
-=======
 from django.core.mail import send_mail
->>>>>>> 0437395646b64ffa278e112794d621d4c3354659
 
 
 from .models import User
 from .utils import Util
 from .serializers import UserSerializer, ChangePasswordSerializer,\
-<<<<<<< HEAD
-    ResetPassowrdByEmailSerializer, SetNewPasswordSeriliazer
-=======
     ResetPassowrdByEmailSerializer, SetNewPasswordSeriliazer, SendMessageToAdminSeriliazer
->>>>>>> 0437395646b64ffa278e112794d621d4c3354659
 import jwt
 from decouple import config
 # Create your views here.
@@ -149,12 +136,6 @@ class RestPasswordByEmailView(APIView):
                     request=request).domain
                 relative_link = reverse(
                     'password_reset_confirm', kwargs={'uid64': uid64, 'token': token})
-<<<<<<< HEAD
-                absurl = f'http://{current_site}{relative_link}'
-                email_body = f'Hello,\n {user.username} Use Link below to rest your password \n' + absurl
-                data = {'email_body': email_body, 'to_email': email, 'email_subject': 'Rest your password'}
-                Util.send_email(data)
-=======
                 # absurl = f'http://{current_site}{relative_link}'
                 # email_body = f'Hello,\n {user.username} Use Link below to rest your password \n' + absurl
                 # data = {'email_body': email_body, 'to_email': email, 'email_subject': 'Rest your password'}
@@ -167,7 +148,6 @@ class RestPasswordByEmailView(APIView):
                 message = get_template('reset_password.html').render(ctx)
                 data = {'email_body': message, 'to_email': email, 'email_subject': 'Rest your password'}
                 Util.send_html_email(data)
->>>>>>> 0437395646b64ffa278e112794d621d4c3354659
                 return Response({'success': 'We have send you a link to rest your password'}, status=status.HTTP_200_OK)
             return Response({'fail': 'This email not registrations'}, status=status.HTTP_400_BAD_REQUEST)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
