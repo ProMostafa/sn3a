@@ -7,5 +7,6 @@ export interface Itechnision {
         image:string;
         is_technical?:boolean;
         password?:any;
+        service_id:number;
    
 }
