@@ -29,9 +29,9 @@ this.TechnisionList=[{
   username:" ",
   address: " ",
   phone:null,
-  is_technical:true,
-  password:null,
-  image:""
+  image:"",
+  job:"",
+  description:""
 
 }]
    }

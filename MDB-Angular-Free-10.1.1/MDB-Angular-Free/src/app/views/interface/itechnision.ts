@@ -5,7 +5,6 @@ export interface Itechnision {
         address?: string;
         phone?:number;
         image:string;
-        is_technical?:boolean;
-        password?:any;
-   
+       job:string;
+       description:string;
 }
