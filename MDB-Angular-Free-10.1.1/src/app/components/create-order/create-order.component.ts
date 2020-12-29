@@ -2,14 +2,14 @@ import { Component, OnInit , Input } from '@angular/core';
 import { IsubService } from '../../views/interface/isub-service';
 import { SubserviceService } from '../../../app/services/subservice.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Itechnision } from 'src/app/views/interface/itechnision';
-import { TechnisionService } from 'src/app/services/technision.service';
-import {  Isubproduct } from 'src/app/views/interface/isubproduct';
-import { SubproductService } from 'src/app/services/subproduct.service';
-import { ServiceService } from 'src/app/services/service.service';
-import { Iservice } from 'src/app/views/interface/iservice';
-import { Iorder } from 'src/app/views/interface/iorder';
-import { OrderService } from 'src/app/services/order.service';
+import { Itechnision } from '../../../../src/app/views/interface/itechnision';
+import { TechnisionService } from '../../../../src/app/services/technision.service';
+import {  Isubproduct } from '../../../../src/app/views/interface/isubproduct';
+import { SubproductService } from '../../../../src/app/services/subproduct.service';
+import { ServiceService } from '../../../../src/app/services/service.service';
+import { Iservice } from '../../../../src/app/views/interface/iservice';
+import { Iorder } from '../../views/interface/iorder';
+import { OrderService } from '../../../../src/app/services/order.service';
 
 
 
