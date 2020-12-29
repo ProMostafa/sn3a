@@ -1,4 +1,7 @@
 from django.urls import path, include
+from django.conf import settings
+from django.conf.urls.static import static
+
 from .views import UserViewSet, UpdatePasswordView,\
     PasswordTokenCheck, RestPasswordByEmailView, VerifyEmail, SetNewPasswordView, SendMessageToAdmin
 from rest_framework.routers import DefaultRouter
@@ -15,3 +18,6 @@ urlpatterns = [
     path('password_reset_confirm/<uid64>/<token>/', PasswordTokenCheck.as_view(), name='password_reset_confirm'),
     path('password_reset_complete/',SetNewPasswordView.as_view(), name='password_reset_complete')
 ]
+#
+# if settings.DEBUG:
+#     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
