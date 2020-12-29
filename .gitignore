@@ -7,8 +7,3 @@ media/
 /backend/.env
 /backend/.venv/
 /MDB-Angular-Free-10.1.1/node_modules/
-<<<<<<< HEAD
-=======
-.gitignore
-
->>>>>>> 3107daf262bdaedfec0f23fccccd15114d2ff275

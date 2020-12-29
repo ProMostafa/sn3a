@@ -1,0 +1,115 @@
+.sec-footer{
+    background: rgb(153, 205, 248);
+    direction: rtl;
+    text-align: right;
+    color: rgb(1, 30, 48);
+    padding-top: 2.5rem;
+    padding-bottom: 3.5rem;
+    font-family: 'Lemonada', cursive
+}
+.sec-footer .desc-box{
+    background: transparent;
+    border: 0;
+    direction: rtl;
+}
+.sec-footer .desc-box .card-title::after{
+    content: ' ';
+    background: #252424;
+    display: block;
+    width: 95%;
+    height: 0.2rem;
+    direction: rtl;
+    margin-top:0.3rem;
+}
+.sec-footer .desc-box .card-text{
+    // font-family:iranyekan_light;
+    text-align: right;
+    direction: rtl;
+}
+
+.sec-sub-footer{
+    background:rgb(49, 48, 48);
+    direction: rtl;
+    text-align:right;
+    color: #fff;
+    padding-top: 1 rem;
+    padding-bottom: 1 rem;
+    font-size: 15px;
+}
+.sec-sub-footer a{
+    font-size: 15px;
+    direction: rtl;
+}
+
+
+
+/*------------------*/
+.snip1472 {
+    position: relative;
+    font-size: 20px;
+    color: #e6e6e6;
+    width: 45px;
+    margin: 4px;
+    height: 45px;
+    line-height: 45px;
+    display: inline-block;
+    text-align: right;
+    -webkit-perspective: 50em;
+    perspective: 50em;
+    text-decoration: none;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    direction: rtl;
+}
+.snip1472:after {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border: 2px solid #e6e6e6;
+    content: '';
+    z-index: -1;
+    border-radius: 50%;
+    direction: rtl;
+}
+.snip1472:before {
+    color: #fff;
+    direction: rtl;
+}
+.snip1472:before,
+.snip1472:after {
+    -webkit-transition: all 0.45s ease-in-out;
+    transition: all 0.45s ease-in-out;
+    direction: rtl;
+}
+.snip1472:hover,
+.snip1472:active,
+.snip1472.hover {
+    color: #c0392b;
+    direction: rtl;
+}
+.snip1472:hover:after,
+.snip1472:active:after,
+.snip1472.hover:after {
+    border-color: #c0392b transparent #c0392b transparent;
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+    direction: rtl;
+}
+img{
+  height: 4rem;
+  width: 5rem;
+}
+h1,h2,h3,h4{
+text-align:right;
+}
+p{
+    text-align:right;
+    font-family: 'Lemonada', cursive
+
+
+}
+#footer .footer-top .footer-contact p{
+    font-family: 'Lemonada', cursive
+}
