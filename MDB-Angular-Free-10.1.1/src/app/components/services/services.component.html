@@ -30,10 +30,10 @@
     <div class="container">
 
       <div class="row" dir="rtl">
-        <div class="col-lg-4">
+        <div class="col-lg-4" dir="rtl">
           <div class="section-title" data-aos="fade-right">
-            <h2>Services</h2>
-            <p>Magnam dolores commodi suscipit nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+            <h2 style="text-align: right;">Services</h2>
+            <p style="text-align: right;">Magnam dolores commodi suscipit nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
           </div>
         </div>
         <div class="col-lg-8">
@@ -44,7 +44,7 @@
 
                 <div class="view view-cascade overlay waves-light" style="border-radius: 10% 10% 10% 10%" mdbWavesEffect>
                   <mdb-card-img src="{{ser.image}}" ></mdb-card-img>
-                  <a [routerLink]="['/Subservice', ser.id]">
+                  <a href="#">
                     <div class="mask rgba-white-slight"></div>
                   </a>
                 </div>
@@ -53,9 +53,11 @@
                   <!-- <h5 class="text-primary"></h5> -->
                  
           
-                  <mdb-card-text>{{ser.description}}</mdb-card-text>
+                  <mdb-card-text> <h2 style="border-radius: 20% 20% 20% 20%; background-color: rgb(9, 131, 60); color: white;">{{ser.type}}</h2>
+                    <br>
+                    {{ser.description}}</mdb-card-text>
           
-                  <a mdbBtn color="primary" class="waves-light" mdbWavesEffect [routerLink]="['/Subservice', ser.id]"><strong>تفاصيل الخدمة</strong></a>
+                  <a mdbBtn  class="waves-light" style=" color:#009970;border-radius: 20% 20% 20% 20%" mdbWavesEffect [routerLink]="['/Subservice', ser.id]"><strong>تفاصيل الخدمة</strong></a>
           
                 </mdb-card-body>
           

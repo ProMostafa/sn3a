@@ -22,13 +22,12 @@ export class SubproductsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    let pid=this._activatedRoute.snapshot.params['id'];
-    this._apiSubProduct.getSubProductsById(pid).subscribe(
-            
-      (res)=>this.SubProductList=res,
+    
+    this._apiSubProduct.getAllProducts().subscribe(
+      //(data)=>console.log(data),
+      (data)=>this.SubProductList=data,
       (err)=>console.log(err)
-
-    );
+    )
   }
 
 }
