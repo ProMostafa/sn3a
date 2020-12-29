@@ -29,9 +29,9 @@ class UserSerializer(serializers.ModelSerializer):
             password=validated_data['password'],
         )
 
-        if validated_data['is_technical']:
-            user.is_technical = True
-            user.save()
+        # if validated_data['is_technical']:
+        #     user.is_technical = True
+        #     user.save()
 
 # very important Hint:
 # Django not create Token When create user for this you must create token for every user register
@@ -101,3 +101,11 @@ class SetNewPasswordSeriliazer(serializers.Serializer):
             raise AuthenticationFailed('The reset link is invalid',401)
         return super().validate(attrs)
 
+
+class SendMessageToAdminSeriliazer(serializers.Serializer):
+    email = serializers.EmailField(min_length=2)
+    subject = serializers.CharField(max_length=1024, min_length=5)
+    message = serializers.CharField(style={'base_template': 'textarea.html'})
+
+    class Meta:
+        fields = ['email', 'subject', 'message']

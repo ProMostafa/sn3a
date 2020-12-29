@@ -82,8 +82,8 @@ class User(AbstractBaseUser):
 
     # using for login
     # USERNAME_FIELD = 'username or email'
-    USERNAME_FIELD = 'username'
-    REQUIRED_FIELDS = ['email', 'phone', 'address']
+    USERNAME_FIELD = 'email'
+    REQUIRED_FIELDS = ['username', 'phone', 'address']
 
     def __str__(self):
         if self.is_technical:

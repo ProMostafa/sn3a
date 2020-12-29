@@ -7,6 +7,7 @@ def phone_validation(val):
         raise ValidationError('Enter Valid Egypt Phone Number')
 
 
+
 # def password_validation(password1, password2):
 #     # Check that the two password entries match
 #     if password1 and password2 and password1 != password2:
