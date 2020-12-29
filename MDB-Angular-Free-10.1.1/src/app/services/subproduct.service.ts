@@ -9,11 +9,12 @@ import { Observable } from 'rxjs';
 export class SubproductService {
 
   constructor(private http:HttpClient) { }
+  getAllProducts():Observable<Isubproduct[]>{
 
-  getSubProductsById(pid):Observable<Isubproduct[]>{
+    return  this.http.get<Isubproduct[]>(`${environment.ApiUrl}/products/`);
+   }
+
  
-    return this.http.get<Isubproduct[]>(`${environment.ApiUrl}/services/${pid}/get_sub_service/`);
-  }
 }
 
 

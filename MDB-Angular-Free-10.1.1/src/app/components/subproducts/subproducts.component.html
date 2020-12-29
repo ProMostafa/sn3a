@@ -1,32 +1,44 @@
  
- <div class="row">
- 
-    <div class="col-md-3" *ngFor="let s_product of SubProductList;let i=index">
-   <mdb-card
-   style="background-image: url('{{s_product.image}}');border-radius: 10% 30% 10% 10%"
-   class="card-image mb-3 mx-2 mt-3 example hoverable"
+
    
-  >
-   <!-- Content -->
-   <div class="text-white text-center d-flex align-items-center rgba-black-strong py-5 px-4">
-     <div>
-       <!-- <h5 class="pink-text">
-         <mdb-icon fas icon="chart-pie"></mdb-icon>
-         Marketing
-       </h5> -->
-       <h3 class="card-title pt-2"><strong>{{s_product.name}}</strong></h3>
-       <p>
-        
-        {{s_product.cost}} جنيه
-       </p>
-       <a mdbBtn color="primary" class="waves-light" mdbWavesEffect  [routerLink]="['/NewOrder']">
-         <mdb-icon far icon="clone" class="left"></mdb-icon>
-     اطلب الآن</a
-       >
-     </div>
-   </div>
-   <!-- Content -->
-  </mdb-card>
-  </div>
-  </div>
-  
+    <section id="portfolio" class="portfolio">
+      <div class="container">
+
+        <div class="section-title" data-aos="fade-right">
+         
+          <br> <br> <br> <br>
+          <p style="text-align: right;">Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+        </div>
+
+        <div class="row" data-aos="fade-up" data-aos-delay="100">
+          <div class="col-lg-12 d-flex justify-content-center">
+            <ul id="portfolio-flters" dir="rtl">
+              <li data-filter="*" class="filter-active">الكل</li>
+              <li data-filter=".1">النجارة</li>
+              <li data-filter=".2">الكهرباء</li>
+              <li data-filter=".3">النقاشة</li>
+              <li data-filter=".4">السباكة</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
+
+          <div class="col-lg-4 col-md-6 portfolio-item {{pro.category}}"*ngFor="let pro of  SubProductList; let i=index">
+            <div class="portfolio-wrap">
+              <img src="{{pro.image}}" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>{{pro.name}}</h4>
+                <p>جنيه{{pro.cost}}</p>
+                <div class="portfolio-links">
+                  <a href="{{pro.image}}" data-gall="portfolioGallery" class="venobox" title="App 1"><i class="bx bx-plus"></i></a>
+                  <a  title="More Details"[routerLink]="['/NewOrder']"><i class="bx bx-link"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+         </div>
+
+      </div>
+    </section>

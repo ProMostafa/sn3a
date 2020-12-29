@@ -10,7 +10,7 @@ export class TechnisionService {
   constructor(private http:HttpClient) { }
   getTechnisions():Observable<Itechnision[]>{
 
-    return  this.http.get<Itechnision[]>(`${environment.ApiUrl}/account/get_all_technical/`);
+    return  this.http.get<Itechnision[]>(`${environment.ApiUrl}/account/users/get_all_technical/`);
    }
 
 }
