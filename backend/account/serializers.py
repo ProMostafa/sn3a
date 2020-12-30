@@ -29,9 +29,9 @@ class UserSerializer(serializers.ModelSerializer):
             password=validated_data['password'],
         )
 
-        if validated_data['is_technical']:
-            user.is_technical = True
-            user.save()
+        # if validated_data['is_technical']:
+        #     user.is_technical = True
+        #     user.save()
 
 # very important Hint:
 # Django not create Token When create user for this you must create token for every user register
@@ -108,4 +108,8 @@ class SendMessageToAdminSeriliazer(serializers.Serializer):
     message = serializers.CharField(style={'base_template': 'textarea.html'})
 
     class Meta:
+<<<<<<< HEAD
         fields = ['email', 'subject', 'message']
+=======
+        fields = ['email', 'subject', 'message']
+>>>>>>> 89af1341d00a6662fb047dfcdde08193875934dd

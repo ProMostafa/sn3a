@@ -26,7 +26,7 @@ const routes: Routes = [
 {path:'Customer',component:CustomerComponent},
 {path:'Order/:id',component:OrderDetailsComponent},
 {path:'Subservice/:id',component:SubserviceComponent},
-{path:'Subproduct/:id',component:SubproductsComponent},
+{path:'Subproducts',component:SubproductsComponent},
 {path:'Orders',component:OrdersComponent},
 {path:'NewOrder',component:CreateOrderComponent},
 {path:'Register',component:RegisterationComponent},

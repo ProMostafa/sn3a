@@ -36,8 +36,8 @@ class UserViewSet(viewsets.ModelViewSet):
         serializer.save()
         user_data = serializer.data
         user = User.objects.get(email=user_data['email'])
-        # user.is_active = False
-        # user.save()
+        user.is_active = False
+        user.save()
         token = RefreshToken.for_user(user).access_token
         current_site = get_current_site(request)
         # relative_link = reverse('email_verify')
@@ -56,11 +56,11 @@ class UserViewSet(viewsets.ModelViewSet):
         data = {'email_body': message, 'to_email':user.email, 'email_subject': 'Verify Your Account'}
         print(data)
         Util.send_html_email(data)
-        response ={
-            'message': 'user created',
-            'user': user_data
-        }
-        return Response(response, status=status.HTTP_201_CREATED)
+        # response ={
+        #     'message': 'user created',
+        #     'user': user_data
+        # }
+        return Response(user_data, status=status.HTTP_201_CREATED)
 
     @action(detail=False, methods=['GET'])
     def get_all_technical(self, request, pk=None):
