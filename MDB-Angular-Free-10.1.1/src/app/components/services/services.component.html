@@ -1,0 +1,114 @@
+
+ <!-- <div class="row">
+ 
+  <div class="col-md-3" *ngFor="let ser of ServiceList; let i=index" >
+    <mdb-card cascade="true" narrower="true" class="mb-3 mt-3 example hoverable" style="border-radius: 10% 10% 10% 10%" >
+
+      <div class="view view-cascade overlay waves-light" style="border-radius: 10% 10% 10% 10%" mdbWavesEffect>
+        <mdb-card-img src="{{ser.image}}" ></mdb-card-img>
+        <a [routerLink]="['/Subservice', ser.id]">
+          <div class="mask rgba-white-slight"></div>
+        </a>
+      </div>
+
+      <mdb-card-body cascade="true" class="text-center">
+        <h5 class="text-primary"></h5>
+       
+
+        <mdb-card-text>{{ser.description}}</mdb-card-text>
+
+        <a mdbBtn color="primary" class="waves-light" mdbWavesEffect [routerLink]="['/Subservice', ser.id]"><strong>تفاصيل الخدمة</strong></a>
+
+      </mdb-card-body>
+
+    </mdb-card>
+  </div>
+ </div> -->
+
+<br><br><br>
+  <section id="services" class="services section-bg">
+    <div class="container">
+
+      <div class="row" dir="rtl">
+        <div class="col-lg-4" dir="rtl">
+          <div class="section-title" data-aos="fade-right">
+            <h2 style="text-align: right;">الخدمات المعروضة</h2>
+            <p style="text-align: right;">موقع صنعة يقدم لك كل الخدمات المنزلية من خلال افضل الفنيين الذين نثق فيهم كما يتيح البحث عن الخدمات والفنيين من خلال محرك البحث الخاص بالموقع حدد منطقتك والتخصص وأكيد هتلاقى اللى محتاجه</p>
+          </div>
+        </div>
+        <div class="col-lg-8">
+          <div class="row">
+            <div class="col-md-6 d-flex align-items-stretch" *ngFor="let ser of ServiceList; let i=index">
+             
+              <mdb-card cascade="true" narrower="true" class="mb-3 mt-3 example hoverable" style="border-radius: 10% 10% 10% 10%" >
+
+                <div class="view view-cascade overlay waves-light" style="border-radius: 10% 10% 10% 10%" mdbWavesEffect>
+                  <mdb-card-img src="{{ser.image}}" ></mdb-card-img>
+                  <a href="#">
+                    <div class="mask rgba-white-slight"></div>
+                  </a>
+                </div>
+          
+                <mdb-card-body cascade="true" class="text-center">
+                  <!-- <h5 class="text-primary"></h5> -->
+                 
+          
+                  <mdb-card-text> <h2 style="border-radius: 20% 20% 20% 20%; background-color: rgb(9, 131, 60); color: white;">{{ser.type}}</h2>
+                    <br>
+                    {{ser.description}}</mdb-card-text>
+          
+                  <a mdbBtn  class="waves-light" style=" color:#009970;border-radius: 20% 20% 20% 20%" mdbWavesEffect [routerLink]="['/Subservice', ser.id]"><strong>تفاصيل الخدمة</strong></a>
+          
+                </mdb-card-body>
+          
+              </mdb-card>
+             
+              <!-- <div class="icon-box" data-aos="zoom-in" data-aos-delay="100">
+                <div class="icon"><i class="bx bxl-dribbble"> <img src="{{ser.image}}" ></i></div>
+                <div class="view view-cascade overlay waves-light" style="border-radius: 10% 10% 10% 10%" mdbWavesEffect>
+                  <img src="{{ser.image}}" >
+                  
+                    <div class="mask rgba-white-slight"></div>
+                  
+                </div>
+          
+                <h4><a href="">{{ser.type}}</a></h4>
+                <p>{{ser.description}}</p>
+                <a mdbBtn color="primary" class="waves-light" mdbWavesEffect  [routerLink]="['/Subservice', ser.id]">
+                  <mdb-icon far icon="clone" class="left"></mdb-icon>
+             تفاصيل الخدمة
+                </a>
+              </div>
+            </div> -->
+
+            <!-- <div class="col-md-6 d-flex align-items-stretch mt-4 mt-lg-0">
+              <div class="icon-box" data-aos="zoom-in" data-aos-delay="200">
+                <div class="icon"><i class="bx bx-file"></i></div>
+                <h4><a href="">Sed ut perspiciatis</a></h4>
+                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>
+              </div>
+            </div>
+
+            <div class="col-md-6 d-flex align-items-stretch mt-4">
+              <div class="icon-box" data-aos="zoom-in" data-aos-delay="300">
+                <div class="icon"><i class="bx bx-tachometer"></i></div>
+                <h4><a href="">Magni Dolores</a></h4>
+                <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p>
+              </div>
+            </div>
+
+            <div class="col-md-6 d-flex align-items-stretch mt-4">
+              <div class="icon-box" data-aos="zoom-in" data-aos-delay="400">
+                <div class="icon"><i class="bx bx-world"></i></div>
+                <h4><a href="">Nemo Enim</a></h4>
+                <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis</p>
+              </div>
+            </div> -->
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+    </div>
+  </section>

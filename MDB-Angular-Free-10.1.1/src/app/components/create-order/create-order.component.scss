@@ -1,0 +1,14 @@
+button[type="submit"] {
+    background: #009970;
+    border: 0;
+    padding: 10px 30px;
+    color: #fff;
+    transition: 0.4s;
+    border-radius: 50px;
+    outline-style: none;
+    float: left;
+  }
+
+  button[type="submit"]:hover {
+    background: #00805d;
+  }
