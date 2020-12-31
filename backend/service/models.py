@@ -31,23 +31,40 @@ class SubServices(models.Model):
         return f"Service Category: {self.service.type}, Service Name: {self.name}"
 
 
+class Product(models.Model):
+    category = models.ForeignKey(Services, on_delete=models.CASCADE, related_name='product_category')
+    name = models.CharField(max_length=255)
+    cost = models.FloatField()
+    image = models.ImageField(upload_to='products/')
+
+    # def __str__(self):
+    #     return f"category: {self.category.name} , product name:{self.name}"
+
+
 class Order(models.Model):
     customer = models.ForeignKey(User, related_name='customer_order', on_delete=models.CASCADE)
     technical = models.ForeignKey(User, related_name='technical_order', on_delete=models.CASCADE)
-    service = models.ForeignKey(SubServices, related_name='sub_service', on_delete=models.CASCADE)
+    service = models.ForeignKey(Services, related_name='service_order', on_delete=models.CASCADE)
     status = models.BooleanField(default=False)
     create_at = models.DateField(auto_now_add=True)
     description = models.TextField(blank=True)
     date = models.DateField()
     total_cost = models.FloatField()
 
-# class ContacntUS(models.Model):
-#     message=models.TextField()
-#     user=models.ForeignKey(User,related_name='con_user',on_delete=models.CASCADE, null=True)
 
 class OrderPictures(models.Model):
     order = models.ForeignKey(Order, on_delete=models.CASCADE)
     pictures = models.ImageField(upload_to='order/')
+
+
+class OrderSubService(models.Model):
+    order = models.ForeignKey(Order, on_delete=models.CASCADE)
+    sub_service = models.ForeignKey(SubServices, related_name='sub_services_order', on_delete=models.CASCADE)
+
+
+class OrderProducts(models.Model):
+    order = models.ForeignKey(Order, on_delete=models.CASCADE)
+    product = models.ForeignKey(Product,on_delete=models.CASCADE)
 
 
 class Rating(models.Model):
@@ -68,11 +85,4 @@ class Rating(models.Model):
         index_together = (('customer', 'technical'),)
 
 
-class Product(models.Model):
-    category = models.ForeignKey(Services, on_delete=models.CASCADE, related_name='product_category')
-    name = models.CharField(max_length=255)
-    cost = models.FloatField()
-    image = models.ImageField(upload_to='products/')
 
-    def __str__(self):
-        return f"category: {self.category.name} , product name:{self.name}"
