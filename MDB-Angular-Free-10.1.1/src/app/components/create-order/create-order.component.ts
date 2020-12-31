@@ -35,7 +35,17 @@ export class CreateOrderComponent implements OnInit {
               private _apiServ:ServiceService,private _apiorder:OrderService,
               private _router:Router) {
 
+    this.order={
       
+      date:null,
+      description:null,
+      total_cost:null,
+      technical:null,
+      service:null, 
+      sub_service:[],
+      products:[],
+
+    }
     
    }
 
@@ -78,11 +88,11 @@ export class CreateOrderComponent implements OnInit {
 
 
   CreateOrder(){
-    console.log("dddd");
-    this._apiorder.insertOrder(this.order).subscribe(
-      (data)=>this._router.navigateByUrl('/NewOrder'),
-      (err)=>console.log(err)
-    )
+    console.log(this.order);
+    // this._apiorder.insertOrder(this.order).subscribe(
+    //   (data)=>this._router.navigateByUrl('/NewOrder'),
+    //   (err)=>console.log(err)
+    // )
   }
 
 }
