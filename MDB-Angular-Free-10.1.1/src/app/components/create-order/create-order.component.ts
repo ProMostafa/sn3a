@@ -26,7 +26,7 @@ export class CreateOrderComponent implements OnInit {
   SubServiceList:IsubService[];
   ServiceList:Iservice[];
   order:Iorder;
-
+  ser_id:number;
 
   
 
@@ -52,8 +52,7 @@ export class CreateOrderComponent implements OnInit {
   onChange(su_id) {
     //console.log(id_id);
 
-    let pid=this._activatedRoute.snapshot.params['id'];
-    this._apiSubserv.getSubServicesById(su_id).subscribe(
+    this._apiSubserv.getSubServicesById(this.ser_id).subscribe(
     //(res)=>console.log(res),
     (res)=>this.SubServiceList=res,
     (err)=>console.log(err)
@@ -63,7 +62,14 @@ export class CreateOrderComponent implements OnInit {
   }
 
   ngOnInit(): void {  
-    
+    //console.log(Number(localStorage.getItem('ser_id')));
+  this.ser_id=Number(localStorage.getItem('ser_id'));
+
+  this._apiSubserv.getSubServicesById(this.ser_id).subscribe(
+    //(res)=>console.log(res),
+    (res)=>this.SubServiceList=res,
+    (err)=>console.log(err)
+  );
     
 
   this._apiTech.getTechnisions().subscribe(
@@ -77,6 +83,10 @@ export class CreateOrderComponent implements OnInit {
     (data)=>this.ProductList=data,
     (err)=>console.log(err)
   );
+    // console.log(this.ProductList.find(prd=>prd.category==this.ser_id));
+  
+
+  
 
   this._apiServ.getAllServices().subscribe(
     //(data)=>console.log(data),
@@ -89,10 +99,13 @@ export class CreateOrderComponent implements OnInit {
 
   CreateOrder(){
     console.log(this.order);
-    // this._apiorder.insertOrder(this.order).subscribe(
-    //   (data)=>this._router.navigateByUrl('/NewOrder'),
-    //   (err)=>console.log(err)
-    // )
+    this._apiorder.insertOrder(this.order).subscribe(
+      (data)=>this._router.navigateByUrl('/NewOrder'),
+      (err)=>console.log(err)
+    )
   }
-
+  
+  // getProductsByServiceId():Isubproduct[]{
+  //   return this.ProductList.filter(prd=>prd.category==this.ser_id);
+  // }
 }

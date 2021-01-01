@@ -19,11 +19,7 @@ urlpatterns = [
     path('reset_password/', RestPasswordByEmailView.as_view(), name='reset_password'),
     path('password_reset_confirm/<uid64>/<token>/', PasswordTokenCheck.as_view(), name='password_reset_confirm'),
     path('password_reset_complete/',SetNewPasswordView.as_view(), name='password_reset_complete')
-<<<<<<< HEAD
-]
-=======
 ]
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
->>>>>>> 28d499d584ad3c9c98b6f6c2932c1ff2be6077c8

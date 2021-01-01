@@ -13,6 +13,10 @@ export class TechnisionService {
     return  this.http.get<Itechnision[]>(`${environment.ApiUrl}/account/users/get_all_technical/`);
    }
 
+   getTechnisionsByJob():Observable<Itechnision[]>{
+
+    return  this.http.get<Itechnision[]>(`${environment.ApiUrl}/account/users/get_technical_with_job/`);
+   }
 }
 
 

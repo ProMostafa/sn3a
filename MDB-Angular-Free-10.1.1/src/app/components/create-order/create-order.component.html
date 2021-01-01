@@ -13,16 +13,24 @@
           <form  (ngSubmit)="CreateOrder()">
             <div class="form-group">
               <label for="" >الخدمات الرئيسية </label>
-              <select class="browser-default custom-select"  [(ngModel)]="order.service" (change)="onChange($event.target.value)">
-                  <option *ngFor="let service of ServiceList; let i=index"  [value]="service.id">{{service.type}}</option>
+              <select class="browser-default custom-select"   [(ngModel)]="order.service" [ngModelOptions]="{standalone: true}" (change)="onChange($event.target.value)">
+                <!-- <option >تغيير الخدمات</option> -->
+                   <option *ngFor="let service of ServiceList; let i=index"  [value]="service.id" >{{service.type}}</option>
               </select>
           </div>
+          <!-- <h1>{{ser_id}} </h1>
+          [selected]="service.type === 'النجارة'" -->
               <div class="form-group">
                 <label for="" >الخدمات</label>
-                <select class="browser-default custom-select" multiple>
-                    <option selected *ngFor="let s_service of SubServiceList; let i=index">{{s_service.name}}</option>
+                <select class="browser-default custom-select" [(ngModel)]="order.sub_service" [ngModelOptions]="{standalone: true}" multiple>
+                    <option selected *ngFor="let s_service of SubServiceList; let i=index" [value]="s_service.id">{{s_service.name}}</option>
                 </select>
             </div>
+
+            
+            
+
+
             <!-- <label for="" >الخدمات</label><br>
             <fieldset class="form-group" *ngFor="let s_service of SubServiceList; let i=index">
               <label for="ch" >       {{s_service.name}}</label>
@@ -38,32 +46,32 @@
 
             <div class="form-group">
               <label for="" >المنتجات </label>
-              <select class="browser-default custom-select" multiple>
-                  <option *ngFor="let pro of ProductList; let i=index">{{pro.name}}</option>
+              <select class="browser-default custom-select" [(ngModel)]="order.products" [ngModelOptions]="{standalone: true}" multiple>
+                  <option *ngFor="let pro of ProductList; let i=index"  [value]="pro.id">{{pro.name}}</option>
               </select>
           </div>
     
           <div class="form-group">
             <label for="" >الفنيين </label>
-            <select class="browser-default custom-select"  [(ngModel)]="order.technical" >
-                <option *ngFor="let tec of TechnisionList; let i=index">{{tec.username}}</option>
+            <select class="browser-default custom-select"  [(ngModel)]="order.technical" [ngModelOptions]="{standalone: true}">
+                <option *ngFor="let tec of TechnisionList; let i=index"  [value]="tec.id" >{{tec.username}}</option>
             </select>
         </div>
         
      <div class="form-group  row mr-2">
           <label for="" >تاريخ تقديم الخدمة </label>
-          <input type="date" [(ngModel)]="order.date">  
+          <input type="date" [(ngModel)]="order.date" [ngModelOptions]="{standalone: true}">  
               </div>
     
         <div class="form-group">
           <label for="" >التكلفة </label>
-          <input type="text" class="form-control" [(ngModel)]="order.total_cost" readonly>
+          <input type="text" class="form-control" value="500" readonly [(ngModel)]="order.total_cost" [ngModelOptions]="{standalone: true}" >
         </div>
           
        
-                  <button type="submit" class="btn btn-primary" [routerLink]="['/orders']">إرسال الطلب</button>
+                  <button type="submit" class="btn btn-primary" >إرسال الطلب</button>
                 </form>
-          
+                <!-- [routerLink]="['/orders']" -->
         </div>
       </div>
 </div>
