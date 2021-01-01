@@ -27,6 +27,7 @@ export class CreateOrderComponent implements OnInit {
   ServiceList:Iservice[];
   order:Iorder;
   ser_id:number;
+  total_Cost:number;
 
   
 
@@ -34,12 +35,13 @@ export class CreateOrderComponent implements OnInit {
               private _apiTech:TechnisionService,private _apiproduct:SubproductService,
               private _apiServ:ServiceService,private _apiorder:OrderService,
               private _router:Router) {
-
+     
+    this.total_Cost=0;
     this.order={
       
       date:null,
       description:null,
-      total_cost:null,
+      total_cost:0,
       technical:null,
       service:null, 
       sub_service:[],
@@ -49,15 +51,24 @@ export class CreateOrderComponent implements OnInit {
     
    }
 
-  onChange(su_id) {
+  ChangeSubService(su_id:number) {
     //console.log(id_id);
-
-    this._apiSubserv.getSubServicesById(this.ser_id).subscribe(
+    this.total_Cost=0;
+    this._apiSubserv.getSubServicesById(su_id).subscribe(
     //(res)=>console.log(res),
     (res)=>this.SubServiceList=res,
     (err)=>console.log(err)
 
   );
+
+  }
+
+  ChangeCost(co:number){
+    //console.log(co);
+    //console.log(this.total_Cost);
+     this.total_Cost += co;
+     console.log(this.total_Cost);
+     this.order.total_cost=this.total_Cost;
 
   }
 
@@ -77,13 +88,15 @@ export class CreateOrderComponent implements OnInit {
     (data)=>this.TechnisionList=data,
     (err)=>console.log(err)
   );
+  
+  // console.log(this.TechnisionList.filter(tec=>tec.job=="None"));
+
 
   this._apiproduct.getAllProducts().subscribe(
     //(data)=>console.log(data),
     (data)=>this.ProductList=data,
     (err)=>console.log(err)
   );
-    // console.log(this.ProductList.find(prd=>prd.category==this.ser_id));
   
 
   
@@ -105,7 +118,6 @@ export class CreateOrderComponent implements OnInit {
     )
   }
   
-  // getProductsByServiceId():Isubproduct[]{
-  //   return this.ProductList.filter(prd=>prd.category==this.ser_id);
-  // }
+  
+  
 }

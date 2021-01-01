@@ -23,8 +23,8 @@ export class OrderService {
    insertOrder(prd:Iorder):Observable<Iorder>{
      const httpOptions ={headers:new HttpHeaders({
        'Content-Type': 'application/json',
-        'Accept': ' */*'
-       //  ,'Authorization': localStorage.getItem('token'),
+        'Accept': ' */*',
+        'Authorization': localStorage.getItem('token'),
        })};
      return this.http.post<Iorder>(`${environment.ApiUrl}subservices/apply_order/`,prd,httpOptions);
    }

@@ -4,18 +4,24 @@
     
     
     <div class="row ">
-        <div class="col-md-6 justify-content-center align-self-center">
-    
-          <img src="../../../assets/images/Home-Maintenance.png" class=" img-fluid z-depth-0 animated bounce " width="100%">
+        <div class="col-md-4 justify-content-center align-self-center">
+          <div class="container2">
+            <h4><i class="fa fa-shopping-cart" style="float: right;"></i> <span class="price" style="color:black"> ملخص الطلب</span></h4>
+            <br><hr>
+            <!-- <div *ngfor="let or of order; let i=index"><a href="#" style="float: right;">{{or.sub_service[i]}}</a><span class="price"></span></div> -->
+            <br><hr>
+            <p><span style="float: right;">إجمالي التكلفة : {{total_Cost}} جنيه</span></p>
+            </div>
+          <!-- <img src="../../../assets/images/Home-Maintenance.png" class=" img-fluid z-depth-0 animated bounce " width="100%"> -->
           
         </div>
         <div class="col-md-6 justify-content-center align-self-center">    	
           <form  (ngSubmit)="CreateOrder()">
             <div class="form-group">
               <label for="" >الخدمات الرئيسية </label>
-              <select class="browser-default custom-select"   [(ngModel)]="order.service" [ngModelOptions]="{standalone: true}" (change)="onChange($event.target.value)">
+              <select class="browser-default custom-select"   [(ngModel)]="order.service" [ngModelOptions]="{standalone: true}" (change)="ChangeSubService($event.target.value)">
                 <!-- <option >تغيير الخدمات</option> -->
-                   <option *ngFor="let service of ServiceList; let i=index"  [value]="service.id" >{{service.type}}</option>
+                   <option *ngFor="let service of ServiceList; let i=index"   [value]="service.id" >{{service.type}}</option>
               </select>
           </div>
           <!-- <h1>{{ser_id}} </h1>
@@ -23,7 +29,7 @@
               <div class="form-group">
                 <label for="" >الخدمات</label>
                 <select class="browser-default custom-select" [(ngModel)]="order.sub_service" [ngModelOptions]="{standalone: true}" multiple>
-                    <option selected *ngFor="let s_service of SubServiceList; let i=index" [value]="s_service.id">{{s_service.name}}</option>
+                    <option  *ngFor="let s_service of SubServiceList; let i=index"  [value]="s_service.id" (click)="ChangeCost(s_service.cost)">{{s_service.name}}</option>
                 </select>
             </div>
 
@@ -65,7 +71,7 @@
     
         <div class="form-group">
           <label for="" >التكلفة </label>
-          <input type="text" class="form-control" value="500" readonly [(ngModel)]="order.total_cost" [ngModelOptions]="{standalone: true}" >
+          <input type="text" class="form-control"  readonly [(ngModel)]="total_Cost" [ngModelOptions]="{standalone: true}" >
         </div>
           
        
