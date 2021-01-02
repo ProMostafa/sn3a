@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { environment } from './../../environments/environment';
 import { Icustomer } from '../../app/views/interface/icustomer';
+
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
@@ -19,5 +20,14 @@ export class CustomerService {
        })};
      return this.http.post<Icustomer>(`${environment.ApiUrl}/account/users/`,customer,httpOptions);
    }
+  getCustomer():Observable<Icustomer>{
+     const httpOptions ={headers:new HttpHeaders({
+       'Content-Type': 'application/json',
+        'Accept': ' */*'
+         ,'Athorization': localStorage.getItem('token')
+       })};
+     return this.http.get<Icustomer>(`${environment.ApiUrl}/account/users/get_user/`);
+   }
+      
 
 }

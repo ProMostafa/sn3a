@@ -4,7 +4,7 @@ export interface Icustomer {
     address: string;
     phone: string;
     password:any;
-    first_name?:string;
+    first_name?:string; 
     last_name?:string;
     job?:string;
 }

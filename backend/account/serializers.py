@@ -108,8 +108,4 @@ class SendMessageToAdminSeriliazer(serializers.Serializer):
     message = serializers.CharField(style={'base_template': 'textarea.html'})
 
     class Meta:
-<<<<<<< HEAD
         fields = ['email', 'subject', 'message']
-=======
-        fields = ['email', 'subject', 'message']
->>>>>>> 89af1341d00a6662fb047dfcdde08193875934dd

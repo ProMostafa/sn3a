@@ -8,8 +8,8 @@ export interface Iorder {
    customer?:number;
    technical?:number;
    service?:number;
-   sub_service:[];
-   products:[];
+   sub_service?:[];
+   products?:[];
 }
 
  
