@@ -38,27 +38,20 @@ export class LoginComponent implements OnInit {
   Login(){
     // console.log("errorr hi")
     this._ApiUser.loginUser(this.user).subscribe(
-<<<<<<< HEAD:MDB-Angular-Free-10.1.1/src/app/components/login/login.component.ts
       (data)=>this.success(data),
       (err)=>this.fail(err)
     )
   }
-=======
-      (data)=>this._router.navigateByUrl('/Login'),
-      (err)=>console.log(err)
->>>>>>> origin:MDB-Angular-Free-10.1.1/MDB-Angular-Free/src/app/components/login/login.component.ts
+     
 
   success(res){
     localStorage.setItem('token',res['token'])
     this._router.navigateByUrl('/Content')
   }
 
-<<<<<<< HEAD:MDB-Angular-Free-10.1.1/src/app/components/login/login.component.ts
   fail(err){
     console.log(err['error'])
-=======
-    )
->>>>>>> origin:MDB-Angular-Free-10.1.1/MDB-Angular-Free/src/app/components/login/login.component.ts
+    
 
   }
 
