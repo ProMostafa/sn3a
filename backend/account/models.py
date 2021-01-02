@@ -79,10 +79,6 @@ class User(AbstractBaseUser):
     is_active = models.BooleanField(default=True)
 
     # for technical Account
-<<<<<<< HEAD
-    is_technical = models.BooleanField(default=False)
-=======
->>>>>>> 4e3d9924000c2118de196167a6be58a0021c1fda
     available = models.BooleanField(default=True)
     description = models.TextField(null=True, blank=True)
     technical_job = models.ForeignKey(Services, on_delete=models.CASCADE, null=True, blank=True, default='')
