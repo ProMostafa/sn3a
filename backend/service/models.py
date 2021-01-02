@@ -1,18 +1,18 @@
 from django.db import models
 from django.core.validators import MaxLengthValidator,MinLengthValidator
-from account.models import User
+from account.models import User , Services
 
 
 # Create your models here.
 
 
-class Services(models.Model):
-    type = models.CharField(max_length=100)
-    description = models.TextField()
-    image = models.ImageField(upload_to='service/')
-
-    def __str__(self):
-        return f"Service Category: {self.type}"
+# class Services(models.Model):
+#     type = models.CharField(max_length=100)
+#     description = models.TextField()
+#     image = models.ImageField(upload_to='service/')
+#
+#     def __str__(self):
+#         return f"Service Category: {self.type}"
 
 
 # class ServicePicture(models.Model):
