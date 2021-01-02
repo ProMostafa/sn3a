@@ -1,4 +1,4 @@
-<!-- 
+<!--
 <form #myForm="ngForm" (ngSubmit)="CreateAccount()"  >
     <div class="form-group">
       <label for="">User_Name</label>
@@ -12,7 +12,7 @@
         <input type="email" name="pEmail" #pEmail="ngModel" [class.is-valid]="pEmail.valid"  [class.is-invalid]="pEmail.invalid && pEmail.touched" [(ngModel)]="customer.email"  minlength="7"  class="form-control" placeholder="" aria-describedby="helpId">
           <div class="alert alert-danger"  *ngIf="pEmail.invalid && pEmail.touched"  role="alert">
               <div *ngIf="pEmail.hasError('minlength')"> please write valid email </div>
-  
+
           </div>
       </div>
       <div class="form-group">
@@ -22,14 +22,14 @@
           <div *ngIf="pPass.hasError('minlength')" > Password is required </div>
       </div>
     </div>
-     
+
         <div class="form-group">
           <label for="">Address</label>
           <textarea class="form-control" name="pAddress"   #pAddress="ngModel"  required minlength="10"  [(ngModel)]="customer.address" [class.is-valid]="pAddress.valid"[class.is-invalid]="pAddress.invalid && pAddress.touched"     id="" rows="3"></textarea>
           <div class="alert alert-danger"  *ngIf="pAddress.invalid && pAddress.touched"  role="alert">
             <div *ngIf="pAddress.hasError('required')" > Address is required </div>
             <div *ngIf="pAddress.hasError('minlength')"> please write complete address </div>
-  
+
         </div>
         </div>
         <div class="form-group">
@@ -40,27 +40,29 @@
             <div *ngIf="pPhone.hasError('minlength')"> Phone is less than 11 Numbers </div>
         </div>
       </div>
-    
+
       <div class="form-group">
         <label for="">Image</label>
         <input type="image" name="PImage"    [(ngModel)]="customer.img"   class="form-control" placeholder="" aria-describedby="helpId">
-      
+
       </div>
-     
-  
-  
-  
+
+
+
+
         <button type="submit" class="btn btn-primary" [disabled]="myForm.invalid" [routerLink]="['/Login']">Save</button>
       </form> -->
-      <br><br><br>
-      <div class="row ">
-        <div class="col-md-6 justify-content-center align-self-center">
 
-          <img src="../../../assets/Home-Maintenance.png" class=" img-fluid z-depth-0 animated bounce " width="100%">
-          
-        </div>
-        <div class="col-md-6 justify-content-center align-self-center">    	
+      <div class="row " style=" background-image: url(../../../assets/images/registeration.jpeg);
+      background-repeat:no-repeat;
+      background-size: cover; padding-left: 400px;padding-top: 150px;padding-bottom: 50px;">
+
+        <div class="col-md-6 justify-content-center align-self-center" >
+          <br>
+          <h5> سجل الأن</h5>
+          <br>
           <form #myForm="ngForm" (ngSubmit)="CreateAccount()"  >
+
               <div class="form-group">
                 <label for="" >اسم المستخدم</label>
                 <input type="text" name="pName" #pName="ngModel" [class.is-valid]="pName.valid"  [class.is-invalid]="pName.invalid && pName.touched"  [(ngModel)]="customer.username"  minlength="3"  class="form-control" placeholder="" aria-describedby="helpId">
@@ -69,14 +71,14 @@
                       <div *ngIf="pName.hasError('minlength')"> برجاء ادخال اسم مستخدم صحيح </div>
                   </div>
               </div>
-              
+
                 <div class="form-group">
                   <label for="">البريد الالكتروني</label>
                   <input type="email" name="pEmail" #pEmail="ngModel" [class.is-valid]="pEmail.valid"  [class.is-invalid]="pEmail.invalid && pEmail.touched" [(ngModel)]="customer.email"  minlength="7" class="form-control" placeholder="" aria-describedby="helpId">
                     <div class="alert alert-danger"  *ngIf="pEmail.invalid && pEmail.touched"  role="alert">
                         <!-- <div *ngIf="pEmail.hasError('required')" > Email is required </div> -->
                         <div *ngIf="pEmail.hasError('minlength')"> برجاء ادخال بريد الكتروني صحيح </div>
-            
+
                     </div>
                 </div>
                 <div class="form-group">
@@ -86,14 +88,14 @@
                     <div *ngIf="pPass.hasError('minlength')" >برجاء ادخال كلمة المرور </div>
                 </div>
               </div>
-              
+
                   <div class="form-group">
                     <label for="">العنوان</label>
                     <textarea class="form-control" name="pAddress"   #pAddress="ngModel"  required minlength="10"  [(ngModel)]="customer.address" [class.is-valid]="pAddress.valid"[class.is-invalid]="pAddress.invalid && pAddress.touched"      rows="3"></textarea>
                     <div class="alert alert-danger"  *ngIf="pAddress.invalid && pAddress.touched"  role="alert">
                       <div *ngIf="pAddress.hasError('required')" > برجاء اجخال العنوان </div>
                       <div *ngIf="pAddress.hasError('minlength')"> برجاء ادخال العنوان </div>
-            
+
                   </div>
                   </div>
                   <div class="form-group">
@@ -104,8 +106,9 @@
                       <div *ngIf="pPhone.hasError('minlength')">برجاء ادخال رقم الموبايل</div>
                   </div>
                 </div>
-                  <button type="submit" class="btn btn-primary" [disabled]="myForm.invalid" [routerLink]="['/Register']">تسجيل البيانات</button>
-                </form>
-          
+                  <button type="submit" class="btn btn-primary" [disabled]="myForm.invalid" [routerLink]="['/Register']" style=" background-color: #1e5c21;">تسجيل البيانات</button>
+
+                  <br><br><br> </form>
         </div>
+
       </div>

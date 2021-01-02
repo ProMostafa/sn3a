@@ -17,6 +17,7 @@
   font-family: 'Lemonada';
   margin: 0 auto;
 text-align: center;
+background-color:white;
 }
 
 .card:hover {
@@ -24,3 +25,8 @@ text-align: center;
   -webkit-transform: scale(1); /* Safari 3-8 */
   transform: scale(1.2);
 }
+.car-caption{
+
+  background-color:  rgb(63, 133, 74);
+}
+
