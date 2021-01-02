@@ -61,7 +61,8 @@ import { ResetpasswordconfirmComponent } from './components/resetpasswordconfirm
     SubproductsComponent,
     ResetpasswordComponent,
     ActivateaccountComponent,
-    ResetpasswordconfirmComponent
+    ResetpasswordconfirmComponent,
+    ChatbotComponent
   ],
   imports: [
     // FormGroup ,
