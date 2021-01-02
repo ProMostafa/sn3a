@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from account.models import User
-from .models import Services, SubServices, Order, Rating, OrderPictures, Product
+from .models import Services, SubServices, Order, Rating, OrderPictures,\
+    Product, OrderSubService, OrderProducts
 from .serializers import ServicesSerializer, SubServicesSerializer,\
     OrderSerializer, RatingSerializer, ProductSerializer
 from rest_framework import viewsets, status
@@ -31,29 +32,74 @@ class SubServicesViewSet(viewsets.ModelViewSet):
     serializer_class = SubServicesSerializer
     permission_classes = (AllowAny, )
 
-    @action(detail=True, methods=['POST'],
+    @action(detail=False, methods=['POST'],
             authentication_classes=[TokenAuthentication],
             permission_classes=[IsAuthenticated])
     def apply_order(self, request, pk=None):
-        if 'technical_id' in request.data and 'date' in request.data and 'total_cost' in request.data:
+        serializer = OrderSerializer(data=request.data)
+        if serializer.is_valid():
             customer = request.user
-            service = SubServices.objects.get(id=pk)
-            technical = User.objects.get(id=request.data['technical_id'])
-            date = request.data['date']
-            total_cost = request.data['total_cost']
+            service = Services.objects.get(id=request.data['service'])
+            technical = User.objects.get(id=request.data['technical'])
+
             customer_order = Order.objects.create(
-                customer=customer, service=service,
-                technical=technical, date=date,
-                total_cost=total_cost)
+                customer=customer,
+                service=service,
+                technical=technical,
+                date=request.data['date'],
+                total_cost=request.data['total_cost']
+            )
+
+            #
+            # check for image order
+            if 'description' in request.data:
+                customer_order.description=request.data['description']
             customer_order.save()
+            # check for image order
             for image in request.FILES.getlist('images'):
                 OrderPictures.objects.create(order=customer_order, pictures=image)
+
+            # check for sub services in order
+            for sub_service in request.data['sub_services']:
+                sub_service = SubServices.objects.get(id=sub_service)
+                OrderSubService.objects.create(order=customer_order, sub_service=sub_service)
+
+            # check for products in order
+            for product in request.data['products']:
+                product = Product.objects.get(id=product)
+                OrderProducts.objects.create(order=customer_order, product=product)
+
             serializer = OrderSerializer(customer_order, many=False)
             response = {'message': 'Order Created', 'result': serializer.data}
             return Response(response, status=status.HTTP_200_OK)
-        else:
-            response = {'message': 'You Need to provide All Requiring Data'}
-            return Response(response, status=status.HTTP_400_BAD_REQUEST)
+
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+    # @action(detail=True, methods=['POST'],
+    #         authentication_classes=[TokenAuthentication],
+    #         permission_classes=[IsAuthenticated])
+    # def apply_order(self, request, pk=None):
+    #     if 'technical' in request.data and 'date' in request.data and 'total_cost' in request.data and 'service' in request.data:
+    #         customer = request.user
+    #         service = Services.objects.get(id=request.data['service'])
+    #         technical = User.objects.get(id=request.data['technical'])
+    #         date = request.data['date']
+    #         total_cost = request.data['total_cost']
+    #         customer_order = Order.objects.create(
+    #             customer=customer, service=service,
+    #             technical=technical, date=date,
+    #             total_cost=total_cost
+    #         )
+    #         customer_order.save()
+    #         for image in request.FILES.getlist('images'):
+    #             OrderPictures.objects.create(order=customer_order, pictures=image)
+    #         serializer = OrderSerializer(customer_order, many=False)
+    #         response = {'message': 'Order Created', 'result': serializer.data}
+    #         return Response(response, status=status.HTTP_200_OK)
+    #     else:
+    #         response = {'message': 'You Need to provide All Requiring Data'}
+    #         return Response(response, status=status.HTTP_400_BAD_REQUEST)
 
 
 class CustomerOrder(viewsets.ModelViewSet):
