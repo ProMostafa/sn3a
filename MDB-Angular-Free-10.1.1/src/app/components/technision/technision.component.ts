@@ -29,7 +29,7 @@ this.TechnisionList=[{
   username:" ",
   address: " ",
   phone:null,
-  image:"",
+  avatar:"",
   job:"",
   description:""
 

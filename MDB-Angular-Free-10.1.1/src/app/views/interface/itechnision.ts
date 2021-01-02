@@ -4,7 +4,7 @@ export interface Itechnision {
         username: string;
         address?: string;
         phone?:number;
-        image:string;
+        avatar:string;
        job:string;
        description:string;
 }

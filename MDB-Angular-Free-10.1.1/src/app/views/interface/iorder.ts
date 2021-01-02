@@ -7,7 +7,7 @@ export interface Iorder {
    create_at?:number;
    technical?:number;
    service?:number;
-   sub_service?:[];
+   sub_services?:[];
    products?:[];
 }
 
