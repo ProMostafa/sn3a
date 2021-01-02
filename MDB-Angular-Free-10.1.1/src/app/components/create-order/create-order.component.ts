@@ -56,7 +56,7 @@ export class CreateOrderComponent implements OnInit {
       total_cost:0,
       technical:null,
       service:null, 
-      sub_service:[],
+      sub_services:[],
       products:[],
 
     }
@@ -101,8 +101,8 @@ export class CreateOrderComponent implements OnInit {
     
 
   this._apiTech.getTechnisionsByJob(this.ser_id).subscribe(
-    (data)=>console.log(data),
-    //(data)=>this.TechnisionList=data,
+    //(data)=>console.log(data),
+    (data)=>this.TechnisionList=data,
     (err)=>console.log(err)
   );
   // getTechnisionsByJob
@@ -128,7 +128,17 @@ export class CreateOrderComponent implements OnInit {
 
 
   CreateOrder(){
-    console.log(this.order);
+    this.order={
+          
+      date:this.order.date,
+      description:"",
+      total_cost:this.order.total_cost,
+      technical:Number(this.order.technical),
+      service:Number(this.order.service), 
+      sub_services:this.order.sub_services,
+      products:this.order.products,
+        }
+    //console.log(this.order);
     this._apiorder.insertOrder(this.order).subscribe(
       (data)=>this._router.navigateByUrl('/NewOrder'),
       (err)=>console.log(err)

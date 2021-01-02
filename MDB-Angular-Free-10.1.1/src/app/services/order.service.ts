@@ -24,9 +24,9 @@ export class OrderService {
      const httpOptions ={headers:new HttpHeaders({
        'Content-Type': 'application/json',
         'Accept': ' */*',
-        'Authorization' :'token 158de64c754e5ae5540a3d58a41ad54ed9106bd4'
+        'Authorization' :'token 112771331527ee23fdb1f60528099282fe681f5c'
         //'Authorization': localStorage.getItem('token'),
        })};
-     return this.http.post<Iorder>(`${environment.ApiUrl}subservices/apply_order/`,prd,httpOptions);
+     return this.http.post<Iorder>(`${environment.ApiUrl}/subservices/apply_order/`,prd,httpOptions);
    }
 }

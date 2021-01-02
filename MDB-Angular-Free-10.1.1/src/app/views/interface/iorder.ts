@@ -5,7 +5,7 @@ export interface Iorder {
    total_cost?:number;
    technical?:number;
    service?:number;  
-   sub_service:[];
+   sub_services:[];
    products:[];
 
 }

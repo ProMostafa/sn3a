@@ -32,7 +32,7 @@
           [selected]="service.type === 'النجارة'" -->
               <div class="form-group">
                 <label for="" >الخدمات</label>
-                <select class="browser-default custom-select" [(ngModel)]="order.sub_service" (change)="ChangeCost(500)" [ngModelOptions]="{standalone: true}" multiple>
+                <select class="browser-default custom-select" [(ngModel)]="order.sub_services" (change)="ChangeCost(500)" [ngModelOptions]="{standalone: true}" multiple>
                     <option  *ngFor="let s_service of SubServiceList; let i=index"  [value]="s_service.id" (click)="ChangeCost(s_service.cost)" >{{s_service.name}}<input type="checkbox"></option>
                 </select>
             </div>
