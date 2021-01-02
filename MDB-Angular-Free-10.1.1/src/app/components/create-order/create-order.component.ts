@@ -51,7 +51,11 @@ export class CreateOrderComponent implements OnInit {
     this.total_Cost=0;
     this.order={
       
+<<<<<<< HEAD
       date:null,
+=======
+      date:" ",
+>>>>>>> 4e3d9924000c2118de196167a6be58a0021c1fda
       description:null,
       total_cost:0,
       technical:null,
@@ -75,6 +79,7 @@ export class CreateOrderComponent implements OnInit {
 
   }
 
+<<<<<<< HEAD
   AddToCart(pro:Isubproduct){
     console.log(this.prList);
     this.prList = pro;
@@ -88,6 +93,37 @@ export class CreateOrderComponent implements OnInit {
      this.order.total_cost=this.total_Cost;
 
   }
+
+  ngOnInit(): void {  
+    //console.log(Number(localStorage.getItem('ser_id')));
+  this.ser_id=Number(localStorage.getItem('ser_id'));
+
+  this._apiSubserv.getSubServicesById(this.ser_id).subscribe(
+    //(res)=>console.log(res),
+    (res)=>this.SubServiceList=res,
+    (err)=>console.log(err)
+  );
+=======
+  // AddToCart(pro:Isubproduct){
+  //   console.log(this.prList);
+  //   this.prList = pro;
+  //   console.log(this.prList);
+  // }
+  ChangeCost(co:number){
+    //console.log(co);
+    //console.log(this.total_Cost);
+    
+     this.total_Cost += co;
+    // console.log(this.total_Cost);
+     this.order.total_cost=this.total_Cost;
+    // this.ProductList.filter((i) => i.name === nam).state
+    
+>>>>>>> 4e3d9924000c2118de196167a6be58a0021c1fda
+    
+     
+
+  }
+  
 
   ngOnInit(): void {  
     //console.log(Number(localStorage.getItem('ser_id')));
@@ -147,4 +183,8 @@ export class CreateOrderComponent implements OnInit {
   
   
   
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 4e3d9924000c2118de196167a6be58a0021c1fda

@@ -195,8 +195,10 @@ color: rgb(4, 32, 49);" >
         <nav class="nav-menu d-none d-lg-block">
           <ul dir="rtl" >
             <li class="get-started"><a href="#about">هيابنا</a></li>
-           <li style="text-align: right;" > <a  class="w3-bar-item w3-button" mdbWavesEffect [routerLink]="['/Login']" ><mdb-icon fas icon="sign-in-alt"  size="1x"></mdb-icon> تسجيل الدخول</a></li>
-         <li style="text-align: right;"> <a class="w3-bar-item w3-button" mdbWavesEffect [routerLink]="['/Register']" ><mdb-icon fas icon="user-plus"  size="1x"></mdb-icon> الاشتراك</a></li>
+            <li dir="rtl" *ngIf="login;"><a  class="w3-bar-item w3-button" mdbWavesEffect [routerLink]="['/Customer']" ><img src="assets/img/team/team-1.jpg" style="border-radius: 500px;" alt=""></a></li>  
+            <li style="text-align: right;" *ngIf="login; else notToken"> <a  class="w3-bar-item w3-button" mdbWavesEffect [routerLink]="['/Login']" (click)="logout()" ><mdb-icon fas icon="sign-in-alt"  size="1x"></mdb-icon> تسجيل الخروج</a></li>
+            <!-- <li style="text-align: right;" > <a  class="w3-bar-item w3-button" mdbWavesEffect [routerLink]="['/Login']" ><mdb-icon fas icon="sign-in-alt"  size="1x"></mdb-icon> تسجيل الدخول</a></li> -->
+         <!-- <li style="text-align: right;"> <a class="w3-bar-item w3-button" mdbWavesEffect [routerLink]="['/Register']" ><mdb-icon fas icon="user-plus"  size="1x"></mdb-icon> الاشتراك</a></li> -->
          <li style="text-align: right;"> <a class="w3-bar-item w3-button" mdbWavesEffect [routerLink]="['/Contact']" ><mdb-icon fas icon="phone-alt"  size="1x"></mdb-icon> التواصل </a></li>
          <li style="text-align: right;"> <a class="w3-bar-item w3-button" mdbWavesEffect [routerLink]="['/Technision']" ><mdb-icon fas icon="users"  size="1x"></mdb-icon> الفنيين</a></li>
          <li style="text-align: right;" ><a class="w3-bar-item w3-button" mdbWavesEffect [routerLink]="['/Subproducts']"><mdb-icon fas icon="tools"  size="1x"></mdb-icon> المنتجات</a></li>
@@ -221,3 +223,9 @@ color: rgb(4, 32, 49);" >
       </div><!-- End Header Container -->
     </div>
   </header><!-- End Header -->
+
+  <ng-template #notToken>
+    <li style="text-align: right;" > <a  class="w3-bar-item w3-button" mdbWavesEffect [routerLink]="['/Login']" ><mdb-icon fas icon="sign-in-alt"  size="1x"></mdb-icon> تسجيل الدخول</a></li>
+    <li style="text-align: right;"> <a class="w3-bar-item w3-button" mdbWavesEffect [routerLink]="['/Register']" ><mdb-icon fas icon="user-plus"  size="1x"></mdb-icon> الاشتراك</a></li>
+
+</ng-template>

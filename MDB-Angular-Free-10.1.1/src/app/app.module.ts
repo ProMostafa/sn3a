@@ -35,7 +35,6 @@ import { ResetpasswordconfirmComponent } from './components/resetpasswordconfirm
 // import { SafeHtml } from '@angular/platform-browser';
 // import { DomSanitizer } from '@angular/platform-browser';
 // import { FormGroup } from '@angular/forms';
-
 @NgModule({
   declarations: [
     
@@ -61,6 +60,7 @@ import { ResetpasswordconfirmComponent } from './components/resetpasswordconfirm
     SubproductsComponent,
     ResetpasswordComponent,
     ActivateaccountComponent,
+    
     ResetpasswordconfirmComponent
   ],
   imports: [

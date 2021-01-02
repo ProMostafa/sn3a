@@ -1,5 +1,9 @@
+<<<<<<< HEAD
 
     <br><br><br>
+=======
+<br><br><br>
+>>>>>>> 4e3d9924000c2118de196167a6be58a0021c1fda
 <div class="shadow-lg p-3 mb-5 bg-white rounded mt-5">
     
     
@@ -33,7 +37,11 @@
               <div class="form-group">
                 <label for="" >الخدمات</label>
                 <select class="browser-default custom-select" [(ngModel)]="order.sub_services" (change)="ChangeCost(500)" [ngModelOptions]="{standalone: true}" multiple>
+<<<<<<< HEAD
                     <option  *ngFor="let s_service of SubServiceList; let i=index"  [value]="s_service.id" (click)="ChangeCost(s_service.cost)" >{{s_service.name}}<input type="checkbox"></option>
+=======
+                    <option  *ngFor="let s_service of SubServiceList; let i=index"  [value]="s_service.id" (click)="ChangeCost(s_service.cost)" >{{s_service.name}}</option>
+>>>>>>> 4e3d9924000c2118de196167a6be58a0021c1fda
                 </select>
             </div>
 
@@ -41,10 +49,15 @@
             <br> -->
 <!--         
             <mdb-card *ngFor="let s_service of SubServiceList; let i=index" cascade="true" narrower="true" class="mb-3 mt-3 example hoverable" style="border-radius: 10% 10% 10% 10%" >
+<<<<<<< HEAD
 
              
               <mdb-card-body cascade="true" class="text-center">                 
 
+=======
+             
+              <mdb-card-body cascade="true" class="text-center">                 
+>>>>>>> 4e3d9924000c2118de196167a6be58a0021c1fda
                   <br>
                    {{s_service.name}}
                    <br>
@@ -55,17 +68,26 @@
               </mdb-card-body>
         
             </mdb-card>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 4e3d9924000c2118de196167a6be58a0021c1fda
   -->
             <!-- <label for="" >الخدمات</label><br>
             <fieldset class="form-group" *ngFor="let s_service of SubServiceList; let i=index">
               <label for="ch" >       {{s_service.name}}</label>
+<<<<<<< HEAD
 
               <input class="form-check-input"  type="checkbox" value="" id="ch" >
             </fieldset>
 
             <label for="ch" >{{s_service.name}}</label>
 
+=======
+              <input class="form-check-input"  type="checkbox" value="" id="ch" >
+            </fieldset>
+            <label for="ch" >{{s_service.name}}</label>
+>>>>>>> 4e3d9924000c2118de196167a6be58a0021c1fda
             <input class="form-check-input"  type="checkbox" value="" id="ch" > -->
 
  
@@ -73,7 +95,11 @@
             <div class="form-group">
               <label for="" >المنتجات </label>
               <select class="browser-default custom-select" [(ngModel)]="order.products" [ngModelOptions]="{standalone: true}" multiple>
+<<<<<<< HEAD
                   <option *ngFor="let pro of ProductList; let i=index"  [value]="pro.id" (click)="AddToCart(pro)">{{pro.name}}</option>
+=======
+                  <option *ngFor="let pro of ProductList; let i=index"  [value]="pro.id" (click)="ChangeCost(pro.cost)">{{pro.name}}</option>
+>>>>>>> 4e3d9924000c2118de196167a6be58a0021c1fda
               </select>
           </div>
     

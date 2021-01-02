@@ -1,17 +1,47 @@
-label{
-    float: right;
-}
-button{
-    float:left;
-}
-img {
-    pointer-events: none;
-}
+// label{
+//     float: right;
+// }
+// button{
+//     float:left;
+// }
+// img {
+//     pointer-events: none;
+// }
 
-.ng-valid[required], .ng-valid.required  {
-    border-left: 5px solid #42A948; /* green */
+// .ng-valid[required], .ng-valid.required  {
+//     border-left: 5px solid #42A948; /* green */
+//   }
+  
+//   .ng-invalid:not(form)  {
+//     border-left: 5px solid #a94442; /* red */
+//   }
+  .col-md-6{
+    background-color: rgb(166, 214, 174);
+  
+    border-radius:10%
+  }
+  h5{
+    color: rgb(128, 19, 19);
+    text-align: center;
+    font-family: 'Lemonada';
   }
   
-  .ng-invalid:not(form)  {
-    border-left: 5px solid #a94442; /* red */
+  label{
+      float: right;
   }
+  button{
+      float:left;
+      align-items: right;
+      background-color: #225825;
+      width: 100%;
+  
+  }
+  
+  
+  .ng-valid[required], .ng-valid.required  {
+      border-left: 5px solid #42A948; /* green */
+    }
+  
+    .ng-invalid:not(form)  {
+      border-left: 5px solid #a94442; /* red */
+    }
