@@ -14,15 +14,18 @@ export class TechnisionService {
     return  this.http.get<Itechnision[]>(`${environment.ApiUrl}/account/users/get_all_technical/`);
    }
 
-   getTechnisionsByJob():Observable<Itechnision[]>{
+   getTechnisionsByJob(id:number):Observable<Itechnision[]>{
+
     const httpOptions ={headers:new HttpHeaders({
       'Content-Type': 'application/json',
-       'Accept': ' */*'
-       //'job':'None'
+       'Accept': ' */*',
+       //'Authorization' :'token 158de64c754e5ae5540a3d58a41ad54ed9106bd4'
+      
       //  ,'Authorization': localStorage.getItem('token'),
       })};
+      
 
-    return  this.http.get<Itechnision[]>(`${environment.ApiUrl}/account/users/get_technical_with_job/`);
+    return  this.http.get<Itechnision[]>(`${environment.ApiUrl}/account/users/get_technical_with_job/`,httpOptions);
    }
 }
 

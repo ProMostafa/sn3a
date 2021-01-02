@@ -75,15 +75,13 @@ class UserViewSet(viewsets.ModelViewSet):
         # response = {'message': 'get all technicals', 'result': serializer.data}
         return Response(serializer.data, status=status.HTTP_200_OK)
 
-    @action(detail=False, methods=['GET'])
+    @action(detail=True, methods=['GET'])
     def get_technical_with_job(self, request, pk=None):
-        if 'job' in request.data:
-            technicals = User.objects.filter(job=request.data['job'])
-            serializer = UserSerializer(technicals, many=True)
-            # response = {'message': 'get all technicals', 'result': serializer.data}
-            return Response(serializer.data, status=status.HTTP_200_OK)
-        response = {'message': 'You Need to provide Technical Job'}
-        return Response(response, status=status.HTTP_400_BAD_REQUEST)
+        technicals = User.objects.filter(technical_job=pk)
+        print(technicals)
+        print(pk)
+        serializer = UserSerializer(technicals, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
 
     @action(detail=False, methods=['GET'],
             authentication_classes=[TokenAuthentication],

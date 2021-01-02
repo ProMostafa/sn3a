@@ -28,15 +28,29 @@
           [selected]="service.type === 'النجارة'" -->
               <div class="form-group">
                 <label for="" >الخدمات</label>
-                <select class="browser-default custom-select" [(ngModel)]="order.sub_service" [ngModelOptions]="{standalone: true}" multiple>
-                    <option  *ngFor="let s_service of SubServiceList; let i=index"  [value]="s_service.id" (click)="ChangeCost(s_service.cost)">{{s_service.name}}</option>
+                <select class="browser-default custom-select" [(ngModel)]="order.sub_service" (change)="ChangeCost(500)" [ngModelOptions]="{standalone: true}" multiple>
+                    <option  *ngFor="let s_service of SubServiceList; let i=index"  [value]="s_service.id" (click)="ChangeCost(s_service.cost)" >{{s_service.name}}<input type="checkbox"></option>
                 </select>
             </div>
 
-            
-            
+         
+            <mdb-card *ngFor="let s_service of SubServiceList; let i=index" cascade="true" narrower="true" class="mb-3 mt-3 example hoverable" style="border-radius: 10% 10% 10% 10%" >
 
+             
+              <mdb-card-body cascade="true" class="text-center">                 
 
+                  <br>
+                   {{s_service.name}}
+                   <br>
+                  {{s_service.cost}} جنيه
+        
+                <a mdbBtn  class="waves-light" style="color:#009970;border-radius: 20% 20% 20% 20%" mdbWavesEffect ><strong>اضافة للطلب</strong></a>
+        
+              </mdb-card-body>
+        
+            </mdb-card>
+
+ 
             <!-- <label for="" >الخدمات</label><br>
             <fieldset class="form-group" *ngFor="let s_service of SubServiceList; let i=index">
               <label for="ch" >       {{s_service.name}}</label>
@@ -53,7 +67,7 @@
             <div class="form-group">
               <label for="" >المنتجات </label>
               <select class="browser-default custom-select" [(ngModel)]="order.products" [ngModelOptions]="{standalone: true}" multiple>
-                  <option *ngFor="let pro of ProductList; let i=index"  [value]="pro.id">{{pro.name}}</option>
+                  <option *ngFor="let pro of ProductList; let i=index"  [value]="pro.id" (click)="ChangeCost(pro.cost)">{{pro.name}}</option>
               </select>
           </div>
     
