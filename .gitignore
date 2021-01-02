@@ -7,4 +7,7 @@ media/
 /backend/.env
 /backend/.venv/
 /MDB-Angular-Free-10.1.1/node_modules/
+<<<<<<< HEAD
 /MDB-Angular-Free-10.1.1/MDB-Angular-Free/node_modules/
+=======
+>>>>>>> 6b0d23019f27738af8f86dfad097d8013e57c857
