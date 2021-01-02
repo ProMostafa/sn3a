@@ -53,12 +53,15 @@
         <button type="submit" class="btn btn-primary" [disabled]="myForm.invalid" [routerLink]="['/Login']">Save</button>
       </form> -->
       <br><br><br>
-      <div class="row ">
-        <div class="col-md-6 justify-content-center align-self-center">
+      <div class="row " style=" background-image: url(../../../assets/images/Home-Maintenance.png);
+      background-repeat:no-repeat;
+      background-size: cover; padding-left: 400px;padding-top: 150px;padding-bottom: 50px;">
+
+        <!-- <div class="col-md-6 justify-content-center align-self-center">
 
           <img src="../../../assets/Home-Maintenance.png" class=" img-fluid z-depth-0 animated bounce " width="100%">
           
-        </div>
+        </div> -->
         <div class="col-md-6 justify-content-center align-self-center">    	
           <form #myForm="ngForm" (ngSubmit)="CreateAccount()"  >
               <div class="form-group">
@@ -91,7 +94,7 @@
                     <label for="">العنوان</label>
                     <textarea class="form-control" name="pAddress"   #pAddress="ngModel"  required minlength="10"  [(ngModel)]="customer.address" [class.is-valid]="pAddress.valid"[class.is-invalid]="pAddress.invalid && pAddress.touched"      rows="3"></textarea>
                     <div class="alert alert-danger"  *ngIf="pAddress.invalid && pAddress.touched"  role="alert">
-                      <div *ngIf="pAddress.hasError('required')" > برجاء اجخال العنوان </div>
+                      <div *ngIf="pAddress.hasError('required')" > برجاء ادخال العنوان </div>
                       <div *ngIf="pAddress.hasError('minlength')"> برجاء ادخال العنوان </div>
             
                   </div>
@@ -105,7 +108,13 @@
                   </div>
                 </div>
                   <button type="submit" class="btn btn-primary" [disabled]="myForm.invalid" [routerLink]="['/Register']">تسجيل البيانات</button>
+              <br>
                 </form>
           
         </div>
+
       </div>
+      <br> <br> <br>
+
+
+      

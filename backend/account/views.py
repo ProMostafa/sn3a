@@ -13,6 +13,9 @@ from rest_framework_simplejwt.tokens import RefreshToken
 from django.template import Context
 from django.template.loader import render_to_string, get_template
 from django.core.mail import send_mail
+from rest_framework.authtoken.models import Token
+from rest_framework.decorators import api_view
+
 
 
 from .models import User
@@ -28,6 +31,8 @@ class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
     permission_classes = (AllowAny,)
+
+
 
     def create(self, request, *args, **kwargs):
         user = request.data
@@ -70,6 +75,33 @@ class UserViewSet(viewsets.ModelViewSet):
         # response = {'message': 'get all technicals', 'result': serializer.data}
         return Response(serializer.data, status=status.HTTP_200_OK)
 
+    @action(detail=True, methods=['GET'])
+    def get_technical_with_job(self, request, pk=None):
+        technicals = User.objects.filter(technical_job=pk)
+        print(technicals)
+        print(pk)
+        serializer = UserSerializer(technicals, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
+    @action(detail=False, methods=['GET'],
+            authentication_classes=[TokenAuthentication],
+            permission_classes=[IsAuthenticated])
+    def get_user(self, request, pk=None):
+        user = Token.objects.get(key=request.auth.key).user
+        serializer = self.serializer_class(user, many=False)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
+
+# @api_view(['GET'])
+# def get_all_technical(request):
+#     """
+#     An endpoint for get_all_technical.
+#     """
+#     if request.method == "GET":
+#         technicals = User.objects.filter(is_technical=True)
+#         serializer = UserSerializer(technicals, many=True)
+#         # response = {'message': 'get all technicals', 'result': serializer.data}
+#         return Response(serializer.data, status=status.HTTP_200_OK)
 
 
 class VerifyEmail(APIView):

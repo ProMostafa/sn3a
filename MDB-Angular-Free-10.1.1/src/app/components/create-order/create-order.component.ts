@@ -26,7 +26,10 @@ export class CreateOrderComponent implements OnInit {
   SubServiceList:IsubService[];
   ServiceList:Iservice[];
   order:Iorder;
-
+  ser_id:number;
+  total_Cost:number;
+  prList:Isubproduct;
+  
 
   
 
@@ -35,14 +38,34 @@ export class CreateOrderComponent implements OnInit {
               private _apiServ:ServiceService,private _apiorder:OrderService,
               private _router:Router) {
 
+   
+    this.prList={
+      name: "",
+      image:"",
+      cost:0,
+      category:0,
+      state:false,
+
+
+    };
+    this.total_Cost=0;
+    this.order={
       
+      date:" ",
+      description:null,
+      total_cost:0,
+      technical:null,
+      service:null, 
+      sub_services:[],
+      products:[],
+
+    }
     
    }
 
-  onChange(su_id) {
+  ChangeSubService(su_id:number) {
     //console.log(id_id);
-
-    let pid=this._activatedRoute.snapshot.params['id'];
+    this.total_Cost=0;
     this._apiSubserv.getSubServicesById(su_id).subscribe(
     //(res)=>console.log(res),
     (res)=>this.SubServiceList=res,
@@ -52,21 +75,54 @@ export class CreateOrderComponent implements OnInit {
 
   }
 
-  ngOnInit(): void {  
+  // AddToCart(pro:Isubproduct){
+  //   console.log(this.prList);
+  //   this.prList = pro;
+  //   console.log(this.prList);
+  // }
+  ChangeCost(co:number){
+    //console.log(co);
+    //console.log(this.total_Cost);
     
+     this.total_Cost += co;
+    // console.log(this.total_Cost);
+     this.order.total_cost=this.total_Cost;
+    // this.ProductList.filter((i) => i.name === nam).state
+    
+    
+     
+
+  }
+  
+
+  ngOnInit(): void {  
+    //console.log(Number(localStorage.getItem('ser_id')));
+  this.ser_id=Number(localStorage.getItem('ser_id'));
+
+  this._apiSubserv.getSubServicesById(this.ser_id).subscribe(
+    //(res)=>console.log(res),
+    (res)=>this.SubServiceList=res,
+    (err)=>console.log(err)
+  );
     
 
-  this._apiTech.getTechnisions().subscribe(
+  this._apiTech.getTechnisionsByJob(this.ser_id).subscribe(
     //(data)=>console.log(data),
     (data)=>this.TechnisionList=data,
     (err)=>console.log(err)
   );
+  // getTechnisionsByJob
+  // console.log(this.TechnisionList.filter(tec=>tec.job=="None"));
+
 
   this._apiproduct.getAllProducts().subscribe(
     //(data)=>console.log(data),
     (data)=>this.ProductList=data,
     (err)=>console.log(err)
   );
+  
+
+  
 
   this._apiServ.getAllServices().subscribe(
     //(data)=>console.log(data),
@@ -78,11 +134,23 @@ export class CreateOrderComponent implements OnInit {
 
 
   CreateOrder(){
-    console.log("dddd");
+    this.order={
+          
+      date:this.order.date,
+      description:"",
+      total_cost:this.order.total_cost,
+      technical:Number(this.order.technical),
+      service:Number(this.order.service), 
+      sub_services:this.order.sub_services,
+      products:this.order.products,
+        }
+    //console.log(this.order);
     this._apiorder.insertOrder(this.order).subscribe(
       (data)=>this._router.navigateByUrl('/NewOrder'),
       (err)=>console.log(err)
     )
   }
-
+  
+  
+  
 }

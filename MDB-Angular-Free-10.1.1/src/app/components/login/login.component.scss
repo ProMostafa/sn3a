@@ -1,9 +1,30 @@
-label{
-    float:right;
-}
-button{
-    float: left;
-}
-img {
-    pointer-events: none;
-}
+// label{
+//     float:right;
+// }
+// button{
+//     float: left;
+// }
+// img {
+//     pointer-events: none;
+// }
+h5{
+    color: rgb(128, 19, 19);
+    text-align: center;
+    font-family: 'Lemonada';
+  }
+  
+  .col-md-6{
+    background-color: rgb(166, 214, 174);
+  
+    border-radius:10%
+  }
+  button{
+    float:left;
+    align-items: right;
+    background-color: #225825;
+    width: 100%;
+  }
+  
+  label{
+      float:right;
+  }
