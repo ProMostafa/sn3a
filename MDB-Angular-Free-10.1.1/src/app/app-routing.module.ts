@@ -18,9 +18,12 @@ import { SubproductsComponent } from './components/subproducts/subproducts.compo
 import { ResetpasswordComponent } from './components/resetpassword/resetpassword.component'
 import { ActivateaccountComponent } from './components/activateaccount/activateaccount.component';
 import { ResetpasswordconfirmComponent } from './components/resetpasswordconfirm/resetpasswordconfirm.component';
+// import { NavComponent } from './components/nav/nav.component';
 
 const routes: Routes = [  
   {path:'Content',component:ContentComponent},
+  // {path:'Nav',component:NavComponent},
+
   {path:'Contact',component:HomeComponent},
 {path:'Technision',component:TechnisionComponent},
 {path:'Services',component:ServicesComponent},

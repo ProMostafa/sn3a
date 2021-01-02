@@ -50,6 +50,7 @@ export class LoginComponent implements OnInit {
 
   fail(err){
     console.log(err['error'])
+
   }
 
 }

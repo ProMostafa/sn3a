@@ -9,7 +9,7 @@ export class FooterComponent implements OnInit {
   img1:string;
 
   constructor() { 
-    this.img1="../../../assets/Product.png"
+    this.img1="../../../assets/1.png"
 
   }
 
