@@ -8,8 +8,12 @@
           <div class="container2">
             <h4><i class="fa fa-shopping-cart" style="float: right;"></i> <span class="price" style="color:black"> ملخص الطلب</span></h4>
             <br><hr>
-            <!-- <div *ngfor="let or of order; let i=index"><a href="#" style="float: right;">{{or.sub_service[i]}}</a><span class="price"></span></div> -->
-            <br><hr>
+             <!-- <div *ngfor="let pro of prList; let i=index"> -->
+              <div  >
+              <a  href="#" style="float: right;">{{prList.name}}</a>
+              <span class="price float-left" ><b>جنيه</b>{{prList.cost}}</span>
+              </div> 
+            <br><hr> 
             <p><span style="float: right;">إجمالي التكلفة : {{total_Cost}} جنيه</span></p>
             </div>
           <!-- <img src="../../../assets/images/Home-Maintenance.png" class=" img-fluid z-depth-0 animated bounce " width="100%"> -->
@@ -33,7 +37,9 @@
                 </select>
             </div>
 
-         
+            <!-- <mdb-checkbox class="float-right" *ngFor="let s_service of SubServiceList; let i=index" [inline]="true" [default]="true">{{s_service.name}}</mdb-checkbox>
+            <br> -->
+<!--         
             <mdb-card *ngFor="let s_service of SubServiceList; let i=index" cascade="true" narrower="true" class="mb-3 mt-3 example hoverable" style="border-radius: 10% 10% 10% 10%" >
 
              
@@ -50,7 +56,7 @@
         
             </mdb-card>
 
- 
+  -->
             <!-- <label for="" >الخدمات</label><br>
             <fieldset class="form-group" *ngFor="let s_service of SubServiceList; let i=index">
               <label for="ch" >       {{s_service.name}}</label>
@@ -67,7 +73,7 @@
             <div class="form-group">
               <label for="" >المنتجات </label>
               <select class="browser-default custom-select" [(ngModel)]="order.products" [ngModelOptions]="{standalone: true}" multiple>
-                  <option *ngFor="let pro of ProductList; let i=index"  [value]="pro.id" (click)="ChangeCost(pro.cost)">{{pro.name}}</option>
+                  <option *ngFor="let pro of ProductList; let i=index"  [value]="pro.id" (click)="AddToCart(pro)">{{pro.name}}</option>
               </select>
           </div>
     
@@ -94,4 +100,6 @@
                 <!-- [routerLink]="['/orders']" -->
         </div>
       </div>
+
+      
 </div>

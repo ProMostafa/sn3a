@@ -25,7 +25,7 @@ export class TechnisionService {
       })};
       
 
-    return  this.http.get<Itechnision[]>(`${environment.ApiUrl}/account/users/get_technical_with_job/`,httpOptions);
+    return  this.http.get<Itechnision[]>(`${environment.ApiUrl}/account/users/${id}/get_technical_with_job/`);
    }
 }
 

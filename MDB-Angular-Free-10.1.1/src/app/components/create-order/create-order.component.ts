@@ -28,6 +28,8 @@ export class CreateOrderComponent implements OnInit {
   order:Iorder;
   ser_id:number;
   total_Cost:number;
+  prList:Isubproduct;
+  
 
   
 
@@ -35,7 +37,17 @@ export class CreateOrderComponent implements OnInit {
               private _apiTech:TechnisionService,private _apiproduct:SubproductService,
               private _apiServ:ServiceService,private _apiorder:OrderService,
               private _router:Router) {
-     
+
+   
+    this.prList={
+      name: "",
+      image:"",
+      cost:0,
+      category:0,
+      state:false,
+
+
+    };
     this.total_Cost=0;
     this.order={
       
@@ -63,11 +75,16 @@ export class CreateOrderComponent implements OnInit {
 
   }
 
+  AddToCart(pro:Isubproduct){
+    console.log(this.prList);
+    this.prList = pro;
+    console.log(this.prList);
+  }
   ChangeCost(co:number){
     //console.log(co);
     //console.log(this.total_Cost);
      this.total_Cost += co;
-     console.log(this.total_Cost);
+    // console.log(this.total_Cost);
      this.order.total_cost=this.total_Cost;
 
   }
@@ -83,12 +100,12 @@ export class CreateOrderComponent implements OnInit {
   );
     
 
-  this._apiTech.getTechnisions().subscribe(
-    //(data)=>console.log(data),
-    (data)=>this.TechnisionList=data,
+  this._apiTech.getTechnisionsByJob(this.ser_id).subscribe(
+    (data)=>console.log(data),
+    //(data)=>this.TechnisionList=data,
     (err)=>console.log(err)
   );
-  
+  // getTechnisionsByJob
   // console.log(this.TechnisionList.filter(tec=>tec.job=="None"));
 
 

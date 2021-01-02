@@ -1,9 +1,10 @@
 
 export interface Isubproduct {
-    id:number;
+    id?:number;
     name: string;
     image:string;
     cost?:number;
     category?:number;
+    state?:Boolean;
 
 }
