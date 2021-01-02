@@ -28,6 +28,8 @@ export class CreateOrderComponent implements OnInit {
   order:Iorder;
   ser_id:number;
   total_Cost:number;
+  prList:Isubproduct;
+  
 
   
 
@@ -35,16 +37,26 @@ export class CreateOrderComponent implements OnInit {
               private _apiTech:TechnisionService,private _apiproduct:SubproductService,
               private _apiServ:ServiceService,private _apiorder:OrderService,
               private _router:Router) {
-     
+
+   
+    this.prList={
+      name: "",
+      image:"",
+      cost:0,
+      category:0,
+      state:false,
+
+
+    };
     this.total_Cost=0;
     this.order={
       
-      date:'',
+      date:" ",
       description:null,
       total_cost:0,
       technical:null,
       service:null, 
-      sub_service:[],
+      sub_services:[],
       products:[],
 
     }
@@ -63,14 +75,25 @@ export class CreateOrderComponent implements OnInit {
 
   }
 
+  // AddToCart(pro:Isubproduct){
+  //   console.log(this.prList);
+  //   this.prList = pro;
+  //   console.log(this.prList);
+  // }
   ChangeCost(co:number){
     //console.log(co);
     //console.log(this.total_Cost);
+    
      this.total_Cost += co;
-     console.log(this.total_Cost);
+    // console.log(this.total_Cost);
      this.order.total_cost=this.total_Cost;
+    // this.ProductList.filter((i) => i.name === nam).state
+    
+    
+     
 
   }
+  
 
   ngOnInit(): void {  
     //console.log(Number(localStorage.getItem('ser_id')));
@@ -83,12 +106,12 @@ export class CreateOrderComponent implements OnInit {
   );
     
 
-  this._apiTech.getTechnisions().subscribe(
+  this._apiTech.getTechnisionsByJob(this.ser_id).subscribe(
     //(data)=>console.log(data),
     (data)=>this.TechnisionList=data,
     (err)=>console.log(err)
   );
-  
+  // getTechnisionsByJob
   // console.log(this.TechnisionList.filter(tec=>tec.job=="None"));
 
 
@@ -111,7 +134,17 @@ export class CreateOrderComponent implements OnInit {
 
 
   CreateOrder(){
-    console.log(this.order);
+    this.order={
+          
+      date:this.order.date,
+      description:"",
+      total_cost:this.order.total_cost,
+      technical:Number(this.order.technical),
+      service:Number(this.order.service), 
+      sub_services:this.order.sub_services,
+      products:this.order.products,
+        }
+    //console.log(this.order);
     this._apiorder.insertOrder(this.order).subscribe(
       (data)=>this._router.navigateByUrl('/NewOrder'),
       (err)=>console.log(err)
