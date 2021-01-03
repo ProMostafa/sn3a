@@ -31,7 +31,7 @@ export class CreateOrderComponent implements OnInit {
   total_Cost: number;
   cost_p:number;
   cost_s:number;
-  validate:string;
+  validate:[];
 
  
  
@@ -161,7 +161,7 @@ export class CreateOrderComponent implements OnInit {
     }
 
     if (this.order.sub_services.length == 0){
-
+      
     }
     console.log(this.order.sub_services);
     this._apiorder.insertOrder(this.order).subscribe(
