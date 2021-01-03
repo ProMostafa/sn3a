@@ -52,11 +52,6 @@ export class SubserviceComponent implements OnInit {
     
     let pid=this._activatedRoute.snapshot.params['id'];
     localStorage.setItem('ser_id',pid);
-<<<<<<< HEAD
-    
-=======
-
->>>>>>> 4e3d9924000c2118de196167a6be58a0021c1fda
     this._apiSubserv.getSubServicesById(pid).subscribe(
             
       (res)=>this.SubServiceList=res,

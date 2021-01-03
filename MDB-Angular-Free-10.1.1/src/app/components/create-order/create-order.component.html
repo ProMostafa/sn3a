@@ -1,25 +1,20 @@
-<<<<<<< HEAD
-
-    <br><br><br>
-=======
 <br><br><br>
->>>>>>> 4e3d9924000c2118de196167a6be58a0021c1fda
 <div class="shadow-lg p-3 mb-5 bg-white rounded mt-5">
     
     
     <div class="row ">
         <div class="col-md-4 justify-content-center align-self-center">
-          <div class="container2">
+          <!-- <div class="container2">
             <h4><i class="fa fa-shopping-cart" style="float: right;"></i> <span class="price" style="color:black"> ملخص الطلب</span></h4>
             <br><hr>
-             <!-- <div *ngfor="let pro of prList; let i=index"> -->
+              <div *ngfor="let pro of prList; let i=index"> 
               <div  >
               <a  href="#" style="float: right;">{{prList.name}}</a>
               <span class="price float-left" ><b>جنيه</b>{{prList.cost}}</span>
               </div> 
             <br><hr> 
             <p><span style="float: right;">إجمالي التكلفة : {{total_Cost}} جنيه</span></p>
-            </div>
+            </div> -->
           <!-- <img src="../../../assets/images/Home-Maintenance.png" class=" img-fluid z-depth-0 animated bounce " width="100%"> -->
           
         </div>
@@ -27,7 +22,7 @@
           <form  (ngSubmit)="CreateOrder()">
             <div class="form-group">
               <label for="" >الخدمات الرئيسية </label>
-              <select class="browser-default custom-select"   [(ngModel)]="order.service" [ngModelOptions]="{standalone: true}" (change)="ChangeSubService($event.target.value)">
+              <select class="browser-default custom-select"   [(ngModel)]="order.service" [ngModelOptions]="{standalone: true}" (change)="ChangeService($event.target.value)">
                 <!-- <option >تغيير الخدمات</option> -->
                    <option *ngFor="let service of ServiceList; let i=index"   [value]="service.id" >{{service.type}}</option>
               </select>
@@ -36,12 +31,8 @@
           [selected]="service.type === 'النجارة'" -->
               <div class="form-group">
                 <label for="" >الخدمات</label>
-                <select class="browser-default custom-select" [(ngModel)]="order.sub_services" (change)="ChangeCost(500)" [ngModelOptions]="{standalone: true}" multiple>
-<<<<<<< HEAD
-                    <option  *ngFor="let s_service of SubServiceList; let i=index"  [value]="s_service.id" (click)="ChangeCost(s_service.cost)" >{{s_service.name}}<input type="checkbox"></option>
-=======
-                    <option  *ngFor="let s_service of SubServiceList; let i=index"  [value]="s_service.id" (click)="ChangeCost(s_service.cost)" >{{s_service.name}}</option>
->>>>>>> 4e3d9924000c2118de196167a6be58a0021c1fda
+                <select class="browser-default custom-select" [(ngModel)]="order.sub_services"   [ngModelOptions]="{standalone: true}" multiple>
+                    <option  *ngFor="let s_service of SubServiceList; let i=index"  [value]="s_service.id" (click)="ChangeCostS(order.sub_services)" >{{s_service.name}}</option>
                 </select>
             </div>
 
@@ -49,15 +40,8 @@
             <br> -->
 <!--         
             <mdb-card *ngFor="let s_service of SubServiceList; let i=index" cascade="true" narrower="true" class="mb-3 mt-3 example hoverable" style="border-radius: 10% 10% 10% 10%" >
-<<<<<<< HEAD
-
              
               <mdb-card-body cascade="true" class="text-center">                 
-
-=======
-             
-              <mdb-card-body cascade="true" class="text-center">                 
->>>>>>> 4e3d9924000c2118de196167a6be58a0021c1fda
                   <br>
                    {{s_service.name}}
                    <br>
@@ -68,38 +52,21 @@
               </mdb-card-body>
         
             </mdb-card>
-<<<<<<< HEAD
-
-=======
->>>>>>> 4e3d9924000c2118de196167a6be58a0021c1fda
   -->
             <!-- <label for="" >الخدمات</label><br>
             <fieldset class="form-group" *ngFor="let s_service of SubServiceList; let i=index">
               <label for="ch" >       {{s_service.name}}</label>
-<<<<<<< HEAD
-
-              <input class="form-check-input"  type="checkbox" value="" id="ch" >
-            </fieldset>
-
-            <label for="ch" >{{s_service.name}}</label>
-
-=======
               <input class="form-check-input"  type="checkbox" value="" id="ch" >
             </fieldset>
             <label for="ch" >{{s_service.name}}</label>
->>>>>>> 4e3d9924000c2118de196167a6be58a0021c1fda
             <input class="form-check-input"  type="checkbox" value="" id="ch" > -->
 
  
 
             <div class="form-group">
               <label for="" >المنتجات </label>
-              <select class="browser-default custom-select" [(ngModel)]="order.products" [ngModelOptions]="{standalone: true}" multiple>
-<<<<<<< HEAD
-                  <option *ngFor="let pro of ProductList; let i=index"  [value]="pro.id" (click)="AddToCart(pro)">{{pro.name}}</option>
-=======
-                  <option *ngFor="let pro of ProductList; let i=index"  [value]="pro.id" (click)="ChangeCost(pro.cost)">{{pro.name}}</option>
->>>>>>> 4e3d9924000c2118de196167a6be58a0021c1fda
+              <select class="browser-default custom-select" [(ngModel)]="order.products"  [ngModelOptions]="{standalone: true}" multiple >
+                  <option *ngFor="let pro of ProductList; let i=index"  [value]="pro.id" (click)="ChangeCostP(order.products)">{{pro.name}}</option>
               </select>
           </div>
     
@@ -117,7 +84,7 @@
     
         <div class="form-group">
           <label for="" >التكلفة </label>
-          <input type="text" class="form-control"  readonly [(ngModel)]="total_Cost" [ngModelOptions]="{standalone: true}" >
+          <input type="text" class="form-control"  readonly [(ngModel)]="total_Cost"  [ngModelOptions]="{standalone: true}" >
         </div>
           
        
@@ -129,3 +96,4 @@
 
       
 </div>
+
