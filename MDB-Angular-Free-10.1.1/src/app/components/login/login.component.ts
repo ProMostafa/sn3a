@@ -42,6 +42,7 @@ export class LoginComponent implements OnInit {
       (err)=>this.fail(err)
     )
   }
+     
 
   success(res){
     localStorage.setItem('token',res['token'])
@@ -50,6 +51,7 @@ export class LoginComponent implements OnInit {
 
   fail(err){
     console.log(err['error'])
+    
 
   }
 
