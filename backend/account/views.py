@@ -121,6 +121,33 @@ class VerifyEmail(APIView):
 
 
 
+
+class Refresh_token(APIView):
+    def get(self, request):
+        if 'email' in request.data:
+            email = request.data['email']
+            try:
+                user = User.objects.get(email=email)
+            except:
+                return Response({'message': 'email must not found'}, status=status.HTTP_400_BAD_REQUEST)
+            token = RefreshToken.for_user(user).access_token
+            current_site = get_current_site(request)
+            adsurl = f'http://localhost:4200/activate_account?token={str(token)}'
+            ctx = {
+                'user': user.username,
+                'adsurl': adsurl
+            }
+            message = get_template('activate.html').render(ctx)
+            data = {'email_body': message, 'to_email':user.email, 'email_subject': 'Verify Your Account'}
+            print(data)
+            Util.send_html_email(data)
+            return Response({'message':'new message is send to activate account'}, status=status.HTTP_201_CREATED)
+
+        return Response({'message':'email must not found'}, status=status.HTTP_400_BAD_REQUEST)
+
+
+
+
 class UpdatePasswordView(APIView):
     """
     An endpoint for changing password.
