@@ -6,6 +6,7 @@
        border-radius: 0.5rem;
        background: #fff;
        text-align: right;
+       font-size: small;
    }
    .profile-img{
        text-align: center;
@@ -32,6 +33,7 @@
    }
    .profile-head h5{
        color: #333;
+       margin-top: 20%;
    }
    .profile-head h6{
        color: #0062cc;
@@ -69,6 +71,7 @@
    .profile-work{
        padding: 14%;
        margin-top: -15%;
+       text-align: center;
    }
    .profile-work p{
        font-size: 12px;
@@ -86,9 +89,12 @@
        list-style: none;
    }
    .profile-tab label{
-       font-weight: 600;
+       font-weight: 100;
    }
    .profile-tab p{
-       font-weight: 600;
+       font-weight: 100;
        color: #0062cc;
    }
+   .tab-pane p{
+       font-weight: 100;
+   } 

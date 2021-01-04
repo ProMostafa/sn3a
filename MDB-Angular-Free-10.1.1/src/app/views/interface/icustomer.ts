@@ -3,7 +3,7 @@ export interface Icustomer {
     username: string;
     address: string;
     phone: string;
-    password:any;
+    password?:any;
     first_name?:string; 
     last_name?:string;
     job?:string;
