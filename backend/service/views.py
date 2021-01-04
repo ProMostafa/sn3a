@@ -12,6 +12,7 @@ from rest_framework.decorators import action
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.views import APIView
+from rest_framework.authtoken.models import Token
 
 
 # Create your views here.
@@ -130,9 +131,12 @@ class CustomerOrder(viewsets.ModelViewSet):
             response = {'message': 'You Need to provide technical rate'}
             return Response(response, status=status.HTTP_400_BAD_REQUEST)
 
-    @action(detail=False, methods=['GET'])
+    @action(detail=False, methods=['GET'],
+            authentication_classes=[TokenAuthentication],
+            permission_classes=[IsAuthenticated])
     def get_all_customer_orders(self, request, pk=None):
-        orders = Order.objects.filter(customer=request.user)
+        user = Token.objects.get(key=request.auth.key).user
+        orders = Order.objects.filter(customer=user)
         serializer = OrderSerializer(orders, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 

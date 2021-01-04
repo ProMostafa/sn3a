@@ -6,13 +6,13 @@ from .validations import phone_validation
 from datetime import datetime
 # from service.models import Rating
 
-JOBS = [
-    ('None', 'None'),
-    ('سباك', 'سباك'),
-    ('نجار', 'نجار'),
-    ('كهربائى', 'كهربائى'),
-    ('مبيض محاره', 'مبيض محاره'),
-]
+# JOBS = [
+#     ('None', 'None'),
+#     ('سباك', 'سباك'),
+#     ('نجار', 'نجار'),
+#     ('كهربائى', 'كهربائى'),
+#     ('مبيض محاره', 'مبيض محاره'),
+# ]
 
 # Create your models here.
 
