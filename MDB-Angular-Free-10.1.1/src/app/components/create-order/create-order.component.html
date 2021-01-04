@@ -1,99 +1,84 @@
 <br><br><br>
 <div class="shadow-lg p-3 mb-5 bg-white rounded mt-5">
-    
-    
+
+  <form (ngSubmit)="CreateOrder()">
     <div class="row ">
-        <div class="col-md-4 justify-content-center align-self-center">
-          <!-- <div class="container2">
-            <h4><i class="fa fa-shopping-cart" style="float: right;"></i> <span class="price" style="color:black"> ملخص الطلب</span></h4>
-            <br><hr>
-              <div *ngfor="let pro of prList; let i=index"> 
-              <div  >
-              <a  href="#" style="float: right;">{{prList.name}}</a>
-              <span class="price float-left" ><b>جنيه</b>{{prList.cost}}</span>
-              </div> 
-            <br><hr> 
-            <p><span style="float: right;">إجمالي التكلفة : {{total_Cost}} جنيه</span></p>
-            </div> -->
-          <!-- <img src="../../../assets/images/Home-Maintenance.png" class=" img-fluid z-depth-0 animated bounce " width="100%"> -->
-          
-        </div>
-        <div class="col-md-6 justify-content-center align-self-center">    	
-          <form (ngSubmit)="CreateOrder()">
-            <div class="form-group">
-              <label for="" >الخدمات الرئيسية </label>
-              <select class="browser-default custom-select"   [(ngModel)]="order.service" [ngModelOptions]="{standalone: true}" (change)="ChangeService($event.target.value)">
-                <!-- <option >تغيير الخدمات</option> -->
-                   <option *ngFor="let service of ServiceList; let i=index"   [value]="service.id" >{{service.type}}</option>
-              </select>
-          </div>
-          <!-- <h1>{{ser_id}} </h1>
-          [selected]="service.type === 'النجارة'" -->
-              <div class="form-group">
-                <label for="" >الخدمات</label>
-                <select class="browser-default custom-select" [(ngModel)]="order.sub_services"   [ngModelOptions]="{standalone: true}" multiple>
-                    <option  *ngFor="let s_service of SubServiceList; let i=index"  [value]="s_service.id" (click)="ChangeCostS(order.sub_services)" >{{s_service.name}}</option>
-                </select>
-            </div>
+      <div class="col-md-4 justify-content-center align-self-center">
+        <img src="assets/images/hero-img.png">
 
-            <!-- <mdb-checkbox class="float-right" *ngFor="let s_service of SubServiceList; let i=index" [inline]="true" [default]="true">{{s_service.name}}</mdb-checkbox>
-            <br> -->
-<!--         
-            <mdb-card *ngFor="let s_service of SubServiceList; let i=index" cascade="true" narrower="true" class="mb-3 mt-3 example hoverable" style="border-radius: 10% 10% 10% 10%" >
-             
-              <mdb-card-body cascade="true" class="text-center">                 
-                  <br>
-                   {{s_service.name}}
-                   <br>
-                  {{s_service.cost}} جنيه
-        
-                <a mdbBtn  class="waves-light" style="color:#009970;border-radius: 20% 20% 20% 20%" mdbWavesEffect ><strong>اضافة للطلب</strong></a>
-        
-              </mdb-card-body>
-        
-            </mdb-card>
-  -->
-            <!-- <label for="" >الخدمات</label><br>
-            <fieldset class="form-group" *ngFor="let s_service of SubServiceList; let i=index">
-              <label for="ch" >       {{s_service.name}}</label>
-              <input class="form-check-input"  type="checkbox" value="" id="ch" >
-            </fieldset>
-            <label for="ch" >{{s_service.name}}</label>
-            <input class="form-check-input"  type="checkbox" value="" id="ch" > -->
 
- 
+      </div>
+      <div class="col-md-8 justify-content-center align-self-center">
 
-            <div class="form-group">
-              <label for="" >المنتجات </label>
-              <select class="browser-default custom-select" [(ngModel)]="order.products"  [ngModelOptions]="{standalone: true}" multiple >
-                  <option *ngFor="let pro of ProductList; let i=index"  [value]="pro.id" (click)="ChangeCostP(order.products)">{{pro.name}}</option>
-              </select>
-          </div>
-    
-          <div class="form-group">
-            <label for="" >الفنيين </label>
-            <select class="browser-default custom-select"  [(ngModel)]="order.technical" [ngModelOptions]="{standalone: true}">
-                <option *ngFor="let tec of TechnisionList; let i=index"  [value]="tec.id" >{{tec.username}}</option>
-            </select>
-        </div>
-        
-     <div class="form-group  ">
-          <label for="" >تاريخ تقديم الخدمة </label><br>
-          <input type="date" class="mr-3" width="100%" [(ngModel)]="order.date" [ngModelOptions]="{standalone: true}">  <br>
-              </div>
-    
         <div class="form-group">
-          <label for="" >التكلفة </label>
-          <input type="text" class="form-control"  readonly [(ngModel)]="total_Cost"  [ngModelOptions]="{standalone: true}" >
-        </div>
-          
-       
-                  <button type="submit" class="btn btn-primary" >إرسال الطلب</button>
-                </form>
-                <!-- [routerLink]="['/Customer'] -->
+          <label for="">الخدمات الرئيسية </label>
+          <select class="browser-default custom-select" [(ngModel)]="order.service"
+            [ngModelOptions]="{standalone: true}" (change)="ChangeService($event.target.value)">
+            <option *ngFor="let service of ServiceList; let i=index" [value]="service.id">{{service.type}}</option>
+          </select>
         </div>
       </div>
+    </div>
+    <div class=row>
+      <div class="col-md-6 justify-content-center align-self-center">
+        <div class="form-group">
+          <label for="">الخدمات</label>
+          <select class="browser-default custom-select" [(ngModel)]="order.sub_services"
+            [ngModelOptions]="{standalone: true}" multiple>
+            <option *ngFor="let s_service of SubServiceList; let i=index" [value]="s_service.id"
+              (click)="ChangeCostS(order.sub_services)">{{s_service.name}}</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-md-6 justify-content-center align-self-center">
+        <div class="form-group">
+          <label for="">المنتجات </label>
+          <select class="browser-default custom-select align-items-center" [(ngModel)]="order.products"
+            [ngModelOptions]="{standalone: true}" multiple>
+            <option *ngFor="let pro of ProductList; let i=index" [value]="pro.id" (click)="ChangeCostP(order.products)">
+              {{pro.name}}</option>
+          </select>
+        </div>
+
+
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6 justify-content-center align-self-center">
+        <div class="form-group">
+          <label for="">الفنيين </label>
+          <select class="browser-default custom-select" [(ngModel)]="order.technical"
+            [ngModelOptions]="{standalone: true}">
+            <option *ngFor="let tec of TechnisionList; let i=index" [value]="tec.id">{{tec.username}}</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-md-6 justify-content-center align-self-center">
+        <div class="form-group  ">
+          <label for="">تاريخ تقديم الخدمة </label><br>
+          <input type="date" class="" width="100%" [(ngModel)]="order.date" [ngModelOptions]="{standalone: true}">
+          <br>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
 
       
-</div>
+      <div class="col-md-6 justify-content-center align-self-center">
+        <button type="submit" class="btn">إرسال الطلب</button>
+      </div>
+      <div class="col-md-6 justify-content-center align-self-center">
+        <div class="form-group">
+          <label for="">التكلفة </label>
+          <input type="text" class="form-control" readonly [(ngModel)]="total_Cost"
+            [ngModelOptions]="{standalone: true}">
+        </div>
 
+      </div>
+
+    </div>
+  </form>
+  <!-- [routerLink]="['/Customer'] -->
+</div>

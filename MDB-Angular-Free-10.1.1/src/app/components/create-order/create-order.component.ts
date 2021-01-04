@@ -81,7 +81,8 @@ export class CreateOrderComponent implements OnInit {
 
 
   ChangeCostP(p) {
-         
+        // console.log(this.check);
+
     this.cost_p = 0;
     console.log(p);
     for (var val of p){
