@@ -29,9 +29,10 @@ class UserSerializer(serializers.ModelSerializer):
             password=validated_data['password'],
         )
 
-        # if validated_data['is_technical']:
-        #     user.is_technical = True
-        #     user.save()
+        if validated_data['is_technical']:
+            user.is_technical = True
+            user.technical_job = validated_data['technical_job']
+            user.save()
 
 # very important Hint:
 # Django not create Token When create user for this you must create token for every user register

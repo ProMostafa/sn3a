@@ -6,15 +6,4 @@ media/
 /backend/.idea/
 /backend/.env
 /backend/.venv/
-<<<<<<< HEAD
 /MDB-Angular-Free-10.1.1/node_modules/
-=======
-<<<<<<< HEAD
-/MDB-Angular-Free-10.1.1/MDB-Angular-Free/node_modules/
-=======
-/MDB-Angular-Free-10.1.1/MDB-Angular-Free/node_modules/
-/front_end/front/san3ie/node_modules
-/node_modules/
-/frond_end/front/san3ie/node_modules
->>>>>>> e812c38521858c433553601a389eb254bffa9bfd
->>>>>>> origin

@@ -94,7 +94,7 @@
                     <label for="">العنوان</label>
                     <textarea class="form-control" name="pAddress"   #pAddress="ngModel"  required minlength="10"  [(ngModel)]="customer.address" [class.is-valid]="pAddress.valid"[class.is-invalid]="pAddress.invalid && pAddress.touched"      rows="3"></textarea>
                     <div class="alert alert-danger"  *ngIf="pAddress.invalid && pAddress.touched"  role="alert">
-                      <div *ngIf="pAddress.hasError('required')" > برجاء اجخال العنوان </div>
+                      <div *ngIf="pAddress.hasError('required')" > برجاء ادخال العنوان </div>
                       <div *ngIf="pAddress.hasError('minlength')"> برجاء ادخال العنوان </div>
             
                   </div>
