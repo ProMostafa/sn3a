@@ -48,7 +48,7 @@ export class CreateOrderComponent implements OnInit {
     this.total_Cost = this.cost_s + this.cost_p;
     this.order = {
 
-      date: " ",
+      date: null,
       description: null,
       total_cost: 0,
       technical: null,
@@ -149,6 +149,7 @@ export class CreateOrderComponent implements OnInit {
 
 
   CreateOrder() {
+    console.log(localStorage.getItem('token'));
     this.order = {
 
       date: this.order.date,
@@ -160,13 +161,22 @@ export class CreateOrderComponent implements OnInit {
       products: this.order.products,
     }
 
-    if (this.order.sub_services.length == 0){
+    // if (this.order.sub_services.length == 0){
+    // }
+    console.log(this.order);
+    try{
+      this._apiorder.insertOrder(this.order).subscribe(
+        (data) => this._router.navigateByUrl('/NewOrder'),
+        (err) => console.log(err)
+      )
+      this._router.navigateByUrl('');
+      
     }
-    console.log(this.order.sub_services);
-    this._apiorder.insertOrder(this.order).subscribe(
-      (data) => this._router.navigateByUrl('/NewOrder'),
-      (err) => console.log(err)
-    )
+    catch (err)
+    {
+      console.log(err);
+    }
+   
   }
 
 

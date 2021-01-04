@@ -25,7 +25,7 @@ export class OrderService {
        'Content-Type': 'application/json',
         'Accept': ' */*',
         // 'Authorization' :'token 112771331527ee23fdb1f60528099282fe681f5c'
-        'Authorization': 'token'+ ' '+localStorage.getItem('token')
+        'Authorization': 'token'+' '+localStorage.getItem('token')
        })};
      return this.http.post<Iorder>(`${environment.ApiUrl}/subservices/apply_order/`,prd,httpOptions);
    }
