@@ -96,10 +96,10 @@ class User(AbstractBaseUser):
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['username', 'phone', 'address']
 
-    def __str__(self):
-        if self.is_technical:
-            return f"Technical Username: {self.username}"
-        return f"Customer Username: {self.username}"
+    # def __str__(self):
+    #     if self.is_technical:
+    #         return f"Technical Username: {self.username}"
+    #     return f"Customer Username: {self.username}"
 
     # def no_of_rating(self):
     #     if self.is_technical:
