@@ -1,5 +1,9 @@
 <br><br><br>
-<div class="shadow-lg p-3 mb-5 bg-white rounded mt-5">
+
+
+<div class="shadow-lg p-3 mb-5 bg-white rounded mt-1">
+
+
 
   <form (ngSubmit)="CreateOrder()">
     <div class="row ">
@@ -11,7 +15,7 @@
       <div class="col-md-8 justify-content-center align-self-center">
 
         <div class="form-group">
-          <label for="">الخدمات الرئيسية </label>
+          <label for="">الخدمات الرئيسية</label>
           <select class="browser-default custom-select" [(ngModel)]="order.service"
             [ngModelOptions]="{standalone: true}" (change)="ChangeService($event.target.value)">
             <option *ngFor="let service of ServiceList; let i=index" [value]="service.id">{{service.type}}</option>
@@ -63,9 +67,11 @@
       </div>
     </div>
 
+
     <div class="row">
 
-      
+
+
       <div class="col-md-6 justify-content-center align-self-center">
         <button type="submit" class="btn">إرسال الطلب</button>
       </div>
@@ -79,6 +85,27 @@
       </div>
 
     </div>
+    <div class="content ">
+      <div class="col">
+        <div class="row d-flex justify-content-center" [style.visibility]="show? 'visible': 'hidden'">
+          <div  class="alert alert-danger custom_alert text-center">
+            لم يتم ارسال الطلب ،، برجاء المحاولة مرة آخرى
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="content ">
+      <div class="col">
+        <div class="row d-flex justify-content-center" [style.visibility]="show1? 'visible': 'hidden'">
+          <div class="alert alert-success custom_alert text-center">
+            تم ارسال الطلب بنجاح ،، سيتم التواصل معكم في اقرب وقت
+          </div>
+        </div>
+      </div>
+    </div>
   </form>
   <!-- [routerLink]="['/Customer'] -->
 </div>
+
+
+

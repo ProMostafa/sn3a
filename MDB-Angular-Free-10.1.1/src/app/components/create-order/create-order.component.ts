@@ -32,6 +32,11 @@ export class CreateOrderComponent implements OnInit {
   cost_p:number;
   cost_s:number;
   validate:string;
+  show:boolean;
+  show1:boolean;
+  
+  
+
 
  
  
@@ -43,6 +48,8 @@ export class CreateOrderComponent implements OnInit {
     private _apiServ: ServiceService, private _apiorder: OrderService,
     private _router: Router) {
 
+    this.show=false;
+    this.show1=false;
     this.cost_p=0;
     this.cost_s=0;
     this.total_Cost = this.cost_s + this.cost_p;
@@ -163,23 +170,49 @@ export class CreateOrderComponent implements OnInit {
       products: this.order.products,
     }
 
-    // if (this.order.sub_services.length == 0){
-    // }
+  
     console.log(this.order);
-    try{
-      this._apiorder.insertOrder(this.order).subscribe(
-        (data) => this._router.navigateByUrl('/NewOrder'),
-        (err) => console.log(err)
-      )
-      this._router.navigateByUrl('');
-      
-    }
-    catch (err)
-    {
-      console.log(err);
-    }
    
+      this._apiorder.insertOrder(this.order).subscribe(
+        (data) => this.success(data),
+        (err) => this.fail(err)
+      )
+    
+    }
+  fail(err: any): void {
+    this.show=true;
+    setTimeout(() => {
+      this.show=false;
+    },5000)
   }
+   success(res){
+    res => this._router.navigateByUrl('/NewOrder');
+    this.show1=true;
+    setTimeout(() => {
+      this.show1=false;
+    },3000)
+    setTimeout(() => {
+      this._router.navigateByUrl('');
+    },3000)
+    
+    // }
+    
 
 
-}
+    }
+
+   
+  
+  
+  
+  
+  
+
+
+
+
+} 
+  
+
+
+
