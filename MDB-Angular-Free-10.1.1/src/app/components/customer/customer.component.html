@@ -66,47 +66,44 @@
                             </div>
                         </div>
                     </div>
-                    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                        <div class="row">
-                            <div class="col-md-2">
-                                <p>الخدمة</p>
-                            </div>
-                            <div class="col-md-4">
-                                <p>المشكلة</p>
-                            </div>
-                            <div class="col-md-2">
-                                <p>الفنى</p>
-                            </div>
-                            <div class="col-md-2">
-                                <p>التكلفة</p>
-                            </div>
-                            <div class="col-md-2">
-                                <p>حالة التنفيذ</p>
-                            </div>
+                    <table class="table table-hover table-fixed tab-pane fade" id="profile" role="tabpanel"
+                        aria-labelledby="profile-tab">
+                        <thead>
+                            <tr>
+                                <th>الخدمة</th>
+                                <th>المشكلة</th>
 
-                        </div>
-                        <div *ngFor="let order of OrderCustomerList | slice:1; let i = index; " class="row">
-                            <div class="col-md-2">
-                                <p>{{order.service}}</p>
-                            </div>
-                            <div class="col-md-4">
-                                <p>{{order.description}}</p>
-                            </div>
-                            <div class="col-md-2">
-                                <p>{{order.technical}} </p>
-                            </div>
-                            <div class="col-md-2">
-                                <p>{{order.total_cost}}L.E</p>
-                            </div>
-                            <div class="col-md-2" style="text-align: right;" *ngIf="order.status; else not">
-                                <p>فى حالة التنفيذ</p>
-                            </div>
+                                <th>الفنى</th>
 
-                            <!-- class="col-md-2">
-                                <p>{{order.status}}</p>
-                            </div> -->
-                        </div>
-                    </div>
+                                <th>التكلفة</th>
+
+                                <th>حالة التنفيذ</th>
+                            </tr>
+                        </thead>
+                        <tbody *ngFor="let order of OrderCustomerList | slice:1; let i = index; ">
+                            <tr>
+                                <td scope="row">
+                                    {{order.service}}
+                                </td>
+
+                                <td scope="row">
+                                    {{order.description}}
+                                </td>
+
+                                <td scope="row">
+                                    {{order.technical}}
+                                </td>
+
+                                <td scope="row">
+                                    {{order.total_cost}}L.E
+                                </td>
+                                <td *ngIf="order.status; else not">
+                                    فى التنفيذ
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
@@ -122,7 +119,5 @@
 
 
 <ng-template #not>
-    <div class="col-md-2">
-        <p>تم الانتهاء</p>
-    </div>
+    <td>تم الانتهاء</td>
 </ng-template>
