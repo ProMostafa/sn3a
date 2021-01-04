@@ -10,12 +10,16 @@ export class OrderService {
 
   constructor(private http:HttpClient) { }
   getAllOrders():Observable<Iorder[]>{
-
-    return  this.http.get<Iorder[]>(`${environment.ApiUrl} `);
+      const httpOptions ={headers:new HttpHeaders({
+       'Content-Type': 'application/json',
+        'Accept': ' */*',
+        'Authorization': 'token'+' '+localStorage.getItem('token'),
+          
+       })};
+     return this.http.get<Iorder[]>(`${environment.ApiUrl}/customerorders/get_all_customer_orders/`,httpOptions);
    }
    
-   
-   getOrderById(pid):Observable<Iorder>{
+  getOrderById(pid):Observable<Iorder>{
    
      return this.http.get<Iorder>(`${environment.ApiUrl} `);
    }

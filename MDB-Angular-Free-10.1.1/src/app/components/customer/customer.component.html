@@ -1,5 +1,6 @@
 <div class="container profile">
     <form method="post">
+
         <div class="row">
             <div class="col-md-4">
                 <div class="profile-img">
@@ -8,12 +9,8 @@
             </div>
             <div class="col-md-6">
                 <div class="profile-head">
-                    <h5>
-                        {{Customer.first_name+" "+Customer.last_name}}
-                    </h5>
-                    <h6>
-                         {{Customer.job}}
-                    </h6>
+                    <h5></h5>
+                    <h5></h5>
                     <ul class="nav nav-tabs" id="myTab" role="tablist">
                         <li class="nav-item">
                             <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
@@ -26,14 +23,11 @@
                     </ul>
                 </div>
             </div>
-            <div class="col-md-2">
-                <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Edit Profile" />
-            </div>
         </div>
         <div class="row">
             <div class="col-md-4">
                 <div class="profile-work">
-                    <p>WORK LINK</p>
+                    <p> {{Customer.username}}</p>
                 </div>
             </div>
             <div class="col-md-8">
@@ -45,22 +39,6 @@
                             </div>
                             <div class="col-md-6">
                                 <p>{{Customer.username}}</p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label>الأسم الأول</label>
-                            </div>
-                            <div class="col-md-6">
-                                <p>{{Customer.first_name}}</p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label>الأسم الثانى</label>
-                            </div>
-                            <div class="col-md-6">
-                                <p>{{Customer.last_name}}</p>
                             </div>
                         </div>
                         <div class="row">
@@ -87,47 +65,64 @@
                                 <p>{{Customer.phone}}</p>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label>الوظيفة</label>
-                            </div>
-                            <div class="col-md-6">
-                                <p>{{Customer.job}}</p>
-                            </div>
-                        </div>
                     </div>
-                    <div *ngFor="let order of OrderCustomerList;let i=index" class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                         <div class="row">
-                            <div class="col-md-3">
-                                <p>اسم الخدمة</p>
+                            <div class="col-md-2">
+                                <p>الخدمة</p>
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-4">
+                                <p>المشكلة</p>
+                            </div>
+                            <div class="col-md-2">
                                 <p>الفنى</p>
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-2">
                                 <p>التكلفة</p>
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-2">
                                 <p>حالة التنفيذ</p>
                             </div>
+
                         </div>
-                        <div class="row">
-                            <div class="col-md-3">
+                        <div *ngFor="let order of OrderCustomerList | slice:1; let i = index; " class="row">
+                            <div class="col-md-2">
+                                <p>{{order.service}}</p>
+                            </div>
+                            <div class="col-md-4">
                                 <p>{{order.description}}</p>
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-2">
                                 <p>{{order.technical}} </p>
                             </div>
-                            <div class="col-md-3">
-                                <p>{{order.total_cost}} جنيها</p>
+                            <div class="col-md-2">
+                                <p>{{order.total_cost}}L.E</p>
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-2" style="text-align: right;" *ngIf="order.status; else not">
+                                <p>فى حالة التنفيذ</p>
+                            </div>
+
+                            <!-- class="col-md-2">
                                 <p>{{order.status}}</p>
-                            </div>
+                            </div> -->
                         </div>
-                    </div>    
+                    </div>
                 </div>
             </div>
         </div>
+        <br>
+        <br>
+        <div style="text-align: left;">
+            <button type="submit" class="btn ">
+                <a style="text-align: left;" [routerLink]="['/ResetPassword']">تغير كلمة السر</a>
+            </button>
+        </div>
     </form>
 </div>
+
+
+<ng-template #not>
+    <div class="col-md-2">
+        <p>تم الانتهاء</p>
+    </div>
+</ng-template>
