@@ -96,8 +96,12 @@
 
 
       <div class="col-md-6 justify-content-center align-self-center">
-        <button type="submit" class="btn">إرسال الطلب</button>
+        <button type="submit" class="btn ">إرسال الطلب</button>
+        <div id="paypal-button" class="btn mt-3"></div>
       </div>
+
+      
+
       <div class="col-md-6 justify-content-center align-self-center">
         <div class="form-group">
           <label for="">التكلفة </label>
@@ -113,5 +117,44 @@
   </form>
   
 </div>
+
+<script src="https://www.paypalobjects.com/api/checkout.js"></script>
+<script>
+  alert('dfnnnnnnnnnnn')
+paypal.Button.render({
+// Configure environment
+env: 'sandbox',
+client: {
+sandbox: 'demo_sandbox_client_id',
+production: 'demo_production_client_id'
+},
+// Customize button (optional)
+locale: 'en_US',
+style: {
+size: 'small',
+color: 'gold',
+shape: 'pill',
+},
+// Set up a payment
+payment: function (data, actions) {
+return actions.payment.create({
+transactions: [{
+amount: {
+total: '0.01',
+currency: 'USD'
+}
+}]
+});
+},
+// Execute the payment
+onAuthorize: function (data, actions) {
+return actions.payment.execute()
+.then(function () {
+// Show a confirmation message to the buyer
+window.alert('Thank you for your purchase!');
+});
+}
+}, '#paypal-button');
+</script>
 
 

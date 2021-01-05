@@ -44,6 +44,9 @@ INSTALLED_APPS = [
     'account',
     'service',
     'corsheaders',
+    'paypal.standard.ipn',
+    'payment',
+
 ]
 
 MIDDLEWARE = [
@@ -161,3 +164,7 @@ EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER = config('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+
+
+PAYPAL_RECEIVED_EMAIL = 'sb-zr6fl4513235@personal.example.comDEFAULT'
+PAYPAL_TEST = True

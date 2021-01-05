@@ -192,7 +192,9 @@ export class CreateOrderComponent implements OnInit {
       this.show1=false;
     },3000)
     setTimeout(() => {
-      this._router.navigateByUrl('');
+       this._router.navigateByUrl('');
+      // document.location.href = 'https://www.paypalobjects.com/api/checkout.js';
+      
     },3000)
     
     // }

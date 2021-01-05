@@ -15,17 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from django.conf import settings
-from django.conf.urls.static import static
-from rest_framework.authtoken.views import obtain_auth_token
+from .views import payment_process
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('account/', include('account.urls')),
-    path('', include('service.urls')),
-    path('auth/', obtain_auth_token),
-    path('paypal/', include('paypal.standard.ipn.urls')),
-    path('payment/', include('payment.urls')),
+    path('buy/', payment_process.as_view(),name='payment_process'),
 ]
 
 # if settings.DEBUG:
