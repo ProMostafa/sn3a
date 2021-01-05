@@ -18,9 +18,9 @@
  <button type="submit" class="btn btn-primary" [disabled]="myform.invalid" >Login</button>
 </form>
 <br> -->
-<!--
+<!-- 
 <form #myForm="ngForm" (ngSubmit)="Login()"  >
-
+  
     <div class="form-group">
       <label for="">البريد الالكتروني</label>
       <input type="email" name="pEmail" #pEmail="ngModel" [class.is-valid]="pEmail.valid"  [class.is-invalid]="pEmail.invalid && pEmail.touched" [(ngModel)]="user.email"  minlength="7"  class="form-control" placeholder="" aria-describedby="helpId">
@@ -36,16 +36,14 @@
         <div *ngIf="pPass.hasError('minlength')" >برجاء ادخال كلمة المرور </div>
     </div>
   </div> -->
+  
 
 
-
-<!--
+<!-- 
       <button type="submit" class="btn btn-primary" [routerLink]="['/Content']"[disabled]="myForm.invalid">Login</button>
     </form> -->
 
-
-
-    <div class="row " style=" background-image: url(../../../assets/images/login.jpeg);
+    <div class="row " style=" background-image: url(../../../assets/images/home-improvement.jpeg);
     background-repeat:no-repeat;
     background-size: cover; padding-left: 400px;padding-top: 150px;padding-bottom: 50px;">
 
@@ -53,12 +51,12 @@
 
       <div class="col-md-6 justify-content-center align-self-center " >
         <br>
-        <p class="login">تسجيل الدخول</p>
-    <form #myForm="ngForm" (ngSubmit)="Login()" >
+        <h5>تسجيل الدخول</h5>
+    <form #myForm="ngForm" (ngSubmit)="Login()"  >
 
-        <div class="form-group" >
-          
-          <input  style="color: red;" type="email" name="pEmail"  #pEmail="ngModel" [class.is-valid]="pEmail.valid"  [class.is-invalid]="pEmail.invalid && pEmail.touched" [(ngModel)]="user.username"  minlength="7" id="" class="form-control" placeholder="البريد الإلكتروني" aria-describedby="helpId" style="text-align: right;">
+        <div class="form-group">
+           <label for="">البريد الإلكتروني</label> 
+          <input type="email" name="pEmail"  #pEmail="ngModel" [class.is-valid]="pEmail.valid"  [class.is-invalid]="pEmail.invalid && pEmail.touched" [(ngModel)]="user.username"  minlength="7" id="" class="form-control" placeholder="" aria-describedby="helpId">
           <div class="alert alert-danger"  *ngIf="pEmail.invalid && pEmail.touched"  role="alert">
                 <!-- <div *ngIf="pEmail.hasError('required')" > Email is required </div> -->
                 <div *ngIf="pEmail.hasError('minlength')"> برجاء ادخال بريد الكتروني صحيح </div>
@@ -66,7 +64,8 @@
             </div>
         </div>
         <div class="form-group">
-          <input type="password" name="pPass"    #pPass="ngModel"   minlength="4"  [(ngModel)]="user.password" [class.is-valid]="pPass.valid"[class.is-invalid]="pPass.invalid && pPass.touched" id="" class="form-control" placeholder="كلمة المرور" aria-describedby="helpId" style="text-align: right;" >
+           <label for="">كلمة المرور</label> 
+          <input type="password" name="pPass"    #pPass="ngModel"   minlength="4"  [(ngModel)]="user.password" [class.is-valid]="pPass.valid"[class.is-invalid]="pPass.invalid && pPass.touched" id="" class="form-control" placeholder="" aria-describedby="helpId">
           <div class="alert alert-danger"  *ngIf="pPass.invalid && pPass.touched"  role="alert">
             <div *ngIf="pPass.hasError('minlength')" >برجاء ادخال كلمة المرور </div>
         </div>
@@ -78,4 +77,5 @@
     <br>
     <br>
     </form>
+    
    </div>

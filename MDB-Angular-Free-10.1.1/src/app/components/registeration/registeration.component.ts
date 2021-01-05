@@ -25,9 +25,10 @@ export class RegisterationComponent implements OnInit {
   ngOnInit(): void {
   }
   CreateAccount(){
-    // console.log("errorr hi")
+    console.log(this.customer);
 
     this._ApiCustomer.insertCustomer(this.customer).subscribe(
+      
       (data)=>this.success(data),
       (err)=>this.fail(err)
     )

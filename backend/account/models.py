@@ -1,4 +1,6 @@
 from django.db import models
+# from service.models import Services as Job
+# import service.models.Services
 from django.contrib.auth.models import (BaseUserManager, AbstractBaseUser)
 from .validations import phone_validation
 from datetime import datetime
@@ -13,6 +15,15 @@ JOBS = [
 ]
 
 # Create your models here.
+
+# for avoid circular import
+class Services(models.Model):
+    type = models.CharField(max_length=100)
+    description = models.TextField()
+    image = models.ImageField(upload_to='service/')
+
+    def __str__(self):
+        return f"Service Category: {self.type}"
 
 
 class UserManager(BaseUserManager):
@@ -69,9 +80,9 @@ class User(AbstractBaseUser):
 
     # for technical Account
     is_technical = models.BooleanField(default=False)
-    job = models.CharField(max_length=50, choices=JOBS, default='None')
     available = models.BooleanField(default=True)
     description = models.TextField(null=True, blank=True)
+    technical_job = models.ForeignKey(Services, on_delete=models.CASCADE, null=True, blank=True, default='')
 
     # for manage users
     is_admin = models.BooleanField(default=False)
@@ -123,7 +134,6 @@ class User(AbstractBaseUser):
         "Is the user a member of staff?"
         # Simplest possible answer: All admins are staff
         return self.is_admin
-
 
 
 

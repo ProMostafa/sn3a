@@ -10,12 +10,16 @@ export class OrderService {
 
   constructor(private http:HttpClient) { }
   getAllOrders():Observable<Iorder[]>{
-
-    return  this.http.get<Iorder[]>(`${environment.ApiUrl} `);
+      const httpOptions ={headers:new HttpHeaders({
+       'Content-Type': 'application/json',
+        'Accept': ' */*',
+        'Authorization': 'token'+' '+localStorage.getItem('token'),
+          
+       })};
+     return this.http.get<Iorder[]>(`${environment.ApiUrl}/customerorders/get_all_customer_orders/`,httpOptions);
    }
    
-   
-   getOrderById(pid):Observable<Iorder>{
+  getOrderById(pid):Observable<Iorder>{
    
      return this.http.get<Iorder>(`${environment.ApiUrl} `);
    }
@@ -23,9 +27,10 @@ export class OrderService {
    insertOrder(prd:Iorder):Observable<Iorder>{
      const httpOptions ={headers:new HttpHeaders({
        'Content-Type': 'application/json',
-        'Accept': ' */*'
-         // ,'Authorization': 'my-auth-token'
+        'Accept': ' */*',
+        'Authorization' :'token 112771331527ee23fdb1f60528099282fe681f5c'
+        //'Authorization': localStorage.getItem('token'),
        })};
-     return this.http.post<Iorder>(`${environment.ApiUrl} `,prd,httpOptions);
+     return this.http.post<Iorder>(`${environment.ApiUrl}/subservices/apply_order/`,prd,httpOptions);
    }
 }
