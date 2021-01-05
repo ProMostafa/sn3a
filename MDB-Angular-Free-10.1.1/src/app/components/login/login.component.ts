@@ -13,7 +13,10 @@ export class LoginComponent implements OnInit {
    // myform:FormGroup;
    user:Ilogin;
    response:LoginResponse;
+   show:boolean;
+
   constructor(private _ApiUser:LoginService,private _router:Router) { 
+    this.show=false;
     this.user={  
       username: " ",
       password:null
@@ -47,10 +50,17 @@ export class LoginComponent implements OnInit {
   success(res){
     localStorage.setItem('token',res['token'])
     this._router.navigateByUrl('/Content')
+    
   }
 
   fail(err){
+    this.show=true;
+    setTimeout(() => {
+      this.show=false;
+    },5000)
+    
     console.log(err['error'])
+    //alert("hhhhhhhhhhhhhhhhhhh")
     
 
   }

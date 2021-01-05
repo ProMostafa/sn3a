@@ -10,9 +10,13 @@ import { Router } from '@angular/router';
 })
 export class RegisterationComponent implements OnInit {
   customer:Icustomer;
+  show:boolean;
+  show1:boolean;
 
 
   constructor(private _ApiCustomer:CustomerService,private _router:Router) {
+    this.show=false;
+    this.show1=false;
     this.customer={  
       email: " ",
       username:" ",
@@ -37,9 +41,20 @@ export class RegisterationComponent implements OnInit {
    success(res){
      console.log(res)
      this._router.navigateByUrl('/Login')
+     this.show1=true;
+     setTimeout(() => {
+       this.show1=false;
+     },3000)
+     setTimeout(() => {
+       this._router.navigateByUrl('/Login');
+     },3000)
    }
 
    fail(err){
+    this.show=true;
+    setTimeout(() => {
+      this.show=false;
+    },5000)
      console.log(err)
    }
 }
