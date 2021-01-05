@@ -5,6 +5,6 @@ export interface Itechnision {
         address?: string;
         phone?:number;
         avatar:string;
-       job:string;
+        technical_job:any;
        description:string;
 }

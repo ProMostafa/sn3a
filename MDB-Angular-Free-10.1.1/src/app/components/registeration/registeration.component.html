@@ -52,7 +52,14 @@
   
         <button type="submit" class="btn btn-primary" [disabled]="myForm.invalid" [routerLink]="['/Login']">Save</button>
       </form> -->
+
+
       <br><br><br>
+
+
+    
+
+
       <div class="row " style=" background-image: url(../../../assets/images/Home-Maintenance.png);
       background-repeat:no-repeat;
       background-size: cover; padding-left: 400px;padding-top: 150px;padding-bottom: 50px;">
@@ -62,6 +69,27 @@
           <img src="../../../assets/Home-Maintenance.png" class=" img-fluid z-depth-0 animated bounce " width="100%">
           
         </div> -->
+
+        <div class="content">
+          <div class="col">
+            <div class="row d-flex justify-content-center" [style.visibility]="show? 'visible': 'hidden'">
+              <div  class="alert alert-danger custom_alert text-center">
+              لم يتم تسجيل البيانات ،، برجاء مراجعة البيانات و المحاولة مرة اخرى
+              </div>
+            </div>
+          </div>
+        </div>
+  
+        <div class="content ">
+          <div class="col">
+            <div class="row d-flex justify-content-center" [style.visibility]="show1? 'visible': 'hidden'">
+              <div class="alert alert-success custom_alert text-center">
+             تم تسجيل البيانات ،، برجاء تفعيل الحساب عن طريق البريد الالكتروني و تسجيل الدخول
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div class="col-md-6 justify-content-center align-self-center">    	
           <form #myForm="ngForm" (ngSubmit)="CreateAccount()"  >
               <div class="form-group">
@@ -101,7 +129,7 @@
                   </div>
                   <div class="form-group">
                     <label for="">رقم الموبايل</label>
-                    <input type="tel" name="pPhone"   #pPhone="ngModel"   required minlength="11"  [(ngModel)]="customer.phone" [class.is-valid]="pPhone.valid"[class.is-invalid]="pPhone.invalid && pPhone.touched"  class="form-control" placeholder="" aria-describedby="helpId">
+                    <input type="tel" name="pPhone"   #pPhone="ngModel"   required minlength="11" pattern="^0(10|12|11|15)[0-9]{8}"  [(ngModel)]="customer.phone" [class.is-valid]="pPhone.valid"[class.is-invalid]="pPhone.invalid && pPhone.touched"  class="form-control" placeholder="" aria-describedby="helpId">
                     <div class="alert alert-danger"  *ngIf="pPhone.invalid && pPhone.touched"  role="alert">
                       <div *ngIf="pPhone.hasError('required')" > برجاء ادخال رقم الموبايل </div>
                       <div *ngIf="pPhone.hasError('minlength')">برجاء ادخال رقم الموبايل</div>

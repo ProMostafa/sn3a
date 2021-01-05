@@ -1,5 +1,6 @@
 <div class="container profile">
     <form method="post">
+
         <div class="row">
             <div class="col-md-4">
                 <div class="profile-img">
@@ -8,12 +9,8 @@
             </div>
             <div class="col-md-6">
                 <div class="profile-head">
-                    <!-- <h5>
-                        محمد أشرف
-                    </h5>
-                    <h6>
-                        الوظيفة
-                    </h6> -->
+                    <h5></h5>
+                    <h5></h5>
                     <ul class="nav nav-tabs" id="myTab" role="tablist">
                         <li class="nav-item">
                             <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
@@ -26,20 +23,11 @@
                     </ul>
                 </div>
             </div>
-            <div class="col-md-2">
-                <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Edit Profile" />
-            </div>
         </div>
         <div class="row">
             <div class="col-md-4">
                 <div class="profile-work">
-                    <!-- <p>WORK LINK</p> -->
-                    <h5>
-                        محمد أشرف
-                    </h5>
-                    <h6>
-                        الوظيفة
-                    </h6>
+                    <p> {{Customer.username}}</p>
                 </div>
             </div>
             <div class="col-md-8">
@@ -50,23 +38,7 @@
                                 <label>اسم المستخدم</label>
                             </div>
                             <div class="col-md-6">
-                                <p>محمد_أشرف</p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label>الأسم الأول</label>
-                            </div>
-                            <div class="col-md-6">
-                                <p>محمد</p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label>الأسم الثانى</label>
-                            </div>
-                            <div class="col-md-6">
-                                <p>أشرف</p>
+                                <p>{{Customer.username}}</p>
                             </div>
                         </div>
                         <div class="row">
@@ -74,7 +46,7 @@
                                 <label>العنوان</label>
                             </div>
                             <div class="col-md-6">
-                                <p>محافظة بنى سويف</p>
+                                <p>{{Customer.address}}</p>
                             </div>
                         </div>
                         <div class="row">
@@ -82,7 +54,7 @@
                                 <label>البريد اﻻلكترونى</label>
                             </div>
                             <div class="col-md-6">
-                                <p>muhashraf9244@gmail.com</p>
+                                <p>{{Customer.email}}</p>
                             </div>
                         </div>
                         <div class="row">
@@ -90,50 +62,62 @@
                                 <label>رقم التلفون</label>
                             </div>
                             <div class="col-md-6">
-                                <p>01098355960</p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label>الوظيفة</label>
-                            </div>
-                            <div class="col-md-6">
-                                <p>مصصم ويب</p>
+                                <p>{{Customer.phone}}</p>
                             </div>
                         </div>
                     </div>
-                    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                        <div class="row">
-                            <div class="col-md-3">
-                                <p>اسم الخدمة</p>
-                            </div>
-                            <div class="col-md-3">
-                                <p>الفنى</p>
-                            </div>
-                            <div class="col-md-3">
-                                <p>التكلفة</p>
-                            </div>
-                            <div class="col-md-3">
-                                <p>حالة التنفيذ</p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-3">
-                                <p>النقاشة</p>
-                            </div>
-                            <div class="col-md-3">
-                                <p>أحمد محمد </p>
-                            </div>
-                            <div class="col-md-3">
-                                <p>3562 جنيها</p>
-                            </div>
-                            <div class="col-md-3">
-                                <p>فى التنفيذ حاليا</p>
-                            </div>
-                        </div>
-                    </div>    
+                    <table class="table table-hover table-fixed tab-pane fade" id="profile" role="tabpanel"
+                        aria-labelledby="profile-tab">
+                        <thead>
+                            <tr>
+                                <th>الخدمة</th>
+                                <th>المشكلة</th>
+
+                                <th>الفنى</th>
+
+                                <th>التكلفة</th>
+
+                                <th>حالة التنفيذ</th>
+                            </tr>
+                        </thead>
+                        <tbody *ngFor="let order of OrderCustomerList | slice:1; let i = index; ">
+                            <tr>
+                                <td scope="row">
+                                    {{order.service}}
+                                </td>
+
+                                <td scope="row">
+                                    {{order.description}}
+                                </td>
+
+                                <td scope="row">
+                                    {{order.technical}}
+                                </td>
+
+                                <td scope="row">
+                                    {{order.total_cost}}L.E
+                                </td>
+                                <td *ngIf="order.status; else not">
+                                    فى التنفيذ
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
+        <br>
+        <br>
+        <div style="text-align: left;">
+            <button type="submit" class="btn ">
+                <a style="text-align: left;" [routerLink]="['/ResetPassword']">تغير كلمة السر</a>
+            </button>
+        </div>
     </form>
 </div>
+
+
+<ng-template #not>
+    <td>تم الانتهاء</td>
+</ng-template>

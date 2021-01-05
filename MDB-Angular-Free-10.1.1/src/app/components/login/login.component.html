@@ -42,15 +42,19 @@
 <!-- 
       <button type="submit" class="btn btn-primary" [routerLink]="['/Content']"[disabled]="myForm.invalid">Login</button>
     </form> -->
-
-    <div class="row " style=" background-image: url(../../../assets/images/home-improvement.jpeg);
+  <div class="row " style=" background-image: url(../../../assets/images/home-improvement.jpeg);
     background-repeat:no-repeat;
     background-size: cover; padding-left: 400px;padding-top: 150px;padding-bottom: 50px;">
-
-
-
-      <div class="col-md-6 justify-content-center align-self-center " >
-        <br>
+    
+    <div class="col-md-6 justify-content-center align-self-center " >
+      <br>
+      
+      <div class="row d-flex justify-content-center" [style.visibility]="show? 'visible': 'hidden'">
+        <div  class="alert alert-danger custom_alert text-center">
+    برجاء مراجعة بيانات تسجيل الدخول 
+        </div>
+      </div>
+   
         <h5>تسجيل الدخول</h5>
     <form #myForm="ngForm" (ngSubmit)="Login()"  >
 
